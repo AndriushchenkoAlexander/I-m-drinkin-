@@ -12,7 +12,6 @@ struct LocationsManager {
     
     static func locationProvideAPIKey(){
         GMSServices.provideAPIKey(kGoogleMapsApiKey)
-        GMSPlacesClient.provideAPIKey(kGooglePlacesApiKey)
     }
     
         

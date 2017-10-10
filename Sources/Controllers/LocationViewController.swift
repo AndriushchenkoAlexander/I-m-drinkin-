@@ -8,7 +8,6 @@
 import UIKit
 import Appodeal
 import GoogleMaps
-import GooglePlaces
 
 
 class LocationViewController: UIViewController {

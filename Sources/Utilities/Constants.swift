@@ -7,7 +7,6 @@
 
 public let kAppodealApiKey = ""
 public let kGoogleMapsApiKey = "AIzaSyALWPztfn90BBBFYoBxr2ZvxlrLReqm8GE"
-//public let kFacebookAppKey = ""
 
 public let kURLForCoreAPI = "http://www.iamdrunk.localhost8080.pp.ua/core/api/"
 //public let kURLGetDeviceID = "http://www.iamdrinking.localhost8080.pp.ua/core/api/device/"
