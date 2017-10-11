@@ -32,36 +32,40 @@ struct Response {
 
 class NetworkManager {
     typealias completionHandler = (Any, String?) -> Void
-    static let baseUrl = endPoints.baseUrl.rawValue + endPoints.basePath.rawValue
+    let baseUrl = endPoints.baseUrl.rawValue + endPoints.basePath.rawValue
     
     static let sharedManager = NetworkManager()
-//    private var networkManager: SessionManager!
+    //    private var networkManager: SessionManager!
     
     private init() {
-//        networkManager = Alamofire.SessionManager.default
+        //        networkManager = Alamofire.SessionManager.default
+    }
+    
+    func fetchDeviceID(data: Data) {
+        do {
+            let json = try JSONSerialization.jsonObject(with: data, options: [.mutableContainers])
+            _ = DeviceID.init(JSON: json as! [String : AnyObject])
+        } catch {
+            print(error)
+        }
     }
 }
 
 extension NetworkManager {
-    class func post(_ target: UIViewController?,
-                    _ endpoint: endPoints,
-                    _ parameters: [String:String]?,
-                    _ completion: completionHandler? = nil) {
+    func post(_ target: UIViewController?,
+              _ endpoint: endPoints,
+              _ parameters: [String:String]?,
+              _ completion: completionHandler? = nil) {
         
         let url = baseUrl + endpoint.rawValue
         
         Alamofire.request(url, method: .post, parameters: parameters).responseJSON { response in
-//                       let result = JSON(response.data!)
-            //            if result["success"].boolValue {
-            //                keychain.set(result["data"].stringValue, forKey: "access_token")
-            //                completionHandler!(true, nil)
-            //                if let token = keychain.get("device_token") {
-            //                    self.passDeviceToken(token: token)
-            //                }
-            //            } else {
-            //                completionHandler!(false, result["data"]["errors"]["description"].stringValue)
-            //            }
+            if let result = response.data {
+                print(result)
+                if parameters == nil {
+                    self.fetchDeviceID(data: result)
+                }
+            }
         }
-    }
-    
+    }  
 }

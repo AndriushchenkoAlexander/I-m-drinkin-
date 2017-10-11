@@ -8,6 +8,7 @@
 import UIKit
 import Appodeal
 
+
 struct AdsManager {
     
     public func initializeAdsManager() {

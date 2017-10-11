@@ -1,24 +1,36 @@
-//
-//  DeviceID.swift
-//  I'm drinkin'
-//
-//  Created by astronauttux on 20.09.17.
-//  Copyright © 2017 Vadym Yakovliev. All rights reserved.
-//
+/*
+ DeviceID.swift
+ I'm drinkin'
+ 
+ Created by astronauttux on 20.09.17.
+ Copyright © 2017 Vadym Yakovliev. All rights reserved.
+ */
 
 import Foundation
 
+struct DeviceKey {
+    static let key = "deviceID"
+}
 
 struct DeviceID {
-    private let deviceID: String?
-    
     init?(JSON: [String : AnyObject]) {
-        guard let currentDeviceID = JSON["id"] as? String else { return }
-        deviceID = currentDeviceID
+        if let deviceID = JSON["id"] as? String {
+            UserDefaults.standard.set(deviceID, forKey: DeviceKey.key)
+        }
     }
     
-    func getDeviceID() -> String {
-        return deviceID!
+    static func checkID() -> Bool {
+        if UserDefaults.standard.string(forKey: DeviceKey.key) != nil {
+            return true
+        }
+        return false
+    }
+    
+    static func getDeviceID() -> String {
+        if let deviceID = UserDefaults.standard.string(forKey: DeviceKey.key) {
+            return deviceID
+        }
+        return ""
     }
 }
 

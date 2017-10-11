@@ -5,8 +5,7 @@
  Copyright © 2017 Vadym Yakovliev. All rights reserved.
  */
 
-
-enum ApiKeys: String {
-//    case appodealApiKey = ""
-    case googleMapsApiKey = "AIzaSyALWPztfn90BBBFYoBxr2ZvxlrLReqm8GE"
+struct ApiKeys {
+//    static let appodealApiKey = ""
+static let googleMapsApiKey = "AIzaSyALWPztfn90BBBFYoBxr2ZvxlrLReqm8GE"
 }

@@ -19,6 +19,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        let adsManager = AdsManager()
 //        adsManager.initializeAdsManager()
         
+        if DeviceID.checkID() == false {
+            NetworkManager.sharedManager.post(<#T##target: UIViewController?##UIViewController?#>, <#T##endpoint: endPoints##endPoints#>, <#T##parameters: [String : String]?##[String : String]?#>)
+        }
+        
         return true
     }
 /*

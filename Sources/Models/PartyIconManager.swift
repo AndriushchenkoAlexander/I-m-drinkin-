@@ -15,7 +15,7 @@ enum PartyIconManager: String {
     case Cola = "Cola"
     case Juice = "Juice"
     case Whiskey = "Whiskey"
- //   case UnpredictedIcon = "unpredicted-icon" // A certain case for any value that does not coincide with all the others
+    //   case UnpredictedIcon = "unpredicted-icon" // A certain case for any value that does not coincide with all the others
     
     init(rawValue: String) {
         switch rawValue {
