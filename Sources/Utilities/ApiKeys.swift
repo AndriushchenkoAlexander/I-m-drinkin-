@@ -6,7 +6,7 @@
  */
 
 
-enum apiKeys: String {
-    public let kAppodealApiKey = ""
-    public let kGoogleMapsApiKey = "AIzaSyALWPztfn90BBBFYoBxr2ZvxlrLReqm8GE"
+enum ApiKeys: String {
+//    case appodealApiKey = ""
+    case googleMapsApiKey = "AIzaSyALWPztfn90BBBFYoBxr2ZvxlrLReqm8GE"
 }

@@ -24,7 +24,7 @@ struct AdsManager {
         let adTypes: AppodealAdType = [.banner]
         Appodeal.setLogLevel(.off)
         Appodeal.setAutocache(true, types: adTypes)
-        Appodeal.initialize(withApiKey: kAppodealApiKey, types: adTypes)
+        Appodeal.initialize(withApiKey: "", types: adTypes)
     }
     
     private func configureAppearance() {

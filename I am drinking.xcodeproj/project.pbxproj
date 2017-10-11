@@ -14,10 +14,9 @@
 		76A7934A1F72A0F000C53BBC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76A793491F72A0F000C53BBC /* AppDelegate.swift */; };
 		76A793731F72A93E00C53BBC /* AdsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76A7936E1F72A31600C53BBC /* AdsManager.swift */; };
 		76A793741F72A94700C53BBC /* LocationsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76A793701F72A31600C53BBC /* LocationsManager.swift */; };
-		76A793751F72A94A00C53BBC /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76A7936F1F72A31600C53BBC /* Constants.swift */; };
+		76A793751F72A94A00C53BBC /* ApiKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76A7936F1F72A31600C53BBC /* ApiKeys.swift */; };
 		76A793761F72A95100C53BBC /* LocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76A793661F72A31600C53BBC /* LocationViewController.swift */; };
-		76A793771F72A95700C53BBC /* DeviceURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76A793681F72A31600C53BBC /* DeviceURL.swift */; };
-		76A793781F72A95B00C53BBC /* DrinkURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76A793691F72A31600C53BBC /* DrinkURL.swift */; };
+		76A793771F72A95700C53BBC /* DeviceID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76A793681F72A31600C53BBC /* DeviceID.swift */; };
 		76A793791F72A95E00C53BBC /* PartyIconManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76A7936A1F72A31600C53BBC /* PartyIconManager.swift */; };
 		76AB939A1F8DEEE1004DC4E9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 76A7936C1F72A31600C53BBC /* Assets.xcassets */; };
 /* End PBXBuildFile section */
@@ -31,12 +30,11 @@
 		76A793611F72A31500C53BBC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		76A793631F72A31500C53BBC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 		76A793661F72A31600C53BBC /* LocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewController.swift; sourceTree = "<group>"; };
-		76A793681F72A31600C53BBC /* DeviceURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceURL.swift; sourceTree = "<group>"; };
-		76A793691F72A31600C53BBC /* DrinkURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkURL.swift; sourceTree = "<group>"; };
+		76A793681F72A31600C53BBC /* DeviceID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceID.swift; sourceTree = "<group>"; };
 		76A7936A1F72A31600C53BBC /* PartyIconManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartyIconManager.swift; sourceTree = "<group>"; };
 		76A7936C1F72A31600C53BBC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		76A7936E1F72A31600C53BBC /* AdsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdsManager.swift; sourceTree = "<group>"; };
-		76A7936F1F72A31600C53BBC /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		76A7936F1F72A31600C53BBC /* ApiKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiKeys.swift; sourceTree = "<group>"; };
 		76A793701F72A31600C53BBC /* LocationsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationsManager.swift; sourceTree = "<group>"; };
 		8255D2EB871BA30AA364788A /* Pods_I_am_drinking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_I_am_drinking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7AE85F52725AE69F660532D /* Pods-I am drinking.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-I am drinking.release.xcconfig"; path = "Pods/Target Support Files/Pods-I am drinking/Pods-I am drinking.release.xcconfig"; sourceTree = "<group>"; };
@@ -125,8 +123,7 @@
 		76A793671F72A31600C53BBC /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				76A793681F72A31600C53BBC /* DeviceURL.swift */,
-				76A793691F72A31600C53BBC /* DrinkURL.swift */,
+				76A793681F72A31600C53BBC /* DeviceID.swift */,
 				76A7936A1F72A31600C53BBC /* PartyIconManager.swift */,
 			);
 			path = Models;
@@ -146,7 +143,7 @@
 				7621AAA31F73817E0037207C /* Network */,
 				76A7936E1F72A31600C53BBC /* AdsManager.swift */,
 				76A793701F72A31600C53BBC /* LocationsManager.swift */,
-				76A7936F1F72A31600C53BBC /* Constants.swift */,
+				76A7936F1F72A31600C53BBC /* ApiKeys.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -322,12 +319,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				76A793751F72A94A00C53BBC /* Constants.swift in Sources */,
+				76A793751F72A94A00C53BBC /* ApiKeys.swift in Sources */,
 				76A793741F72A94700C53BBC /* LocationsManager.swift in Sources */,
 				7621AAA21F73816A0037207C /* NetworkManager.swift in Sources */,
 				76A793791F72A95E00C53BBC /* PartyIconManager.swift in Sources */,
-				76A793771F72A95700C53BBC /* DeviceURL.swift in Sources */,
-				76A793781F72A95B00C53BBC /* DrinkURL.swift in Sources */,
+				76A793771F72A95700C53BBC /* DeviceID.swift in Sources */,
 				76A793761F72A95100C53BBC /* LocationViewController.swift in Sources */,
 				76A793731F72A93E00C53BBC /* AdsManager.swift in Sources */,
 				76A7934A1F72A0F000C53BBC /* AppDelegate.swift in Sources */,

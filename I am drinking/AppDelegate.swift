@@ -16,12 +16,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         LocationsManager.locationProvideAPIKey()
         
-        let adsManager = AdsManager()
-        adsManager.initializeAdsManager()
+//        let adsManager = AdsManager()
+//        adsManager.initializeAdsManager()
         
         return true
     }
-
+/*
     func applicationWillResignActive(_ application: UIApplication) {
 
     }
@@ -41,5 +41,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
 
     }
+ */
 }
 

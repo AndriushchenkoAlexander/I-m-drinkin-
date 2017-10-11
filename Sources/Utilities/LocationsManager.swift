@@ -8,10 +8,12 @@
 import UIKit
 import GoogleMaps
 
+
+
 struct LocationsManager {
     
     static func locationProvideAPIKey(){
-        GMSServices.provideAPIKey(kGoogleMapsApiKey)
+        GMSServices.provideAPIKey(ApiKeys.googleMapsApiKey.rawValue)
     }
     
         

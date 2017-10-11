@@ -51,7 +51,7 @@ extension NetworkManager {
         let url = baseUrl + endpoint.rawValue
         
         Alamofire.request(url, method: .post, parameters: parameters).responseJSON { response in
-                       let result = JSON(response.data!)
+//                       let result = JSON(response.data!)
             //            if result["success"].boolValue {
             //                keychain.set(result["data"].stringValue, forKey: "access_token")
             //                completionHandler!(true, nil)
@@ -63,4 +63,5 @@ extension NetworkManager {
             //            }
         }
     }
+    
 }

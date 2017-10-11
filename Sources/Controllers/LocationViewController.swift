@@ -19,9 +19,9 @@ class LocationViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setupBanner()
+//        setupBanner()
         setupLocationManager()
-        NetworkManager.sharedManager.networkRequest(url: kURLForCoreAPI)
+//        NetworkManager.sharedManager.networkRequest(url: kURLForCoreAPI)
     }
 }
 
