@@ -5,17 +5,17 @@
  Copyright © 2017 Vadym Yakovliev. All rights reserved.
  */
 
-import Foundation
 import UIKit
 
-enum FeastIconManager: String {
+
+enum PartyIconManager: String {
     // Data about what icon show is obtained from the server
     case Beer = "Beer"
     case Wine = "Wine"
     case Cola = "Cola"
     case Juice = "Juice"
     case Whiskey = "Whiskey"
-    case UnpredictedIcon = "unpredicted-icon" // A certain case for any value that does not coincide with all the others
+ //   case UnpredictedIcon = "unpredicted-icon" // A certain case for any value that does not coincide with all the others
     
     init(rawValue: String) {
         switch rawValue {
@@ -24,13 +24,13 @@ enum FeastIconManager: String {
         case "Cola": self = .Cola
         case "Juice": self = .Juice
         case "Whiskey": self = .Whiskey
-        default: self = .UnpredictedIcon
+        default: self = .Juice
         }
     }
 }
 
 // Property through extension which will default to assign the value to the icon:
-extension FeastIconManager {
+extension PartyIconManager {
     var image: UIImage {
         return UIImage(named: self.rawValue)!
     }

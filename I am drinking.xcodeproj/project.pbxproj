@@ -18,7 +18,8 @@
 		76A793761F72A95100C53BBC /* LocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76A793661F72A31600C53BBC /* LocationViewController.swift */; };
 		76A793771F72A95700C53BBC /* DeviceURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76A793681F72A31600C53BBC /* DeviceURL.swift */; };
 		76A793781F72A95B00C53BBC /* DrinkURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76A793691F72A31600C53BBC /* DrinkURL.swift */; };
-		76A793791F72A95E00C53BBC /* FeastIconManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76A7936A1F72A31600C53BBC /* FeastIconManager.swift */; };
+		76A793791F72A95E00C53BBC /* PartyIconManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76A7936A1F72A31600C53BBC /* PartyIconManager.swift */; };
+		76AB939A1F8DEEE1004DC4E9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 76A7936C1F72A31600C53BBC /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,7 +33,7 @@
 		76A793661F72A31600C53BBC /* LocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewController.swift; sourceTree = "<group>"; };
 		76A793681F72A31600C53BBC /* DeviceURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceURL.swift; sourceTree = "<group>"; };
 		76A793691F72A31600C53BBC /* DrinkURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkURL.swift; sourceTree = "<group>"; };
-		76A7936A1F72A31600C53BBC /* FeastIconManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeastIconManager.swift; sourceTree = "<group>"; };
+		76A7936A1F72A31600C53BBC /* PartyIconManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartyIconManager.swift; sourceTree = "<group>"; };
 		76A7936C1F72A31600C53BBC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		76A7936E1F72A31600C53BBC /* AdsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdsManager.swift; sourceTree = "<group>"; };
 		76A7936F1F72A31600C53BBC /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -126,7 +127,7 @@
 			children = (
 				76A793681F72A31600C53BBC /* DeviceURL.swift */,
 				76A793691F72A31600C53BBC /* DrinkURL.swift */,
-				76A7936A1F72A31600C53BBC /* FeastIconManager.swift */,
+				76A7936A1F72A31600C53BBC /* PartyIconManager.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -230,6 +231,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7656342B1F738AE300EC6573 /* Main.storyboard in Resources */,
+				76AB939A1F8DEEE1004DC4E9 /* Assets.xcassets in Resources */,
 				7656342C1F738AE700EC6573 /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -323,7 +325,7 @@
 				76A793751F72A94A00C53BBC /* Constants.swift in Sources */,
 				76A793741F72A94700C53BBC /* LocationsManager.swift in Sources */,
 				7621AAA21F73816A0037207C /* NetworkManager.swift in Sources */,
-				76A793791F72A95E00C53BBC /* FeastIconManager.swift in Sources */,
+				76A793791F72A95E00C53BBC /* PartyIconManager.swift in Sources */,
 				76A793771F72A95700C53BBC /* DeviceURL.swift in Sources */,
 				76A793781F72A95B00C53BBC /* DrinkURL.swift in Sources */,
 				76A793761F72A95100C53BBC /* LocationViewController.swift in Sources */,
