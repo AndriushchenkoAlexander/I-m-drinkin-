@@ -20,8 +20,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        adsManager.initializeAdsManager()
         
         if DeviceID.checkID() == false {
-            NetworkManager.sharedManager.post(<#T##target: UIViewController?##UIViewController?#>, <#T##endpoint: endPoints##endPoints#>, <#T##parameters: [String : String]?##[String : String]?#>)
+            NetworkManager.sharedManager.post(.device, nil)
         }
+        print("--==**Device ID:  \(DeviceID.getDeviceID())**==--")
         
         return true
     }

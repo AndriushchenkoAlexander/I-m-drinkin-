@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1283BA5E26FB1C939CED08E1 /* Pods_I_am_drinking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8255D2EB871BA30AA364788A /* Pods_I_am_drinking.framework */; };
 		7621AAA21F73816A0037207C /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7621AAA11F73816A0037207C /* NetworkManager.swift */; };
+		76328D1D1F8E65AA00BE57C6 /* BoozeUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76328D1C1F8E65AA00BE57C6 /* BoozeUp.swift */; };
 		7656342B1F738AE300EC6573 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 76A793601F72A31500C53BBC /* Main.storyboard */; };
 		7656342C1F738AE700EC6573 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 76A7935C1F72A31500C53BBC /* LaunchScreen.storyboard */; };
 		76A7934A1F72A0F000C53BBC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76A793491F72A0F000C53BBC /* AppDelegate.swift */; };
@@ -17,12 +18,13 @@
 		76A793751F72A94A00C53BBC /* ApiKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76A7936F1F72A31600C53BBC /* ApiKeys.swift */; };
 		76A793761F72A95100C53BBC /* LocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76A793661F72A31600C53BBC /* LocationViewController.swift */; };
 		76A793771F72A95700C53BBC /* DeviceID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76A793681F72A31600C53BBC /* DeviceID.swift */; };
-		76A793791F72A95E00C53BBC /* PartyIconManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76A7936A1F72A31600C53BBC /* PartyIconManager.swift */; };
+		76A793791F72A95E00C53BBC /* BoozeUpIconManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76A7936A1F72A31600C53BBC /* BoozeUpIconManager.swift */; };
 		76AB939A1F8DEEE1004DC4E9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 76A7936C1F72A31600C53BBC /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		7621AAA11F73816A0037207C /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		76328D1C1F8E65AA00BE57C6 /* BoozeUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoozeUp.swift; sourceTree = "<group>"; };
 		76A793461F72A0F000C53BBC /* I am drinking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "I am drinking.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		76A793491F72A0F000C53BBC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		76A793551F72A0F000C53BBC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -31,7 +33,7 @@
 		76A793631F72A31500C53BBC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 		76A793661F72A31600C53BBC /* LocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewController.swift; sourceTree = "<group>"; };
 		76A793681F72A31600C53BBC /* DeviceID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceID.swift; sourceTree = "<group>"; };
-		76A7936A1F72A31600C53BBC /* PartyIconManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartyIconManager.swift; sourceTree = "<group>"; };
+		76A7936A1F72A31600C53BBC /* BoozeUpIconManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoozeUpIconManager.swift; sourceTree = "<group>"; };
 		76A7936C1F72A31600C53BBC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		76A7936E1F72A31600C53BBC /* AdsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdsManager.swift; sourceTree = "<group>"; };
 		76A7936F1F72A31600C53BBC /* ApiKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiKeys.swift; sourceTree = "<group>"; };
@@ -124,7 +126,8 @@
 			isa = PBXGroup;
 			children = (
 				76A793681F72A31600C53BBC /* DeviceID.swift */,
-				76A7936A1F72A31600C53BBC /* PartyIconManager.swift */,
+				76328D1C1F8E65AA00BE57C6 /* BoozeUp.swift */,
+				76A7936A1F72A31600C53BBC /* BoozeUpIconManager.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -322,10 +325,11 @@
 				76A793751F72A94A00C53BBC /* ApiKeys.swift in Sources */,
 				76A793741F72A94700C53BBC /* LocationsManager.swift in Sources */,
 				7621AAA21F73816A0037207C /* NetworkManager.swift in Sources */,
-				76A793791F72A95E00C53BBC /* PartyIconManager.swift in Sources */,
+				76A793791F72A95E00C53BBC /* BoozeUpIconManager.swift in Sources */,
 				76A793771F72A95700C53BBC /* DeviceID.swift in Sources */,
 				76A793761F72A95100C53BBC /* LocationViewController.swift in Sources */,
 				76A793731F72A93E00C53BBC /* AdsManager.swift in Sources */,
+				76328D1D1F8E65AA00BE57C6 /* BoozeUp.swift in Sources */,
 				76A7934A1F72A0F000C53BBC /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

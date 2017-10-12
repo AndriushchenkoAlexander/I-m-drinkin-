@@ -8,14 +8,16 @@
 import UIKit
 
 
-enum PartyIconManager: String {
+enum BoozeUpIconManager: String {
     // Data about what icon show is obtained from the server
-    case Beer = "Beer"
-    case Wine = "Wine"
-    case Cola = "Cola"
-    case Juice = "Juice"
-    case Whiskey = "Whiskey"
-    //   case UnpredictedIcon = "unpredicted-icon" // A certain case for any value that does not coincide with all the others
+    case Beer = "1"
+    case Wine = "2"
+    case Cola = "3"
+    case Juice = "4"
+    case Whiskey = "5"
+    case Vodka = "6"
+    case Coffee = "7"
+    case Coctail = "8"
     
     init(rawValue: String) {
         switch rawValue {
@@ -24,13 +26,16 @@ enum PartyIconManager: String {
         case "Cola": self = .Cola
         case "Juice": self = .Juice
         case "Whiskey": self = .Whiskey
+        case "Vodka": self = .Vodka
+        case "Coffee": self = .Coffee
+        case "Coctail": self = .Coctail
         default: self = .Juice
         }
     }
 }
 
 // Property through extension which will default to assign the value to the icon:
-extension PartyIconManager {
+extension BoozeUpIconManager {
     var image: UIImage {
         return UIImage(named: self.rawValue)!
     }
