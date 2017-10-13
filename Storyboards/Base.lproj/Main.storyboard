@@ -23,35 +23,31 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UOu-Sj-J93" customClass="GMSMapView">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="szZ-FK-pzr">
-                                        <rect key="frame" x="8" y="535" width="70" height="69"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="69" id="3uK-hR-Srt"/>
-                                            <constraint firstAttribute="width" constant="70" id="vuT-Zy-92B"/>
-                                        </constraints>
-                                        <state key="normal" image="CheckInButton"/>
-                                        <connections>
-                                            <action selector="checkInButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="GKA-Cc-2nb"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstItem="szZ-FK-pzr" firstAttribute="leading" secondItem="UOu-Sj-J93" secondAttribute="leading" constant="8" id="Oob-Kn-uy3"/>
-                                    <constraint firstAttribute="bottom" secondItem="szZ-FK-pzr" secondAttribute="bottom" constant="63" id="T8d-4C-fg0"/>
-                                </constraints>
                                 <connections>
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="PgM-2A-YRz"/>
                                 </connections>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="szZ-FK-pzr">
+                                <rect key="frame" x="8" y="544" width="70" height="69"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="70" id="Bm9-dF-eke"/>
+                                </constraints>
+                                <state key="normal" image="CheckInButton"/>
+                                <connections>
+                                    <action selector="checkInButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="GKA-Cc-2nb"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="UOu-Sj-J93" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="B3o-CN-ahF"/>
                             <constraint firstItem="UOu-Sj-J93" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="C1z-U1-kGg"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="szZ-FK-pzr" secondAttribute="bottom" constant="54" id="cfD-9K-nra"/>
                             <constraint firstItem="UOu-Sj-J93" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="pOn-c7-53v"/>
                             <constraint firstItem="UOu-Sj-J93" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="q3Q-ab-Hdz"/>
+                            <constraint firstItem="szZ-FK-pzr" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="524" id="uNz-dD-dpH"/>
+                            <constraint firstItem="szZ-FK-pzr" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="8" id="w5v-O1-kn5"/>
                         </constraints>
                     </view>
                     <connections>
