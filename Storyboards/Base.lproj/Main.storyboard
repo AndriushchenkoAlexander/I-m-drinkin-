@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Location View Controller-->
+        <!--Delegate-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="LocationViewController" customModule="I_am_drinking" customModuleProvider="target" sceneMemberID="viewController">
@@ -23,7 +23,27 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UOu-Sj-J93" customClass="GMSMapView">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="szZ-FK-pzr">
+                                        <rect key="frame" x="8" y="535" width="70" height="69"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="69" id="3uK-hR-Srt"/>
+                                            <constraint firstAttribute="width" constant="70" id="vuT-Zy-92B"/>
+                                        </constraints>
+                                        <state key="normal" image="CheckInButton"/>
+                                        <connections>
+                                            <action selector="checkInButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="GKA-Cc-2nb"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="szZ-FK-pzr" firstAttribute="leading" secondItem="UOu-Sj-J93" secondAttribute="leading" constant="8" id="Oob-Kn-uy3"/>
+                                    <constraint firstAttribute="bottom" secondItem="szZ-FK-pzr" secondAttribute="bottom" constant="63" id="T8d-4C-fg0"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="PgM-2A-YRz"/>
+                                </connections>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -43,4 +63,7 @@
             <point key="canvasLocation" x="117.59999999999999" y="123.68815592203899"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="CheckInButton" width="167" height="166"/>
+    </resources>
 </document>

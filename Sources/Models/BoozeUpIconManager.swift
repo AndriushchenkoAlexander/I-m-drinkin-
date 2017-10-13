@@ -34,6 +34,7 @@ enum BoozeUpIconManager: String {
     }
 }
 
+
 // Property through extension which will default to assign the value to the icon:
 extension BoozeUpIconManager {
     var image: UIImage {

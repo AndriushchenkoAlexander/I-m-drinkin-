@@ -9,30 +9,22 @@ import UIKit
 import GoogleMaps
 
 
-struct LocationsManager {
+class LocationsManager {
+    static let sharedManager = LocationsManager()
+    //    private let locationManager = CLLocationManager()
+    //    static var viewController = UIViewController()
+    //    static var mapView = GMSMapView()
     
-    static func locationProvideAPIKey(){
+    func locationProvideAPIKey(){
         GMSServices.provideAPIKey(ApiKeys.googleMapsApiKey)
     }
     
-        
-    //    placesClient.currentPlace(callback: { (placeLikelihoodList, error) -> Void in
-    //    if let error = error {
-    //    print("Pick Place error: \(error.localizedDescription)")
-    //    return
-    //    }
-    //
-    //    if let placeLikelihoodList = placeLikelihoodList {
-    //    for likelihood in placeLikelihoodList.likelihoods {
-    //    let place = likelihood.place
-    //    print("Current Place name \(place.name) at likelihood \(likelihood.likelihood)")
-    //    print("Current Place address \(place.formattedAddress)")
-    //    print("Current Place attributions \(place.attributions)")
-    //    print("Current PlaceID \(place.placeID)")
-    //    }
-    //    }
-    //    })
-    //
+    /*
+     static func setupMapWithViewController(vc: UIViewController, mapView: GMSMapView) {
+     self.viewController = vc
+     self.mapView = mapView
+     }
+     */
     //    func setupMapMarker() {
     //        // Creates a marker in the center of the map.
     //        let marker = GMSMarker()
@@ -43,4 +35,35 @@ struct LocationsManager {
     //    }
 }
 
-
+/*
+ // MARK: - CLLocationManagerDelegate
+ extension LocationsManager: CLLocationManagerDelegate {
+ private func setupLocationManager() {
+ locationManager.delegate = self as CLLocationManagerDelegate
+ locationManager.desiredAccuracy = kCLLocationAccuracyBest // Use the highest-level of accuracy
+ locationManager.requestWhenInUseAuthorization()
+ }
+ 
+ // This function is called when the user grants or does not grant you the right to determine its location
+ internal func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+ if status == .authorizedWhenInUse {
+ 
+ locationManager.startUpdatingLocation()
+ 
+ LocationsManager.mapView.isMyLocationEnabled = true
+ LocationsManager.mapView.settings.myLocationButton = true
+ }
+ }
+ 
+ // When update a geographic position, this delegate's method is called:
+ internal func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+ if let location = locations.first {
+ 
+ LocationsManager.mapView.camera = GMSCameraPosition(target: location.coordinate, zoom: 17, bearing: 0, viewingAngle: 0)
+ //            mapView.animate(to: mapView.camera)
+ locationManager.stopUpdatingLocation()
+ }
+ }
+ 
+ }
+ */

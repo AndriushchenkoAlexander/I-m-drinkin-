@@ -9,12 +9,16 @@
 import Foundation
 
 
-struct BoozeUP {
+struct BoozeUp {
+    let device: String?
     let latitude: String?
     let longitude: String?
     let drink: Int?
     
-    init?(JSON: [String : AnyObject]) {
-        latitude = JSON["id"] as? String
+    init?(json: JSON) {
+        device = json["device"] as? String
+        latitude = json["latitude"] as? String
+        longitude = json["longitude"] as? String
+        drink = json["drink"] as? Int
     }
 }

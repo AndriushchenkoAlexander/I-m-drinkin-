@@ -12,16 +12,60 @@ import GoogleMaps
 
 class LocationViewController: UIViewController {
     
-    @IBOutlet weak var mapView: GMSMapView!
+    @IBOutlet weak var mapView: GMSMapView?
+
     
     let locationManager = CLLocationManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        setupBanner()
-        setupLocationManager()
-//        NetworkManager.sharedManager.networkRequest(url: kURLForCoreAPI)
+        //        setupBanner()
+        
+        self.setupLocationManager()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        NetworkManager.sharedManager.get(.activeBoozeUp, nil)
+    }
+    
+    func parseDrunkParties(result: Array<Any>?) {
+        if result != nil {
+            for boozeUp in result! {
+                if let drunkParty = BoozeUp.init(json: boozeUp as! JSON) {
+//                    DispatchQueue.main.async {
+                        self.setupMapMarker(latitude: drunkParty.latitude, longitude: drunkParty.longitude, drink: drunkParty.drink)
+//                    }
+                    print("======= Unwrap dictionaties: \(String(describing: drunkParty))")
+                }
+            }
+        }
+    }
+    
+    func setupMapMarker(latitude: String?, longitude: String?, drink: Int?) {
+        
+        var curLatitude = 0.0
+        var curLongitude = 0.0
+        
+        if let lat = latitude {
+            curLatitude = Double(lat) ?? 0.0
+        }
+        if let long = longitude {
+            curLongitude = Double(long) ?? 0.0
+        }
+        
+        let drink = String(describing: drink)
+        let markerImage = (BoozeUpIconManager.init(rawValue: drink).image).withRenderingMode(.automatic)
+        
+        let marker = GMSMarker(position: CLLocationCoordinate2D(latitude: curLatitude, longitude: curLongitude))
+        marker.icon = markerImage
+        marker.map = mapView
+    }
+    
+    @IBAction func checkInButton(_ sender: Any) {
+    
     }
 }
 
@@ -29,7 +73,7 @@ class LocationViewController: UIViewController {
 // MARK: - AppodealBannerDelegate
 extension LocationViewController: AppodealBannerDelegate {
     func setupBanner() {
-        AdsManager.setBannerAndShowAD(setViewController: self)
+        AdsManager.sharedManager.setBannerAndShowAD(setViewController: self)
     }
 }
 
@@ -48,8 +92,8 @@ extension LocationViewController: CLLocationManagerDelegate {
             
             self.locationManager.startUpdatingLocation()
             
-            self.mapView.isMyLocationEnabled = true
-            self.mapView.settings.myLocationButton = true
+            self.mapView?.isMyLocationEnabled = true
+            self.mapView?.settings.myLocationButton = true
         }
     }
     
@@ -57,9 +101,9 @@ extension LocationViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let location = locations.first {
             
-            self.mapView.camera = GMSCameraPosition(target: location.coordinate, zoom: 17, bearing: 0, viewingAngle: 0) 
+            self.mapView?.camera = GMSCameraPosition(target: location.coordinate, zoom: 17, bearing: 0, viewingAngle: 0)
+            
             self.locationManager.stopUpdatingLocation()
         }
     }
 }
-

@@ -12,6 +12,8 @@
 		76328D1D1F8E65AA00BE57C6 /* BoozeUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76328D1C1F8E65AA00BE57C6 /* BoozeUp.swift */; };
 		7656342B1F738AE300EC6573 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 76A793601F72A31500C53BBC /* Main.storyboard */; };
 		7656342C1F738AE700EC6573 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 76A7935C1F72A31500C53BBC /* LaunchScreen.storyboard */; };
+		766F23091F8F56770064EF77 /* JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 766F23081F8F56770064EF77 /* JSON.swift */; };
+		766F230B1F8F79D80064EF77 /* EndPoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 766F230A1F8F79D80064EF77 /* EndPoints.swift */; };
 		76A7934A1F72A0F000C53BBC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76A793491F72A0F000C53BBC /* AppDelegate.swift */; };
 		76A793731F72A93E00C53BBC /* AdsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76A7936E1F72A31600C53BBC /* AdsManager.swift */; };
 		76A793741F72A94700C53BBC /* LocationsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76A793701F72A31600C53BBC /* LocationsManager.swift */; };
@@ -25,6 +27,8 @@
 /* Begin PBXFileReference section */
 		7621AAA11F73816A0037207C /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		76328D1C1F8E65AA00BE57C6 /* BoozeUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoozeUp.swift; sourceTree = "<group>"; };
+		766F23081F8F56770064EF77 /* JSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSON.swift; sourceTree = "<group>"; };
+		766F230A1F8F79D80064EF77 /* EndPoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPoints.swift; sourceTree = "<group>"; };
 		76A793461F72A0F000C53BBC /* I am drinking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "I am drinking.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		76A793491F72A0F000C53BBC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		76A793551F72A0F000C53BBC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -59,9 +63,18 @@
 			isa = PBXGroup;
 			children = (
 				7621AAA11F73816A0037207C /* NetworkManager.swift */,
+				766F230A1F8F79D80064EF77 /* EndPoints.swift */,
 			);
 			name = Network;
 			path = "New Group";
+			sourceTree = "<group>";
+		};
+		766F23071F8F55100064EF77 /* Types */ = {
+			isa = PBXGroup;
+			children = (
+				766F23081F8F56770064EF77 /* JSON.swift */,
+			);
+			path = Types;
 			sourceTree = "<group>";
 		};
 		76A7933D1F72A0F000C53BBC = {
@@ -106,6 +119,7 @@
 		76A793641F72A31600C53BBC /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				766F23071F8F55100064EF77 /* Types */,
 				76A7936D1F72A31600C53BBC /* Utilities */,
 				76A793651F72A31600C53BBC /* Controllers */,
 				76A793671F72A31600C53BBC /* Models */,
@@ -323,6 +337,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				76A793751F72A94A00C53BBC /* ApiKeys.swift in Sources */,
+				766F23091F8F56770064EF77 /* JSON.swift in Sources */,
 				76A793741F72A94700C53BBC /* LocationsManager.swift in Sources */,
 				7621AAA21F73816A0037207C /* NetworkManager.swift in Sources */,
 				76A793791F72A95E00C53BBC /* BoozeUpIconManager.swift in Sources */,
@@ -331,6 +346,7 @@
 				76A793731F72A93E00C53BBC /* AdsManager.swift in Sources */,
 				76328D1D1F8E65AA00BE57C6 /* BoozeUp.swift in Sources */,
 				76A7934A1F72A0F000C53BBC /* AppDelegate.swift in Sources */,
+				766F230B1F8F79D80064EF77 /* EndPoints.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

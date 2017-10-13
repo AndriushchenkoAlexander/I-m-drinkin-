@@ -8,25 +8,28 @@
 
 import Foundation
 
+
 struct DeviceKey {
     static let key = "deviceID"
 }
 
+
 struct DeviceID {
-    init?(JSON: [String : AnyObject]) {
-        if let deviceID = JSON["id"] as? String {
+    init?(json: JSON) {
+        if let deviceID = json["id"] as? String {
             UserDefaults.standard.set(deviceID, forKey: DeviceKey.key)
+            print("--==** Device ID from Model:  \(String(describing: deviceID))**==--")
         }
     }
     
-    static func checkID() -> Bool {
+    static func checkID() -> Bool? {
         if UserDefaults.standard.string(forKey: DeviceKey.key) != nil {
             return true
         }
         return false
     }
     
-    static func getDeviceID() -> String {
+    static func getDeviceID() -> String? {
         if let deviceID = UserDefaults.standard.string(forKey: DeviceKey.key) {
             return deviceID
         }

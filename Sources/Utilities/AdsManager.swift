@@ -9,14 +9,15 @@ import UIKit
 import Appodeal
 
 
-struct AdsManager {
-    
-    public func initializeAdsManager() {
+class AdsManager {
+    static let sharedManager = AdsManager()
+
+    func initAdsManager() {
         initializeAppodealSDK()
         configureAppearance()
     }
     
-    static func setBannerAndShowAD(setViewController: UIViewController) {
+    func setBannerAndShowAD(setViewController: UIViewController) {
         Appodeal.setBannerDelegate(setViewController as! AppodealBannerDelegate)
         Appodeal.showAd(AppodealShowStyle.bannerTop, rootViewController: setViewController)
     }
@@ -42,23 +43,3 @@ struct AdsManager {
         UITabBar.appearance().tintColor = .white
     }
 }
-
-/*
- // MARK: - Appodeal banner
- func bannerDidLoadAdIsPrecache(_ precache: Bool){
- print("Banner has been uploaded")
- }
- 
- func bannerDidFailToLoadAd(){
- print("Banner failed to load");
- }
- 
- func bannerDidClick(){
- print("Banner was clicked")
- }
- 
- func bannerDidShow(){
- print("Banner was shown")
- }
- 
- */
