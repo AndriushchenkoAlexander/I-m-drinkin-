@@ -28,8 +28,48 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="PgM-2A-YRz"/>
                                 </connections>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SFM-W4-1ju">
+                                <rect key="frame" x="18" y="491" width="50" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="1"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kpv-dj-wuy">
+                                <rect key="frame" x="18" y="438" width="50" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="2"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AgP-xP-9a9">
+                                <rect key="frame" x="18" y="385" width="50" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="3"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vcx-EY-W1A">
+                                <rect key="frame" x="18" y="332" width="50" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="4"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RVi-BG-4FC">
+                                <rect key="frame" x="18" y="279" width="50" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="5"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KOB-ru-StW">
+                                <rect key="frame" x="18" y="226" width="50" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="6"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3On-78-Lte">
+                                <rect key="frame" x="18" y="173" width="50" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="7"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3DA-HB-Ajz">
+                                <rect key="frame" x="18" y="120" width="50" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="8"/>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="szZ-FK-pzr">
-                                <rect key="frame" x="8" y="544" width="70" height="69"/>
+                                <rect key="frame" x="8" y="544" width="70" height="70"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="70" id="Bm9-dF-eke"/>
                                 </constraints>
@@ -43,7 +83,7 @@
                         <constraints>
                             <constraint firstItem="UOu-Sj-J93" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="B3o-CN-ahF"/>
                             <constraint firstItem="UOu-Sj-J93" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="C1z-U1-kGg"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="szZ-FK-pzr" secondAttribute="bottom" constant="54" id="cfD-9K-nra"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="szZ-FK-pzr" secondAttribute="bottom" constant="53" id="cfD-9K-nra"/>
                             <constraint firstItem="UOu-Sj-J93" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="pOn-c7-53v"/>
                             <constraint firstItem="UOu-Sj-J93" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="q3Q-ab-Hdz"/>
                             <constraint firstItem="szZ-FK-pzr" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="524" id="uNz-dD-dpH"/>
@@ -60,6 +100,14 @@
         </scene>
     </scenes>
     <resources>
+        <image name="1" width="166" height="166"/>
+        <image name="2" width="166" height="166"/>
+        <image name="3" width="167" height="166"/>
+        <image name="4" width="167" height="166"/>
+        <image name="5" width="167" height="166"/>
+        <image name="6" width="167" height="166"/>
+        <image name="7" width="167" height="166"/>
+        <image name="8" width="167" height="166"/>
         <image name="CheckInButton" width="167" height="166"/>
     </resources>
 </document>

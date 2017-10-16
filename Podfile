@@ -9,7 +9,8 @@ target 'I am drinking' do
   # Pods for I am drinking
 
 pod 'Appodeal/Banner', '~> 2.0'
-pod 'GoogleMaps'
+pod 'GoogleMaps',
 pod 'Alamofire', '~> 4.5'
+pod "ViewAnimator"
 
 end

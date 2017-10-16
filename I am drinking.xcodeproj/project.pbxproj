@@ -495,7 +495,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4PU97M7F5F;
 				INFOPLIST_FILE = "I am drinking/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.vadymyakovliev.I-am-drinking";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -512,7 +512,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4PU97M7F5F;
 				INFOPLIST_FILE = "I am drinking/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.vadymyakovliev.I-am-drinking";
 				PRODUCT_NAME = "$(TARGET_NAME)";
