@@ -51,22 +51,13 @@ class LocationViewController: UIViewController {
         let drink = String(describing: drink)
         let markerImage = (BoozeUpIconManager.init(rawValue: drink).image).withRenderingMode(.automatic)
         
-        let marker = GMSMarker(position: CLLocationCoordinate2D(latitude: stringToDouble(string: latitude), longitude: stringToDouble(string: longitude)))
+        let marker = GMSMarker(position: CLLocationCoordinate2D(latitude: Config.stringToDouble(string: latitude), longitude: Config.stringToDouble(string: longitude)))
         marker.tracksInfoWindowChanges = true
         marker.icon = markerImage
         
         return marker
     }
-    
-    func stringToDouble(string: String?) -> Double {
-        var newValue = 0.0
-        
-        if let lat = string {
-            newValue = Double(lat) ?? 0.0
-        }
-        return newValue
-    }
-    
+
     @IBAction func checkInButton(_ sender: Any) {
         
     }

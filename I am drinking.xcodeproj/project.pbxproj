@@ -8,12 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		1283BA5E26FB1C939CED08E1 /* Pods_I_am_drinking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8255D2EB871BA30AA364788A /* Pods_I_am_drinking.framework */; };
-		7621AAA21F73816A0037207C /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7621AAA11F73816A0037207C /* NetworkManager.swift */; };
 		76328D1D1F8E65AA00BE57C6 /* BoozeUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76328D1C1F8E65AA00BE57C6 /* BoozeUp.swift */; };
 		7656342B1F738AE300EC6573 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 76A793601F72A31500C53BBC /* Main.storyboard */; };
 		7656342C1F738AE700EC6573 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 76A7935C1F72A31500C53BBC /* LaunchScreen.storyboard */; };
 		766F23091F8F56770064EF77 /* JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 766F23081F8F56770064EF77 /* JSON.swift */; };
-		766F230B1F8F79D80064EF77 /* EndPoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 766F230A1F8F79D80064EF77 /* EndPoints.swift */; };
+		766F613F1F973451002AF7C4 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 766F613E1F973451002AF7C4 /* Config.swift */; };
+		766F61421F973611002AF7C4 /* EndPoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 766F61401F973611002AF7C4 /* EndPoints.swift */; };
+		766F61431F973611002AF7C4 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 766F61411F973611002AF7C4 /* NetworkManager.swift */; };
 		76A7934A1F72A0F000C53BBC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76A793491F72A0F000C53BBC /* AppDelegate.swift */; };
 		76A793731F72A93E00C53BBC /* AdsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76A7936E1F72A31600C53BBC /* AdsManager.swift */; };
 		76A793741F72A94700C53BBC /* LocationsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76A793701F72A31600C53BBC /* LocationsManager.swift */; };
@@ -25,10 +26,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		7621AAA11F73816A0037207C /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		76328D1C1F8E65AA00BE57C6 /* BoozeUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoozeUp.swift; sourceTree = "<group>"; };
 		766F23081F8F56770064EF77 /* JSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSON.swift; sourceTree = "<group>"; };
-		766F230A1F8F79D80064EF77 /* EndPoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPoints.swift; sourceTree = "<group>"; };
+		766F613E1F973451002AF7C4 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
+		766F61401F973611002AF7C4 /* EndPoints.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EndPoints.swift; path = Sources/Utilities/Network/EndPoints.swift; sourceTree = SOURCE_ROOT; };
+		766F61411F973611002AF7C4 /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NetworkManager.swift; path = Sources/Utilities/Network/NetworkManager.swift; sourceTree = SOURCE_ROOT; };
 		76A793461F72A0F000C53BBC /* I am drinking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "I am drinking.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		76A793491F72A0F000C53BBC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		76A793551F72A0F000C53BBC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -62,8 +64,8 @@
 		7621AAA31F73817E0037207C /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				7621AAA11F73816A0037207C /* NetworkManager.swift */,
-				766F230A1F8F79D80064EF77 /* EndPoints.swift */,
+				766F61401F973611002AF7C4 /* EndPoints.swift */,
+				766F61411F973611002AF7C4 /* NetworkManager.swift */,
 			);
 			name = Network;
 			path = "New Group";
@@ -161,6 +163,7 @@
 				76A7936E1F72A31600C53BBC /* AdsManager.swift */,
 				76A793701F72A31600C53BBC /* LocationsManager.swift */,
 				76A7936F1F72A31600C53BBC /* ApiKeys.swift */,
+				766F613E1F973451002AF7C4 /* Config.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -279,10 +282,12 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-I am drinking/Pods-I am drinking-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/ViewAnimator/ViewAnimator.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ViewAnimator.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -336,17 +341,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				766F61431F973611002AF7C4 /* NetworkManager.swift in Sources */,
 				76A793751F72A94A00C53BBC /* ApiKeys.swift in Sources */,
 				766F23091F8F56770064EF77 /* JSON.swift in Sources */,
 				76A793741F72A94700C53BBC /* LocationsManager.swift in Sources */,
-				7621AAA21F73816A0037207C /* NetworkManager.swift in Sources */,
 				76A793791F72A95E00C53BBC /* BoozeUpIconManager.swift in Sources */,
+				766F613F1F973451002AF7C4 /* Config.swift in Sources */,
 				76A793771F72A95700C53BBC /* DeviceID.swift in Sources */,
 				76A793761F72A95100C53BBC /* LocationViewController.swift in Sources */,
 				76A793731F72A93E00C53BBC /* AdsManager.swift in Sources */,
 				76328D1D1F8E65AA00BE57C6 /* BoozeUp.swift in Sources */,
 				76A7934A1F72A0F000C53BBC /* AppDelegate.swift in Sources */,
-				766F230B1F8F79D80064EF77 /* EndPoints.swift in Sources */,
+				766F61421F973611002AF7C4 /* EndPoints.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -428,7 +434,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -479,7 +485,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -495,7 +501,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4PU97M7F5F;
 				INFOPLIST_FILE = "I am drinking/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.vadymyakovliev.I-am-drinking";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -512,7 +518,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4PU97M7F5F;
 				INFOPLIST_FILE = "I am drinking/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.vadymyakovliev.I-am-drinking";
 				PRODUCT_NAME = "$(TARGET_NAME)";

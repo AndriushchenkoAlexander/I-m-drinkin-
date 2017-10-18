@@ -10,7 +10,7 @@ import Foundation
 
 
 enum EndPoints: String {
-    case basePath = "http://www.iamdrinking.localhost8080.pp.ua/core/api/"
+    case basePath = "http://www.iamdrinking.localhost8080.pp.ua/core/api/v1.0/"
     case device = "device/"
     case activeBoozeUp = "drunk/active/"
     case drunk = "drunk/"
