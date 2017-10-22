@@ -11,10 +11,10 @@
 		76328D1D1F8E65AA00BE57C6 /* BoozeUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76328D1C1F8E65AA00BE57C6 /* BoozeUp.swift */; };
 		7656342B1F738AE300EC6573 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 76A793601F72A31500C53BBC /* Main.storyboard */; };
 		7656342C1F738AE700EC6573 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 76A7935C1F72A31500C53BBC /* LaunchScreen.storyboard */; };
+		7665F3C51F9CAE9700124A18 /* EndPoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7665F3C31F9CAE9700124A18 /* EndPoints.swift */; };
+		7665F3C61F9CAE9700124A18 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7665F3C41F9CAE9700124A18 /* NetworkManager.swift */; };
 		766F23091F8F56770064EF77 /* JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 766F23081F8F56770064EF77 /* JSON.swift */; };
 		766F613F1F973451002AF7C4 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 766F613E1F973451002AF7C4 /* Config.swift */; };
-		766F61421F973611002AF7C4 /* EndPoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 766F61401F973611002AF7C4 /* EndPoints.swift */; };
-		766F61431F973611002AF7C4 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 766F61411F973611002AF7C4 /* NetworkManager.swift */; };
 		76A7934A1F72A0F000C53BBC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76A793491F72A0F000C53BBC /* AppDelegate.swift */; };
 		76A793731F72A93E00C53BBC /* AdsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76A7936E1F72A31600C53BBC /* AdsManager.swift */; };
 		76A793741F72A94700C53BBC /* LocationsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76A793701F72A31600C53BBC /* LocationsManager.swift */; };
@@ -27,10 +27,10 @@
 
 /* Begin PBXFileReference section */
 		76328D1C1F8E65AA00BE57C6 /* BoozeUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoozeUp.swift; sourceTree = "<group>"; };
+		7665F3C31F9CAE9700124A18 /* EndPoints.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EndPoints.swift; sourceTree = "<group>"; };
+		7665F3C41F9CAE9700124A18 /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		766F23081F8F56770064EF77 /* JSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSON.swift; sourceTree = "<group>"; };
 		766F613E1F973451002AF7C4 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
-		766F61401F973611002AF7C4 /* EndPoints.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EndPoints.swift; path = Sources/Utilities/Network/EndPoints.swift; sourceTree = SOURCE_ROOT; };
-		766F61411F973611002AF7C4 /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NetworkManager.swift; path = Sources/Utilities/Network/NetworkManager.swift; sourceTree = SOURCE_ROOT; };
 		76A793461F72A0F000C53BBC /* I am drinking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "I am drinking.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		76A793491F72A0F000C53BBC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		76A793551F72A0F000C53BBC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -61,14 +61,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		7621AAA31F73817E0037207C /* Network */ = {
+		7665F3C21F9CAE9700124A18 /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				766F61401F973611002AF7C4 /* EndPoints.swift */,
-				766F61411F973611002AF7C4 /* NetworkManager.swift */,
+				7665F3C31F9CAE9700124A18 /* EndPoints.swift */,
+				7665F3C41F9CAE9700124A18 /* NetworkManager.swift */,
 			);
-			name = Network;
-			path = "New Group";
+			path = Network;
 			sourceTree = "<group>";
 		};
 		766F23071F8F55100064EF77 /* Types */ = {
@@ -159,7 +158,7 @@
 		76A7936D1F72A31600C53BBC /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				7621AAA31F73817E0037207C /* Network */,
+				7665F3C21F9CAE9700124A18 /* Network */,
 				76A7936E1F72A31600C53BBC /* AdsManager.swift */,
 				76A793701F72A31600C53BBC /* LocationsManager.swift */,
 				76A7936F1F72A31600C53BBC /* ApiKeys.swift */,
@@ -341,7 +340,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				766F61431F973611002AF7C4 /* NetworkManager.swift in Sources */,
+				7665F3C61F9CAE9700124A18 /* NetworkManager.swift in Sources */,
 				76A793751F72A94A00C53BBC /* ApiKeys.swift in Sources */,
 				766F23091F8F56770064EF77 /* JSON.swift in Sources */,
 				76A793741F72A94700C53BBC /* LocationsManager.swift in Sources */,
@@ -352,7 +351,7 @@
 				76A793731F72A93E00C53BBC /* AdsManager.swift in Sources */,
 				76328D1D1F8E65AA00BE57C6 /* BoozeUp.swift in Sources */,
 				76A7934A1F72A0F000C53BBC /* AppDelegate.swift in Sources */,
-				766F61421F973611002AF7C4 /* EndPoints.swift in Sources */,
+				7665F3C51F9CAE9700124A18 /* EndPoints.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

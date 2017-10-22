@@ -2,17 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "juice.png",
+      "filename" : "JuiceMarker.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "juice@2x.png",
+      "filename" : "JuiceMarker@2x.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "filename" : "juice@3x.png",
+      "filename" : "JuiceMarker@3x.png",
       "scale" : "3x"
     }
   ],

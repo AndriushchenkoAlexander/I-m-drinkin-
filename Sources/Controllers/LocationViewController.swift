@@ -27,14 +27,14 @@ class LocationViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        NetworkManager.sharedManager.get(.activeBoozeUp, nil)
+        NetworkManager.sharedManager.get(.activeBoozeUp, viewController: self ,nil)
     }
     
     func parseDrunkParties(result: Array<Any>?) {
         if result != nil {
             for boozeUp in result! {
                 if let drunkParty = BoozeUp.init(json: boozeUp as! JSON) {
-                    let marker = setupMapMarker(latitude: drunkParty.latitude, longitude: drunkParty.longitude, drink: drunkParty.drink)
+                    let marker = setupMapMarker(latitude: drunkParty.latitude, longitude: drunkParty.longitude, drink: drunkParty.drink ?? 0)
                     markersArray = [marker]
 //                    print("======= Unwrap dictionaties: \(String(describing: drunkParty))")
                 }
@@ -46,13 +46,14 @@ class LocationViewController: UIViewController {
         }
     }
     
-    func setupMapMarker(latitude: String?, longitude: String?, drink: Int?) -> GMSMarker {
+    func setupMapMarker(latitude: String?, longitude: String?, drink: Int) -> GMSMarker {
         
         let drink = String(describing: drink)
-        let markerImage = (BoozeUpIconManager.init(rawValue: drink).image).withRenderingMode(.automatic)
+        let markerImage = (BoozeUpIconManager.init(rawValue: drink).image).withRenderingMode(.alwaysTemplate)
         
         let marker = GMSMarker(position: CLLocationCoordinate2D(latitude: Config.stringToDouble(string: latitude), longitude: Config.stringToDouble(string: longitude)))
         marker.tracksInfoWindowChanges = true
+//        marker.title = "Hello!!"
         marker.icon = markerImage
         
         return marker

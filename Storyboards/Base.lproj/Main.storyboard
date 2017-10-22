@@ -5,7 +5,7 @@
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -31,42 +31,42 @@
                             <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SFM-W4-1ju">
                                 <rect key="frame" x="18" y="491" width="50" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="1"/>
+                                <state key="normal" image="1-beer"/>
                             </button>
                             <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kpv-dj-wuy">
                                 <rect key="frame" x="18" y="438" width="50" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="2"/>
+                                <state key="normal" image="2-wine"/>
                             </button>
                             <button opaque="NO" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AgP-xP-9a9">
                                 <rect key="frame" x="18" y="385" width="50" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="3"/>
+                                <state key="normal" image="3-cola"/>
                             </button>
                             <button opaque="NO" tag="4" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vcx-EY-W1A">
                                 <rect key="frame" x="18" y="332" width="50" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="4"/>
+                                <state key="normal" image="4-juice"/>
                             </button>
                             <button opaque="NO" tag="5" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RVi-BG-4FC">
                                 <rect key="frame" x="18" y="279" width="50" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="5"/>
+                                <state key="normal" image="5-whiskey"/>
                             </button>
                             <button opaque="NO" tag="6" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KOB-ru-StW">
                                 <rect key="frame" x="18" y="226" width="50" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="6"/>
+                                <state key="normal" image="6-vodka"/>
                             </button>
                             <button opaque="NO" tag="7" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3On-78-Lte">
                                 <rect key="frame" x="18" y="173" width="50" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="7"/>
+                                <state key="normal" image="7-coffee"/>
                             </button>
                             <button opaque="NO" tag="8" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3DA-HB-Ajz">
                                 <rect key="frame" x="18" y="120" width="50" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="8"/>
+                                <state key="normal" image="8-cocktail"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="szZ-FK-pzr">
                                 <rect key="frame" x="8" y="544" width="70" height="70"/>
@@ -100,14 +100,14 @@
         </scene>
     </scenes>
     <resources>
-        <image name="1" width="166" height="166"/>
-        <image name="2" width="166" height="166"/>
-        <image name="3" width="167" height="166"/>
-        <image name="4" width="167" height="166"/>
-        <image name="5" width="167" height="166"/>
-        <image name="6" width="167" height="166"/>
-        <image name="7" width="167" height="166"/>
-        <image name="8" width="167" height="166"/>
+        <image name="1-beer" width="166" height="166"/>
+        <image name="2-wine" width="166" height="166"/>
+        <image name="3-cola" width="167" height="166"/>
+        <image name="4-juice" width="167" height="166"/>
+        <image name="5-whiskey" width="167" height="166"/>
+        <image name="6-vodka" width="167" height="166"/>
+        <image name="7-coffee" width="167" height="166"/>
+        <image name="8-cocktail" width="167" height="166"/>
         <image name="CheckInButton" width="167" height="166"/>
     </resources>
 </document>

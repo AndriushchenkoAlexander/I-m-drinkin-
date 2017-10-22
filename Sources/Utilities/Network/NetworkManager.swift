@@ -6,7 +6,7 @@
  Copyright © 2017 Vadym Yakovliev. All rights reserved.
  */
 
-import Foundation
+import UIKit
 import Alamofire
 
 
@@ -55,6 +55,7 @@ extension NetworkManager {
     }
     
     func get(_ endpoint: EndPoints,
+             viewController: LocationViewController,
              _ completion: completionHandler? = nil) {
         
         let url = baseUrl.rawValue + endpoint.rawValue
@@ -69,8 +70,7 @@ extension NetworkManager {
                     let response = Response.init(json as! JSON)
                     print("*** ======= JSON in result : \(String(describing: response.results))======= ***")
                     
-                    let vc = LocationViewController()
-                    vc.parseDrunkParties(result: response.results)
+                    viewController.parseDrunkParties(result: response.results)
                 }
             }
         }
