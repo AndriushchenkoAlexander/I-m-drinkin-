@@ -60,7 +60,35 @@ class LocationViewController: UIViewController {
     }
 
     @IBAction func checkInButton(_ sender: Any) {
+
+    }
+    
+    @IBAction func checkInWithDrink(_ sender: Any) {
+        guard let button = sender as? UIButton else {
+            return
+        }
         
+        switch button.tag {
+        case 1:
+           NetworkManager.sharedManager.post(.drunk, <#T##parameters: JSON?##JSON?#>)
+        case 2:
+            
+        case 3:
+            
+        case 4:
+            
+        case 5:
+            
+        case 6:
+            
+        case 7:
+            
+        case 8:
+            
+        default:
+            print("Error used checkInWithDrink")
+            return
+        }
     }
 }
 

@@ -32,41 +32,65 @@
                                 <rect key="frame" x="18" y="491" width="50" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="1-beer"/>
+                                <connections>
+                                    <action selector="checkInWithDrink:" destination="BYZ-38-t0r" eventType="touchUpInside" id="dM6-eg-77a"/>
+                                </connections>
                             </button>
                             <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kpv-dj-wuy">
                                 <rect key="frame" x="18" y="438" width="50" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="2-wine"/>
+                                <connections>
+                                    <action selector="checkInWithDrink:" destination="BYZ-38-t0r" eventType="touchUpInside" id="b9A-w2-KAQ"/>
+                                </connections>
                             </button>
                             <button opaque="NO" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AgP-xP-9a9">
                                 <rect key="frame" x="18" y="385" width="50" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="3-cola"/>
+                                <connections>
+                                    <action selector="checkInWithDrink:" destination="BYZ-38-t0r" eventType="touchUpInside" id="wyN-go-Izy"/>
+                                </connections>
                             </button>
                             <button opaque="NO" tag="4" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vcx-EY-W1A">
                                 <rect key="frame" x="18" y="332" width="50" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="4-juice"/>
+                                <connections>
+                                    <action selector="checkInWithDrink:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bcS-1N-Qz5"/>
+                                </connections>
                             </button>
                             <button opaque="NO" tag="5" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RVi-BG-4FC">
                                 <rect key="frame" x="18" y="279" width="50" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="5-whiskey"/>
+                                <connections>
+                                    <action selector="checkInWithDrink:" destination="BYZ-38-t0r" eventType="touchUpInside" id="oa8-o0-lwk"/>
+                                </connections>
                             </button>
                             <button opaque="NO" tag="6" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KOB-ru-StW">
                                 <rect key="frame" x="18" y="226" width="50" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="6-vodka"/>
+                                <connections>
+                                    <action selector="checkInWithDrink:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qfi-Jk-cf3"/>
+                                </connections>
                             </button>
                             <button opaque="NO" tag="7" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3On-78-Lte">
                                 <rect key="frame" x="18" y="173" width="50" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="7-coffee"/>
+                                <connections>
+                                    <action selector="checkInWithDrink:" destination="BYZ-38-t0r" eventType="touchUpInside" id="UbV-9j-tcc"/>
+                                </connections>
                             </button>
                             <button opaque="NO" tag="8" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3DA-HB-Ajz">
                                 <rect key="frame" x="18" y="120" width="50" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="8-cocktail"/>
+                                <connections>
+                                    <action selector="checkInWithDrink:" destination="BYZ-38-t0r" eventType="touchUpInside" id="58b-y1-oIP"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="szZ-FK-pzr">
                                 <rect key="frame" x="8" y="544" width="70" height="70"/>
