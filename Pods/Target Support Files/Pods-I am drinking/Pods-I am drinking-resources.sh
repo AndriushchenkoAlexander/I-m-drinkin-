@@ -84,8 +84,7 @@ EOM
   esac
 }
 if [[ "$CONFIGURATION" == "Debug" ]]; then
-  install_resource "${PODS_ROOT}/Appodeal/Appodeal.bundle"
-  install_resource "${PODS_ROOT}/Appodeal/APDStartAppAdapter.embeddedframework/Resources/StartApp.bundle"
+  install_resource "${PODS_ROOT}/Appodeal/APDStartAppAdapter.embeddedframework/Resources/StartApp 2.bundle"
   install_resource "${PODS_ROOT}/Appodeal/APDTwitterMoPubAdapter.embeddedframework/Resources/MPAdBrowserController.xib"
   install_resource "${PODS_ROOT}/Appodeal/APDTwitterMoPubAdapter.embeddedframework/Resources/MPCloseBtn.png"
   install_resource "${PODS_ROOT}/Appodeal/APDTwitterMoPubAdapter.embeddedframework/Resources/MPCloseBtn@2x.png"
@@ -109,8 +108,7 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_resource "${PODS_ROOT}/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Resources/GoogleMaps.bundle"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
-  install_resource "${PODS_ROOT}/Appodeal/Appodeal.bundle"
-  install_resource "${PODS_ROOT}/Appodeal/APDStartAppAdapter.embeddedframework/Resources/StartApp.bundle"
+  install_resource "${PODS_ROOT}/Appodeal/APDStartAppAdapter.embeddedframework/Resources/StartApp 2.bundle"
   install_resource "${PODS_ROOT}/Appodeal/APDTwitterMoPubAdapter.embeddedframework/Resources/MPAdBrowserController.xib"
   install_resource "${PODS_ROOT}/Appodeal/APDTwitterMoPubAdapter.embeddedframework/Resources/MPCloseBtn.png"
   install_resource "${PODS_ROOT}/Appodeal/APDTwitterMoPubAdapter.embeddedframework/Resources/MPCloseBtn@2x.png"

@@ -29,12 +29,12 @@ PODS:
     - Appodeal/Core
   - Appodeal/ZPlayAdapter (2.1.6):
     - Appodeal/Core
-  - GoogleMaps (2.4.0):
-    - GoogleMaps/Maps (= 2.4.0)
-  - GoogleMaps/Base (2.4.0)
-  - GoogleMaps/Maps (2.4.0):
+  - GoogleMaps (2.5.0):
+    - GoogleMaps/Maps (= 2.5.0)
+  - GoogleMaps/Base (2.5.0)
+  - GoogleMaps/Maps (2.5.0):
     - GoogleMaps/Base
-  - ViewAnimator (1.0.0)
+  - ViewAnimator (1.0.2)
 
 DEPENDENCIES:
   - Alamofire (~> 4.5)
@@ -45,8 +45,8 @@ DEPENDENCIES:
 SPEC CHECKSUMS:
   Alamofire: 2d95912bf4c34f164fdfc335872e8c312acaea4a
   Appodeal: a2d6f010c037b78bdd10d1bafc4572951302eb2d
-  GoogleMaps: 8436ab5d1c25e36915b2f7416d0c8e3fa2e76c61
-  ViewAnimator: ae94bb7d19728ecc061465b00f491bfd855053cd
+  GoogleMaps: c087b8e5dfe87ca6ebf59adb9b4894a4146bec4f
+  ViewAnimator: d7b18e0be98e05807f61ad886a36363727209377
 
 PODFILE CHECKSUM: 511236c18ec86deb5b2acfee64a57f327a451eb7
 
