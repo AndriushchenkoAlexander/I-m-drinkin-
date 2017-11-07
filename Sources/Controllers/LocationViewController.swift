@@ -6,7 +6,7 @@
  */
 
 import UIKit
-import Appodeal
+//import Appodeal
 import GoogleMaps
 
 
@@ -27,7 +27,7 @@ class LocationViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        NetworkManager.sharedManager.get(.activeBoozeUp, viewController: self ,nil)
+        NetworkManager.sharedManager.get(.activeBoozeUp, self ,nil)
     }
     
     func parseDrunkParties(result: Array<Any>?) {
@@ -67,37 +67,37 @@ class LocationViewController: UIViewController {
         guard let button = sender as? UIButton else {
             return
         }
-        
-        switch button.tag {
-        case 1:
-           NetworkManager.sharedManager.post(.drunk, <#T##parameters: JSON?##JSON?#>)
-        case 2:
-            
-        case 3:
-            
-        case 4:
-            
-        case 5:
-            
-        case 6:
-            
-        case 7:
-            
-        case 8:
-            
-        default:
-            print("Error used checkInWithDrink")
-            return
-        }
+//
+//        switch button.tag {
+//        case 1:
+//           NetworkManager.sharedManager.post(.drunk, <#T##parameters: JSON?##JSON?#>)
+//        case 2:
+//
+//        case 3:
+//
+//        case 4:
+//
+//        case 5:
+//
+//        case 6:
+//
+//        case 7:
+//
+//        case 8:
+//
+//        default:
+//            print("Error used checkInWithDrink")
+//            return
+//        }
     }
 }
 
 // MARK: - AppodealBannerDelegate
-extension LocationViewController: AppodealBannerDelegate {
-    func setupBanner() {
-        AdsManager.sharedManager.setBannerAndShowAD(setViewController: self)
-    }
-}
+//extension LocationViewController: AppodealBannerDelegate {
+//    func setupBanner() {
+//        AdsManager.sharedManager.setBannerAndShowAD(setViewController: self)
+//    }
+//}
 
 
 // MARK: - CLLocationManagerDelegate

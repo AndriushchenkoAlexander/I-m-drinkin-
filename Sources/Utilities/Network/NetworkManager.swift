@@ -20,59 +20,62 @@ struct Response {
 
 
 class NetworkManager {
-    typealias completionHandler = (Any, String?) -> Void
     let baseUrl = EndPoints.basePath
     
     static let sharedManager = NetworkManager()
-    
-    func saveDeviceID(json: Any?) {
-        guard let _ = DeviceID.init(json: json as! JSON) else { return }
-    }
+    private init() {}
 }
 
 
 extension NetworkManager {
-    func post(_ endpoint: EndPoints,
-              _ parameters: JSON?,
-              _ completion: completionHandler? = nil) {
+    func post(_ target: UIViewController?,
+              _ url: EndPoints,
+              _ parameters: Parameters?,
+              _ completion: @escaping (ResponseData?) -> ()) {
         
-        let url = baseUrl.rawValue + endpoint.rawValue
+        print("== POST Request to:", url)
+        print("==== with parameters:", parameters ?? "")
         
-        Alamofire.request(url, method: .post, parameters: parameters).responseJSON { response in
-            if response.result.value != nil {
-                print("======= POST Request: \(String(describing: response.request)) =======")
-                print("======= POST Response: \(String(describing: response.response)) =======")
-                print("======= POST Result: \(response.result) =======")
-                
-                if parameters == nil {
-                    if let json = response.result.value {
-                        print("======= GET JSON: \(json)")
-                        self.saveDeviceID(json: json)
-                    }
-                }
-            }
+        Alamofire.request(url,
+                          method: .post,
+                          parameters: parameters,
+                          encoding: JSONEncoding.default)
+            
+            .responseObject{ (response: DataResponse<BaseResponse>) in
+                self.setupResponse(target: target, response: response, completion: completion)
         }
     }
     
-    func get(_ endpoint: EndPoints,
-             viewController: LocationViewController,
-             _ completion: completionHandler? = nil) {
+    func get(_ target: UIViewController?,
+             _ url: EndPoints,
+             _ completion: @escaping (ResponseData?) -> ()) {
         
-        let url = baseUrl.rawValue + endpoint.rawValue
-        
-        Alamofire.request(url, method: .get).responseJSON { response in
-            if response.result.value != nil {
-                print("======= GET Request: \(String(describing: response.request)) =======")
-                print("======= GET Response: \(String(describing: response.response)) =======")
-                print("======= GET Result: \(response.result) =======")
-                
-                if let json = response.result.value {
-                    let response = Response.init(json as! JSON)
-                    print("*** ======= JSON in result : \(String(describing: response.results))======= ***")
-                    
-                    viewController.parseDrunkParties(result: response.results)
-                }
+        print("== GET Request to:", url)
+
+        Alamofire.request(url,
+                          method: .get,
+                          encoding: JSONEncoding.default)
+            
+            .responseObject { (response: DataResponse<BaseResponse>) in
+                self.setupResponse(target: target, response: response, completion: completion)
+        }
+    }
+    
+    func setupResponse(target: UIViewController?, response: DataResponse<BaseResponse>, completion: (ResponseData?) -> ()) {
+        switch response.result {
+            
+        case .success:
+            print("====== Response Result:", String(describing: (response.result.value?.success)!))
+            
+            if (response.result.value?.success)! {
+                print("====== Response data", response.result.value?.data ?? "")
+                completion(response.result.value?.data)
+            } else {
+                let message = response.result.value?.description ?? ""
+                if let target = target { Configuration.sharedInstance.showAlert(target, "Error", message, .ok) {} }
             }
+        case .failure(let error):
+            print("--== Сase ERROR Response -- !! \(error) !!")
         }
     }
 }

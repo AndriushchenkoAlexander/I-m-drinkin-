@@ -37,3 +37,8 @@ struct DeviceID {
     }
 }
 
+/*
+ func saveDeviceID(json: Any?) {
+ guard let _ = DeviceID.init(json: json as! JSON) else { return }
+ }
+ */

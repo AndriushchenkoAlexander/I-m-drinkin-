@@ -16,12 +16,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
         LocationsManager.sharedManager.locationProvideAPIKey()
-        
-        //        let adsManager = AdsManager()
-        //        adsManager.initAdsManager()
+
         
         if DeviceID.checkID() == false {
-            NetworkManager.sharedManager.post(.device, nil)
+            NetworkManager.sharedManager.post(.device, nil, <#Parameters?#>, <#(ResponseData?) -> ()#>)
         }
         print("--==** AppDelegate Device ID:  \(String(describing: DeviceID.getDeviceID()))**==--")
         
