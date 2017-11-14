@@ -8,22 +8,22 @@
 
 import UIKit
 import Alamofire
-import AlamofireObjectMapper
-
+import ObjectMapper
 
 class NetworkManager {
     static let sharedManager = NetworkManager()
     private init() {}
 }
 
-// MARK: -
-// MARK: Network layer
 
 extension NetworkManager {
+    // MARK: -
+    // MARK: POST
+    
     func post(_ target: UIViewController?,
               _ url: String,
               _ parameters: Parameters?,
-              _ completion: @escaping (Any) -> ()) {
+              _ completion: @escaping (Any?) -> ()) {
         
         print("== POST Request to:  \n", url)
         print("==== with parameters:  \n", parameters ?? "No parameters" )
@@ -38,9 +38,12 @@ extension NetworkManager {
         }
     }
     
+    // MARK: -
+    // MARK: GET
+    
     func get(_ target: UIViewController?,
              _ url: String,
-             _ completion: @escaping (Any) -> ()) {
+             _ completion: @escaping (Any?) -> ()) {
         
         print("== GET Request to:  \n", url)
         
@@ -53,23 +56,26 @@ extension NetworkManager {
         }
     }
     
+    // MARK: -
+    // MARK: Setup of Response
+    
     func setupResponse(target: UIViewController?, response: DataResponse<Any>, completion: (Any?) -> ()) {
         switch (response.result) {
             
         case .success:
-            print("====== Response Result: - > \n", String(describing: (response.result)))
+            print("====== Response Result: - > \n", response.result)
+            print("====== Response data - > \n", response.result.value ?? "NO DATA RESPONSE")
             
-            if let response = response.result.value {
-                print("====== Response data - > \n", response)
+            if let json = response.result.value {
+                let response = Mapper<BaseResponse>().map(JSONObject: json)
                 completion(response)
             }
             
         case .failure(let error):
+            print("--== Сase ERROR Response -- !! - > \n    \(error.localizedDescription) \n")
             
             if let statusCode = response.response?.statusCode {
-                
-                print("--== Сase ERROR Response -- !! - > \n    \(error.localizedDescription) \n")
-                print("--== Status Code in ERROR Response -- !! - > \n    \(String(describing: statusCode)) \n")
+                print("--== Status Code in ERROR Response -- !! - > \n    \(statusCode) \n")
                 
                 let message = error.localizedDescription + "Status code:\(statusCode)"
                 if let target = target { Configuration.sharedInstance.showAlert(target, "Error", message, .ok) {} }

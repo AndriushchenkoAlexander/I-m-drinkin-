@@ -11,8 +11,7 @@ target 'I am drinking' do
 pod 'GoogleMaps'
 pod 'Alamofire', '~> 4.5'
 pod 'ViewAnimator'
-pod 'SwiftyJSON'
-pod 'AlamofireObjectMapper', '~> 5.0'
+pod 'ObjectMapper', '~> 3.1.0'
 pod 'CFNotify'
 pod 'BulletinBoard'
 

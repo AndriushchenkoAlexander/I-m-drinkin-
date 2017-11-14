@@ -28,13 +28,14 @@ class LocationViewController: UIViewController {
         print("--==** CURRENT Device ID:  \n\(DeviceID.getDeviceID() ?? "ID is absent")**==--")
         
         NetworkManager.sharedManager.get(self, EndPoints.sharedInstance.getActiveBoozeUp()) { (response) in
-            if let drunkPartiesArray = response as? Array<Dictionary<String, Any>>  {
-                self.parseDrunkParties(result: drunkPartiesArray)
+            if let baseResponse = response as? BaseResponse {
+                print("====== LocationViewController GET results data --- >> \n \n\(baseResponse.results ?? Results()) \n \n======\n")
+                self.parseDrunkParties(result: baseResponse.results ?? Results())
             }
         }
     }
   
-    func parseDrunkParties(result: Array<Dictionary<String, Any>>) {
+    func parseDrunkParties(result: Results) {
         for drunkPartie in result {
             if let activeBoozeUp = Mapper<BoozeUp>().map(JSONObject: drunkPartie) {
                 let marker = setupMapMarker(latitude: activeBoozeUp.latitude, longitude: activeBoozeUp.longitude, drink: activeBoozeUp.drink ?? 0)
@@ -49,7 +50,7 @@ class LocationViewController: UIViewController {
     func setupMapMarker(latitude: String?, longitude: String?, drink: Int) -> GMSMarker {
         
         let drink = String(describing: drink)
-        let markerImage = (BoozeUpIconManager.init(rawValue: drink).image).withRenderingMode(.alwaysTemplate)
+        let markerImage = (BoozeUpIconManager.init(rawValue: drink).image).withRenderingMode(.automatic)
         
         let marker = GMSMarker(position: CLLocationCoordinate2D(latitude: Configuration.sharedInstance.stringToDouble(string: latitude), longitude: Configuration.sharedInstance.stringToDouble(string: longitude)))
         marker.tracksInfoWindowChanges = true
