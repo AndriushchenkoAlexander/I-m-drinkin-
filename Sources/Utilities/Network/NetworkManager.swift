@@ -8,20 +8,10 @@
 
 import UIKit
 import Alamofire
-
-
-struct Response {
-    var results: Array<Any>?
-    
-    init(_ response: JSON) {
-        results = response["results"] as? Array<Any>
-    }
-}
+import AlamofireObjectMapper
 
 
 class NetworkManager {
-    let baseUrl = EndPoints.basePath
-    
     static let sharedManager = NetworkManager()
     private init() {}
 }
@@ -29,53 +19,59 @@ class NetworkManager {
 
 extension NetworkManager {
     func post(_ target: UIViewController?,
-              _ url: EndPoints,
+              _ url: String,
               _ parameters: Parameters?,
-              _ completion: @escaping (ResponseData?) -> ()) {
+              _ completion: @escaping (Any) -> ()) {
         
-        print("== POST Request to:", url)
-        print("==== with parameters:", parameters ?? "")
+        print("== POST Request to:  ", url)
+        print("==== with parameters:  ", parameters ?? "No parameters" )
         
         Alamofire.request(url,
                           method: .post,
                           parameters: parameters,
-                          encoding: JSONEncoding.default)
+                          encoding: JSONEncoding.default).validate()
             
-            .responseObject{ (response: DataResponse<BaseResponse>) in
+            .responseJSON { response in
                 self.setupResponse(target: target, response: response, completion: completion)
         }
     }
     
     func get(_ target: UIViewController?,
-             _ url: EndPoints,
-             _ completion: @escaping (ResponseData?) -> ()) {
+             _ url: String,
+             _ completion: @escaping (Any) -> ()) {
         
-        print("== GET Request to:", url)
-
+        print("== GET Request to:  ", url)
+        
         Alamofire.request(url,
                           method: .get,
-                          encoding: JSONEncoding.default)
+                          encoding: JSONEncoding.default).validate()
             
-            .responseObject { (response: DataResponse<BaseResponse>) in
+            .responseJSON { response in
                 self.setupResponse(target: target, response: response, completion: completion)
         }
     }
     
-    func setupResponse(target: UIViewController?, response: DataResponse<BaseResponse>, completion: (ResponseData?) -> ()) {
-        switch response.result {
+    func setupResponse(target: UIViewController?, response: DataResponse<Any>, completion: (Any?) -> ()) {
+        switch (response.result) {
             
         case .success:
-            print("====== Response Result:", String(describing: (response.result.value?.success)!))
+            print("====== Response Result: - > \n", String(describing: (response.result)))
             
-            if (response.result.value?.success)! {
-                print("====== Response data", response.result.value?.data ?? "")
-                completion(response.result.value?.data)
-            } else {
-                let message = response.result.value?.description ?? ""
+            if let response = response.result.value {
+                print("====== Response data - > \n", response)
+                completion(response)
+            }
+            
+        case .failure(let error):
+            
+            if let statusCode = response.response?.statusCode {
+                
+                print("--== Сase ERROR Response -- !! - > \n    \(error.localizedDescription) \n")
+                print("--== Status Code in ERROR Response -- !! - > \n    \(String(describing: statusCode)) \n")
+                
+                let message = error.localizedDescription + "Status code:\(statusCode)"
                 if let target = target { Configuration.sharedInstance.showAlert(target, "Error", message, .ok) {} }
             }
-        case .failure(let error):
-            print("--== Сase ERROR Response -- !! \(error) !!")
         }
     }
 }

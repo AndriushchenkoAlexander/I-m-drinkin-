@@ -13,5 +13,7 @@ pod 'Alamofire', '~> 4.5'
 pod 'ViewAnimator'
 pod 'SwiftyJSON'
 pod 'AlamofireObjectMapper', '~> 5.0'
+pod 'CFNotify'
+pod 'BulletinBoard'
 
 end

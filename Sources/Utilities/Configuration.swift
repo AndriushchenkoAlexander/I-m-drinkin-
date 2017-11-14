@@ -9,9 +9,12 @@
 import UIKit
 
 
-class Configuration {
+final class Configuration {
     static let sharedInstance = Configuration()
     private init() {}
+    
+    // MARK: -
+    // MARK: Convert String to Double
     
     func stringToDouble(string: String?) -> Double {
         var newValue = 0.0
@@ -31,9 +34,11 @@ class Configuration {
                    _ buttonTitle: AlerButtonTitle,
                    completion: @escaping () -> Void) {
         //target.dismiss(animated: true, completion: nil)
+        
         let actionSheetController = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let closeAction = UIAlertAction(title: buttonTitle.rawValue, style: .default) { action -> Void in ( completion() )}
         actionSheetController.addAction(closeAction)
+        
         target.present(actionSheetController, animated: true, completion: nil)
     }
 }

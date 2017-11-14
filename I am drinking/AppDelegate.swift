@@ -6,7 +6,7 @@
  */
 
 import UIKit
-
+import ObjectMapper
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,13 +16,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
         LocationsManager.sharedManager.locationProvideAPIKey()
-
         
-        if DeviceID.checkID() == false {
-            NetworkManager.sharedManager.post(.device, nil, <#Parameters?#>, <#(ResponseData?) -> ()#>)
+        let device = DeviceID()
+        if device.checkID() == false {
+            NetworkManager.sharedManager.post(nil, EndPoints.sharedInstance.createNewDeviceID(), nil, { (response)  in
+                if let deviceID = Mapper<DeviceID>().map(JSONObject: response) {
+                    print("--==** AppDelegate - NEW Device ID:  \(deviceID.getDeviceID() ?? "ID is absent")**==--")
+                    deviceID.saveInDefaults()
+                }
+            })
         }
-        print("--==** AppDelegate Device ID:  \(String(describing: DeviceID.getDeviceID()))**==--")
-        
         return true
     }
     /*

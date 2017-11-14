@@ -8,8 +8,8 @@ PODS:
   - GoogleMaps/Base (2.5.0)
   - GoogleMaps/Maps (2.5.0):
     - GoogleMaps/Base
-  - ObjectMapper (3.0.0)
-  - SwiftyJSON (3.1.4)
+  - ObjectMapper (3.1.0)
+  - SwiftyJSON (4.0.0)
   - ViewAnimator (1.0.2)
 
 DEPENDENCIES:
@@ -23,8 +23,8 @@ SPEC CHECKSUMS:
   Alamofire: 2d95912bf4c34f164fdfc335872e8c312acaea4a
   AlamofireObjectMapper: 5fafc816351cbbc0d486611aaeba7461c0cbad49
   GoogleMaps: c087b8e5dfe87ca6ebf59adb9b4894a4146bec4f
-  ObjectMapper: 92230db59bf8f341a5c3a3cf0b9fbdde3cf0d87f
-  SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
+  ObjectMapper: 20505058f54e5c3ca69e1d6de9897d152a5369a6
+  SwiftyJSON: 070dabdcb1beb81b247c65ffa3a79dbbfb3b48aa
   ViewAnimator: d7b18e0be98e05807f61ad886a36363727209377
 
 PODFILE CHECKSUM: 05b0d8a700b3a768dcb5f7fd363d1ee63fac4512

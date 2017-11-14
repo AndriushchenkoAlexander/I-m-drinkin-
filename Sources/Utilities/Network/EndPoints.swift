@@ -9,19 +9,16 @@
 import Foundation
 
 
-enum EndPoints: String {
-    case basePath = "http://www.iamdrinking.localhost8080.pp.ua/core/api/v1.0/"
-    case device = "device/"
-    case activeBoozeUp = "drunk/active/"
-    case drunk = "drunk/"
+struct EndPoints {
+    static let sharedInstance = EndPoints()
+    private init() {}
     
-    init(rawValue: String) {
-        switch rawValue {
-        case "basePath": self = .basePath
-        case "device": self = .device
-        case "activeDevice": self = .activeBoozeUp
-        case "drunk": self = .drunk
-        default: self = .basePath
-        }
-    }
+    let baseUrl = "http://www.iamdrinking.localhost8080.pp.ua/core/api/"
+
+    // MARK: -
+    // MARK:
+    
+    func createNewDeviceID()                     -> String {    return baseUrl + "device/"                          }   // POST (empty)
+    func getActiveBoozeUp()                      -> String {    return baseUrl + "drunk/active/"                    }   // GET
+    func createBoozeUp()                         -> String {    return baseUrl + "drunk/"                           }   // POST
 }
