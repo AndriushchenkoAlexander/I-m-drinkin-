@@ -11,9 +11,13 @@ import GoogleMaps
 
 class LocationsManager {
     static let sharedManager = LocationsManager()
+    private init() {}
     //    private let locationManager = CLLocationManager()
     //    static var viewController = UIViewController()
     //    static var mapView = GMSMapView()
+    
+    // MARK: -
+    // MARK: Network layer
     
     func locationProvideAPIKey(){
         GMSServices.provideAPIKey(ApiKeys.googleMapsApiKey)

@@ -18,8 +18,6 @@ class LocationViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let deviceID = DeviceID()
-        print("--==** CURRENT Device ID:  \(deviceID.getDeviceID() ?? "ID is absent")**==--")
         
         self.setupLocationManager()
     }
@@ -27,40 +25,26 @@ class LocationViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        NetworkManager.sharedManager.get(self, EndPoints.sharedInstance.getActiveBoozeUp()) { (response) in
-            
-        }
-//            if let drunkPartiesArray = response as? Array<Any> {
-//                for drunkParties in drunkPartiesArray {
-//                    if let drunkParties = Mapper<BoozeUp>().map(JSONObject: response) {
-//                        
-//                    }
-//                }
-//            }
-        }
-
-
-    func parseDrunkParties() {
+        print("--==** CURRENT Device ID:  \n\(DeviceID.getDeviceID() ?? "ID is absent")**==--")
         
-    }
-    
-    /*
-    func parseDrunkParties(result: Array<Any>?) {
-        if result != nil {
-            for boozeUp in result! {
-                if let drunkParty = BoozeUp.init(json: boozeUp as! JSON) {
-                    let marker = setupMapMarker(latitude: drunkParty.latitude, longitude: drunkParty.longitude, drink: drunkParty.drink ?? 0)
-                    markersArray = [marker]
-                    //                    print("======= Unwrap dictionaties: \(String(describing: drunkParty))")
-                }
-            }
-            print("======= Objects in markersArray: \(String(describing: markersArray))")
-            for marker in markersArray {
-                marker.map = mapView
+        NetworkManager.sharedManager.get(self, EndPoints.sharedInstance.getActiveBoozeUp()) { (response) in
+            if let drunkPartiesArray = response as? Array<Dictionary<String, Any>>  {
+                self.parseDrunkParties(result: drunkPartiesArray)
             }
         }
     }
-    */
+  
+    func parseDrunkParties(result: Array<Dictionary<String, Any>>) {
+        for drunkPartie in result {
+            if let activeBoozeUp = Mapper<BoozeUp>().map(JSONObject: drunkPartie) {
+                let marker = setupMapMarker(latitude: activeBoozeUp.latitude, longitude: activeBoozeUp.longitude, drink: activeBoozeUp.drink ?? 0)
+                markersArray = [marker]
+            }
+        }
+        for marker in markersArray {
+            marker.map = mapView
+        }
+    }
     
     func setupMapMarker(latitude: String?, longitude: String?, drink: Int) -> GMSMarker {
         
@@ -69,7 +53,6 @@ class LocationViewController: UIViewController {
         
         let marker = GMSMarker(position: CLLocationCoordinate2D(latitude: Configuration.sharedInstance.stringToDouble(string: latitude), longitude: Configuration.sharedInstance.stringToDouble(string: longitude)))
         marker.tracksInfoWindowChanges = true
-        //        marker.title = "Hello!!"
         marker.icon = markerImage
         
         return marker

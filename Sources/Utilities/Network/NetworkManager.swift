@@ -16,6 +16,8 @@ class NetworkManager {
     private init() {}
 }
 
+// MARK: -
+// MARK: Network layer
 
 extension NetworkManager {
     func post(_ target: UIViewController?,
@@ -23,8 +25,8 @@ extension NetworkManager {
               _ parameters: Parameters?,
               _ completion: @escaping (Any) -> ()) {
         
-        print("== POST Request to:  ", url)
-        print("==== with parameters:  ", parameters ?? "No parameters" )
+        print("== POST Request to:  \n", url)
+        print("==== with parameters:  \n", parameters ?? "No parameters" )
         
         Alamofire.request(url,
                           method: .post,
@@ -40,7 +42,7 @@ extension NetworkManager {
              _ url: String,
              _ completion: @escaping (Any) -> ()) {
         
-        print("== GET Request to:  ", url)
+        print("== GET Request to:  \n", url)
         
         Alamofire.request(url,
                           method: .get,

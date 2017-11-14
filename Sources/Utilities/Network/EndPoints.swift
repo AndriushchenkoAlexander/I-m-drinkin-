@@ -16,7 +16,7 @@ struct EndPoints {
     let baseUrl = "http://www.iamdrinking.localhost8080.pp.ua/core/api/"
 
     // MARK: -
-    // MARK:
+    // MARK: POST & GET Requests
     
     func createNewDeviceID()                     -> String {    return baseUrl + "device/"                          }   // POST (empty)
     func getActiveBoozeUp()                      -> String {    return baseUrl + "drunk/active/"                    }   // GET

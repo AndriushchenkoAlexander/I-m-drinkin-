@@ -17,17 +17,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         LocationsManager.sharedManager.locationProvideAPIKey()
         
-        let device = DeviceID()
-        if device.checkID() == false {
+        if DeviceID.checkID() == false {
             NetworkManager.sharedManager.post(nil, EndPoints.sharedInstance.createNewDeviceID(), nil, { (response)  in
                 if let deviceID = Mapper<DeviceID>().map(JSONObject: response) {
-                    print("--==** AppDelegate - NEW Device ID:  \(deviceID.getDeviceID() ?? "ID is absent")**==--")
+                    print("--==** AppDelegate - NEW Device ID :  \n\(DeviceID.getDeviceID() ?? "ID is absent")**==--")
                     deviceID.saveInDefaults()
                 }
             })
         }
         return true
     }
+    
     /*
      func applicationWillResignActive(_ application: UIApplication) {
      

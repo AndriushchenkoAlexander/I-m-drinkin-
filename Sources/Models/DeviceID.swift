@@ -9,6 +9,7 @@
 import Foundation
 import ObjectMapper
 
+
 struct DeviceKey {
     static let key = "deviceID"
     static let created = "createdID"
@@ -23,10 +24,7 @@ class DeviceID: Mappable {
     var updated: String?
     var deviceIdUrl: String?
     
-    required convenience init?(map: Map) {
-        self.init()
-        self.saveInDefaults()
-    }
+    required convenience init?(map: Map) { self.init() }
     
     func mapping(map: Map) {
         deviceID      <- map["id"]
@@ -54,14 +52,14 @@ extension DeviceID {
         UserDefaults.standard.removeObject(forKey: DeviceKey.updated)
     }
     
-    func checkID() -> Bool? {
+    static func checkID() -> Bool? {
         if UserDefaults.standard.string(forKey: DeviceKey.key) != nil {
             return true
         }
         return false
     }
     
-    func getDeviceID() -> String? {
+    static func getDeviceID() -> String? {
         if let deviceID = UserDefaults.standard.string(forKey: DeviceKey.key) {
             return deviceID
         }

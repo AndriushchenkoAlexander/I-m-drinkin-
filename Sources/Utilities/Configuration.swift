@@ -24,10 +24,12 @@ final class Configuration {
         }
         return newValue
     }
-    
-    // MARK: -
-    // MARK: Show Alert View
-    
+}
+
+// MARK: -
+// MARK: Show Alert View
+
+extension Configuration {
     func showAlert(_ target: UIViewController,
                    _ title: String,
                    _ message: String,
