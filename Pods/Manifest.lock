@@ -1,32 +1,31 @@
 PODS:
   - Alamofire (4.5.1)
-  - AlamofireObjectMapper (5.0.0):
-    - Alamofire (~> 4.1)
-    - ObjectMapper (~> 3.0)
+  - BulletinBoard (1.3.0)
+  - CFNotify (1.0.1)
   - GoogleMaps (2.5.0):
     - GoogleMaps/Maps (= 2.5.0)
   - GoogleMaps/Base (2.5.0)
   - GoogleMaps/Maps (2.5.0):
     - GoogleMaps/Base
   - ObjectMapper (3.1.0)
-  - SwiftyJSON (4.0.0)
   - ViewAnimator (1.0.2)
 
 DEPENDENCIES:
   - Alamofire (~> 4.5)
-  - AlamofireObjectMapper (~> 5.0)
+  - BulletinBoard
+  - CFNotify
   - GoogleMaps
-  - SwiftyJSON
+  - ObjectMapper (~> 3.1.0)
   - ViewAnimator
 
 SPEC CHECKSUMS:
   Alamofire: 2d95912bf4c34f164fdfc335872e8c312acaea4a
-  AlamofireObjectMapper: 5fafc816351cbbc0d486611aaeba7461c0cbad49
+  BulletinBoard: 23c9d98cac654fd484d76f2a0655669974e9bd9c
+  CFNotify: b34a7989d2bafe85a6bba7543ba3a4323abc7b47
   GoogleMaps: c087b8e5dfe87ca6ebf59adb9b4894a4146bec4f
   ObjectMapper: 20505058f54e5c3ca69e1d6de9897d152a5369a6
-  SwiftyJSON: 070dabdcb1beb81b247c65ffa3a79dbbfb3b48aa
   ViewAnimator: d7b18e0be98e05807f61ad886a36363727209377
 
-PODFILE CHECKSUM: 05b0d8a700b3a768dcb5f7fd363d1ee63fac4512
+PODFILE CHECKSUM: a4828f27719d9d465699b76a3441477b1d2f8d0e
 
 COCOAPODS: 1.3.1
