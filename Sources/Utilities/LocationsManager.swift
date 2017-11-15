@@ -8,6 +8,10 @@
 import UIKit
 import GoogleMaps
 
+struct Coordinates {
+    let latitude: Double
+    let longitude: Double
+}
 
 class LocationsManager {
     static let sharedManager = LocationsManager()

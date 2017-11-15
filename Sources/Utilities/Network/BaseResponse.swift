@@ -11,13 +11,12 @@ import ObjectMapper
 
 class BaseResponse: Mappable {
     var results: Results?
+    var details: String?
     
     required convenience init?(map: Map) { self.init() }
-    
-//    init(_ response: JSON) {
-//        results = response["results"] as? Results
-//    }
+
     func mapping(map: Map) {
         results      <- map["results"]
+        details      <- map["details"]
     }
 }

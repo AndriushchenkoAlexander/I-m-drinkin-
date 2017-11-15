@@ -11,4 +11,3 @@ import Foundation
 
 typealias JSON = [String: AnyObject]
 typealias Results = Array<Dictionary<String, Any>>
-
