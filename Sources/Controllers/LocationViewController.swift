@@ -15,6 +15,7 @@ class LocationViewController: UIViewController {
     
     let locationManager = CLLocationManager()
     var markersArray = [GMSMarker]()
+    var userCoordinates: Coordinates?
     
     // MARK: -
     // MARK: UIViewController methods
@@ -22,13 +23,13 @@ class LocationViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.setupLocationManager()
+        setupLocationManager()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        print("--==** CURRENT Device ID:  \n\(DeviceID.getDeviceID() ?? "ID is absent")**==--")
+        print("--==** CURRENT Device ID:  \n\(DeviceID.getDeviceID() ?? "ID is absent") **==--")
         
         getActiveParties()
     }
@@ -54,6 +55,7 @@ class LocationViewController: UIViewController {
         let markerImage = (BoozeUpIconManager.init(rawValue: drink).image).withRenderingMode(.automatic)
         
         let marker = GMSMarker(position: CLLocationCoordinate2D(latitude: Configuration.sharedInstance.stringToDouble(string: latitude), longitude: Configuration.sharedInstance.stringToDouble(string: longitude)))
+        marker.isFlat = true
         marker.tracksInfoWindowChanges = true
         marker.icon = markerImage
         
@@ -90,16 +92,16 @@ class LocationViewController: UIViewController {
             return
         }
     }
-
+    
     // MARK: -
     // MARK: Setup local BoozeUp
     
     func setupActiveBoozeUp(drink: Int?) {
-        if let userCoordinates = setupUserLocation() {
-            let parameters = createParametersForRequest(drink: drink ?? Int(), latitude: userCoordinates.latitude, longitude: userCoordinates.longitude)
-            print("====== LocationViewController sending this data --- >> \n \n\(parameters) \n \n======\n")
-            postPartyLocationWith(parameters: parameters)
-        }
+        startUpdateLocation()
+        let parameters = createParametersForRequest(drink: drink ?? Int(), latitude: (userCoordinates?.latitude)!, longitude: (userCoordinates?.longitude)!)
+        print("====== LocationViewController sending this data --- >> \n \n\(parameters) \n \n======\n")
+        postPartyLocationWith(parameters: parameters)
+        
     }
     
     func createParametersForRequest(drink: Int, latitude: Double, longitude: Double) -> [String: Any] {
@@ -137,20 +139,22 @@ class LocationViewController: UIViewController {
     }
 }
 
-    // MARK: -
-    // MARK: - CLLocationManagerDelegate
+// MARK: -
+// MARK: - CLLocationManagerDelegate
 
 extension LocationViewController: CLLocationManagerDelegate {
     func setupLocationManager() {
-        locationManager.delegate = self
-        locationManager.desiredAccuracy = kCLLocationAccuracyBest // Use the highest-level of accuracy
-        locationManager.requestWhenInUseAuthorization()
+        if CLLocationManager.locationServicesEnabled() {
+            locationManager.delegate = self
+            locationManager.desiredAccuracy = kCLLocationAccuracyBest // Use the highest-level of accuracy
+            locationManager.requestWhenInUseAuthorization()
+        }
     }
     
     // This function is called when the user grants or does not grant you the right to determine its location
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         if status == .authorizedWhenInUse {
-            locationManager.startUpdatingLocation()
+            startUpdateLocation()
             
             mapView?.isMyLocationEnabled = true
             mapView?.settings.myLocationButton = true
@@ -159,21 +163,20 @@ extension LocationViewController: CLLocationManagerDelegate {
     
     // When update a geographic position, this delegate's method is called:
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        if let location = locations.first {
-            self.mapView?.camera = GMSCameraPosition(target: location.coordinate, zoom: 17, bearing: 0, viewingAngle: 0)
-            self.locationManager.stopUpdatingLocation()
+        if let location = locations.last {
+            mapView?.camera = GMSCameraPosition(target: location.coordinate, zoom: 17, bearing: 0, viewingAngle: 0)
+            
+            let latitude = Double(location.coordinate.latitude)
+            let longitude = Double(location.coordinate.longitude)
+            userCoordinates = Coordinates(latitude: latitude, longitude:longitude)
+            
+            locationManager.stopUpdatingLocation()
         }
     }
     
-    func setupUserLocation() -> Coordinates? {
-        let locations = [CLLocation]()
-        if let userLocation = locations.last {
-            let latitude = Double(userLocation.coordinate.latitude)
-            let longitude = Double(userLocation.coordinate.longitude)
-            let userCoordinates = Coordinates(latitude: latitude, longitude:longitude)
-            
-            return userCoordinates
+    func startUpdateLocation() {
+        if CLLocationManager.locationServicesEnabled() {
+            locationManager.startUpdatingLocation()
         }
-        return nil
     }
 }

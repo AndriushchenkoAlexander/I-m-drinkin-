@@ -77,7 +77,7 @@ extension NetworkManager {
             if let statusCode = response.response?.statusCode {
                 print("--== Status Code in ERROR Response -- !! - > \n    \(statusCode) \n")
                 
-                let message = error.localizedDescription + "Status code:\(statusCode)"
+                let message = error.localizedDescription + "\nStatus code:\(statusCode)"
                 if let target = target { Configuration.sharedInstance.showAlert(target, "Error", message, .ok) {} }
             }
         }
