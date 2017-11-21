@@ -16,6 +16,7 @@
 		766F23091F8F56770064EF77 /* Types.swift in Sources */ = {isa = PBXBuildFile; fileRef = 766F23081F8F56770064EF77 /* Types.swift */; };
 		766F613F1F973451002AF7C4 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 766F613E1F973451002AF7C4 /* Configuration.swift */; };
 		767D9A5B1FBB85C700682C88 /* BaseResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 767D9A5A1FBB85C700682C88 /* BaseResponse.swift */; };
+		768CE3811FC2D65300A192F1 /* Double+RoundPlaces.swift in Sources */ = {isa = PBXBuildFile; fileRef = 768CE3801FC2D65300A192F1 /* Double+RoundPlaces.swift */; };
 		76A7934A1F72A0F000C53BBC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76A793491F72A0F000C53BBC /* AppDelegate.swift */; };
 		76A793741F72A94700C53BBC /* LocationsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76A793701F72A31600C53BBC /* LocationsManager.swift */; };
 		76A793751F72A94A00C53BBC /* ApiKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76A7936F1F72A31600C53BBC /* ApiKeys.swift */; };
@@ -32,6 +33,7 @@
 		766F23081F8F56770064EF77 /* Types.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Types.swift; sourceTree = "<group>"; };
 		766F613E1F973451002AF7C4 /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
 		767D9A5A1FBB85C700682C88 /* BaseResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseResponse.swift; sourceTree = "<group>"; };
+		768CE3801FC2D65300A192F1 /* Double+RoundPlaces.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+RoundPlaces.swift"; sourceTree = "<group>"; };
 		76A793461F72A0F000C53BBC /* I am drinking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "I am drinking.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		76A793491F72A0F000C53BBC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		76A793551F72A0F000C53BBC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -79,6 +81,14 @@
 			path = Types;
 			sourceTree = "<group>";
 		};
+		768CE37F1FC2D5D000A192F1 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				768CE3801FC2D65300A192F1 /* Double+RoundPlaces.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		76A7933D1F72A0F000C53BBC = {
 			isa = PBXGroup;
 			children = (
@@ -121,6 +131,7 @@
 		76A793641F72A31600C53BBC /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				768CE37F1FC2D5D000A192F1 /* Extensions */,
 				766F23071F8F55100064EF77 /* Types */,
 				76A7936D1F72A31600C53BBC /* Utilities */,
 				76A793651F72A31600C53BBC /* Controllers */,
@@ -325,6 +336,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7665F3C61F9CAE9700124A18 /* NetworkManager.swift in Sources */,
+				768CE3811FC2D65300A192F1 /* Double+RoundPlaces.swift in Sources */,
 				76A793751F72A94A00C53BBC /* ApiKeys.swift in Sources */,
 				766F23091F8F56770064EF77 /* Types.swift in Sources */,
 				767D9A5B1FBB85C700682C88 /* BaseResponse.swift in Sources */,

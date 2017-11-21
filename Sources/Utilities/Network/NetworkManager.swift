@@ -31,7 +31,7 @@ extension NetworkManager {
         Alamofire.request(url,
                           method: .post,
                           parameters: parameters,
-                          encoding: JSONEncoding.default).validate()
+                          encoding: JSONEncoding.default)
             
             .responseJSON { response in
                 self.setupResponse(target: target, response: response, completion: completion)
@@ -49,7 +49,7 @@ extension NetworkManager {
         
         Alamofire.request(url,
                           method: .get,
-                          encoding: JSONEncoding.default).validate()
+                          encoding: JSONEncoding.default)
             
             .responseJSON { response in
                 self.setupResponse(target: target, response: response, completion: completion)

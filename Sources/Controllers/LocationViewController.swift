@@ -11,7 +11,10 @@ import ObjectMapper
 
 class LocationViewController: UIViewController {
     
-    @IBOutlet weak var mapView: GMSMapView?
+    @IBOutlet weak var mapView: GMSMapView!
+    @IBOutlet weak var checkInButton: UIButton!
+    @IBOutlet var checkInWithDrinks: [UIButton]!
+    
     
     let locationManager = CLLocationManager()
     var markersArray = [GMSMarker]()
@@ -55,7 +58,7 @@ class LocationViewController: UIViewController {
         let markerImage = (BoozeUpIconManager.init(rawValue: drink).image).withRenderingMode(.automatic)
         
         let marker = GMSMarker(position: CLLocationCoordinate2D(latitude: Configuration.sharedInstance.stringToDouble(string: latitude), longitude: Configuration.sharedInstance.stringToDouble(string: longitude)))
-        marker.isFlat = true
+        
         marker.tracksInfoWindowChanges = true
         marker.icon = markerImage
         
@@ -65,11 +68,13 @@ class LocationViewController: UIViewController {
     // MARK: -
     // MARK: IB Actions
     
-    @IBAction func checkInButton(_ sender: Any) {
-        
+    @IBAction func checkInButton(_ sender: UIButton) {
+        isHiddenDrinkButtons()
     }
     
     @IBAction func checkInWithDrink(_ sender: UIButton) {
+        isHiddenDrinkButtons()
+        
         switch sender.tag {
         case 1:
             setupActiveBoozeUp(drink: sender.tag)
@@ -93,6 +98,14 @@ class LocationViewController: UIViewController {
         }
     }
     
+    func isHiddenDrinkButtons() {
+        for drink in checkInWithDrinks {
+            UIView.animate(withDuration: 0.5, animations: {
+                drink.alpha = drink.alpha == 1 ? 0 : 1
+            })
+        }
+    }
+    
     // MARK: -
     // MARK: Setup local BoozeUp
     
@@ -101,7 +114,6 @@ class LocationViewController: UIViewController {
         let parameters = createParametersForRequest(drink: drink ?? Int(), latitude: (userCoordinates?.latitude)!, longitude: (userCoordinates?.longitude)!)
         print("====== LocationViewController sending this data --- >> \n \n\(parameters) \n \n======\n")
         postPartyLocationWith(parameters: parameters)
-        
     }
     
     func createParametersForRequest(drink: Int, latitude: Double, longitude: Double) -> [String: Any] {
@@ -110,8 +122,8 @@ class LocationViewController: UIViewController {
         if let deviceID = DeviceID.getDeviceID() {
             dictParameter["device"]     = deviceID
             dictParameter["drink"]      = drink
-            dictParameter["latitude"]   = latitude
-            dictParameter["longitude"]  = longitude
+            dictParameter["latitude"]   = latitude.roundTo(places: 7)
+            dictParameter["longitude"]  = longitude.roundTo(places: 7)
         }
         return dictParameter
     }
@@ -128,12 +140,15 @@ class LocationViewController: UIViewController {
         }
     }
     
-    
     func postPartyLocationWith(parameters: Dictionary<String, Any>) {
         NetworkManager.sharedManager.post(self, EndPoints.sharedInstance.createBoozeUp(), parameters, { (response) in
-            if let description = response as? BaseResponse {
-                print("====== LocationViewController POST results data --- >> \n \n\(String(describing: description.details)) \n \n======\n")
-                Configuration.sharedInstance.showAlert(self, "Warning!", description.details ?? "Something wrong!", .ok) {}
+            
+            if let response = response as? BaseResponse {
+                
+                if let details = response.details {
+                    print("====== LocationViewController POST results data --- >> \n \n\(details)) \n \n======\n")
+                    Configuration.sharedInstance.showAlert(self, "Warning!", details, .ok) {}
+                }
             }
         })
     }
