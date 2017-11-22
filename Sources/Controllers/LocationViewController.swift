@@ -35,6 +35,7 @@ class LocationViewController: UIViewController {
         print("--==** CURRENT Device ID:  \n\(DeviceID.getDeviceID() ?? "ID is absent") **==--")
         
         getActiveParties()
+        print("getActiveParties")
     }
     
     // MARK: -
@@ -49,6 +50,9 @@ class LocationViewController: UIViewController {
         }
         for marker in markersArray {
             marker.map = mapView
+            UIView.animate(withDuration: 0.7, animations: {
+                marker.opacity = 1
+            })
         }
     }
     
@@ -61,6 +65,7 @@ class LocationViewController: UIViewController {
         
         marker.tracksInfoWindowChanges = true
         marker.icon = markerImage
+        marker.opacity = 0
         
         return marker
     }
@@ -112,7 +117,6 @@ class LocationViewController: UIViewController {
     func setupActiveBoozeUp(drink: Int?) {
         startUpdateLocation()
         let parameters = createParametersForRequest(drink: drink ?? Int(), latitude: (userCoordinates?.latitude)!, longitude: (userCoordinates?.longitude)!)
-        print("====== LocationViewController sending this data --- >> \n \n\(parameters) \n \n======\n")
         postPartyLocationWith(parameters: parameters)
     }
     
@@ -154,8 +158,8 @@ class LocationViewController: UIViewController {
     }
 }
 
-// MARK: -
-// MARK: - CLLocationManagerDelegate
+    // MARK: -
+    // MARK: - CLLocationManagerDelegate
 
 extension LocationViewController: CLLocationManagerDelegate {
     func setupLocationManager() {
