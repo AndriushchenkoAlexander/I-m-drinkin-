@@ -12,11 +12,13 @@ import ObjectMapper
 class BaseResponse: Mappable {
     var results: Results?
     var details: String?
+    var deviceID: String?
     
     required convenience init?(map: Map) { self.init() }
 
     func mapping(map: Map) {
         results      <- map["results"]
         details      <- map["details"]
+        deviceID     <- map["id"]
     }
 }

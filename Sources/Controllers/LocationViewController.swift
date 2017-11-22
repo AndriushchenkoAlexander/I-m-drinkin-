@@ -25,10 +25,10 @@ class LocationViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("--==** CURRENT Device ID:  \n\(DeviceID.getDeviceID() ?? "ID is absent") **==--")
+        print("--==** CURRENT Device ID:  \n\(DeviceID.shared.loadDeviceID() ?? "ID is absent") **==--")
         
         setupLocationManager()
-        _ = Timer.scheduledTimer(timeInterval: 10, target: self, selector: #selector(self.getActiveParties), userInfo: nil, repeats: true)
+        _ = Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(self.getActiveParties), userInfo: nil, repeats: true)
     }
     
     // MARK: -
@@ -120,7 +120,7 @@ class LocationViewController: UIViewController {
     func createParametersForRequest(drink: Int, latitude: Double, longitude: Double) -> [String: Any] {
         var dictParameter: Dictionary<String, Any> = [:]
         
-        if let deviceID = DeviceID.getDeviceID() {
+        if let deviceID = DeviceID.shared.loadDeviceID() {
             dictParameter["device"]     = deviceID
             dictParameter["drink"]      = drink
             dictParameter["latitude"]   = latitude.roundTo(places: 7)

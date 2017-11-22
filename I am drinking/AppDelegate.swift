@@ -17,37 +17,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         LocationsManager.sharedManager.locationProvideAPIKey()
         
-        if DeviceID.checkID() == false {
+        if DeviceID.shared.checkID() == false {
             NetworkManager.sharedManager.post(nil, EndPoints.sharedInstance.createNewDeviceID(), nil, { (response)  in
-                if let deviceID = Mapper<DeviceID>().map(JSONObject: response) {
-                    print("--==** AppDelegate - NEW Device ID :  \n\(DeviceID.getDeviceID() ?? "ID is absent")**==--")
-                    deviceID.saveInDefaults()
+                if let response = response as? BaseResponse {
+                    if let deviceID = response.deviceID {
+                    print("--==** AppDelegate - NEW Device ID :  \n\(deviceID) \n**==--")
+                    DeviceID.shared.saveInDefaults(deviceID: deviceID)
+                    }
                 }
             })
         }
         return true
     }
-    
-    /*
-     func applicationWillResignActive(_ application: UIApplication) {
-     
-     }
-     
-     func applicationDidEnterBackground(_ application: UIApplication) {
-     
-     }
-     
-     func applicationWillEnterForeground(_ application: UIApplication) {
-     
-     }
-     
-     func applicationDidBecomeActive(_ application: UIApplication) {
-     
-     }
-     
-     func applicationWillTerminate(_ application: UIApplication) {
-     
-     }
-     */
 }
 
