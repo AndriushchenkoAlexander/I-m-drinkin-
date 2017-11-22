@@ -6,6 +6,8 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -28,74 +30,74 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="PgM-2A-YRz"/>
                                 </connections>
                             </view>
-                            <button opaque="NO" alpha="0.0" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SFM-W4-1ju">
-                                <rect key="frame" x="18" y="491" width="50" height="50"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="1-beer"/>
-                                <connections>
-                                    <action selector="checkInWithDrink:" destination="BYZ-38-t0r" eventType="touchUpInside" id="dM6-eg-77a"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" alpha="0.0" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kpv-dj-wuy">
-                                <rect key="frame" x="18" y="438" width="50" height="50"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="2-wine"/>
-                                <connections>
-                                    <action selector="checkInWithDrink:" destination="BYZ-38-t0r" eventType="touchUpInside" id="b9A-w2-KAQ"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" alpha="0.0" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AgP-xP-9a9">
-                                <rect key="frame" x="18" y="385" width="50" height="50"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="3-cola"/>
-                                <connections>
-                                    <action selector="checkInWithDrink:" destination="BYZ-38-t0r" eventType="touchUpInside" id="wyN-go-Izy"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" alpha="0.0" tag="4" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vcx-EY-W1A">
-                                <rect key="frame" x="18" y="332" width="50" height="50"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="4-juice"/>
-                                <connections>
-                                    <action selector="checkInWithDrink:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bcS-1N-Qz5"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" alpha="0.0" tag="5" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RVi-BG-4FC">
-                                <rect key="frame" x="18" y="279" width="50" height="50"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="5-whiskey"/>
-                                <connections>
-                                    <action selector="checkInWithDrink:" destination="BYZ-38-t0r" eventType="touchUpInside" id="oa8-o0-lwk"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" alpha="0.0" tag="6" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KOB-ru-StW">
-                                <rect key="frame" x="18" y="226" width="50" height="50"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="6-vodka"/>
-                                <connections>
-                                    <action selector="checkInWithDrink:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qfi-Jk-cf3"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" alpha="0.0" tag="7" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3On-78-Lte">
-                                <rect key="frame" x="18" y="173" width="50" height="50"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="7-coffee"/>
-                                <connections>
-                                    <action selector="checkInWithDrink:" destination="BYZ-38-t0r" eventType="touchUpInside" id="UbV-9j-tcc"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" alpha="0.0" tag="8" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3DA-HB-Ajz">
-                                <rect key="frame" x="18" y="120" width="50" height="50"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="8-cocktail"/>
-                                <connections>
-                                    <action selector="checkInWithDrink:" destination="BYZ-38-t0r" eventType="touchUpInside" id="58b-y1-oIP"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="szZ-FK-pzr">
-                                <rect key="frame" x="8" y="544" width="70" height="70"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="5bD-Ju-5xh">
+                                <rect key="frame" x="18" y="91" width="50" height="452.5"/>
+                                <subviews>
+                                    <button opaque="NO" alpha="0.0" tag="8" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3DA-HB-Ajz">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50.5"/>
+                                        <state key="normal" image="8-cocktail"/>
+                                        <connections>
+                                            <action selector="checkInWithDrink:" destination="BYZ-38-t0r" eventType="touchUpInside" id="58b-y1-oIP"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" alpha="0.0" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3On-78-Lte">
+                                        <rect key="frame" x="0.0" y="57.5" width="50" height="50.5"/>
+                                        <state key="normal" image="7-coffee"/>
+                                        <connections>
+                                            <action selector="checkInWithDrink:" destination="BYZ-38-t0r" eventType="touchUpInside" id="UbV-9j-tcc"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" alpha="0.0" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KOB-ru-StW">
+                                        <rect key="frame" x="0.0" y="115" width="50" height="50.5"/>
+                                        <state key="normal" image="6-vodka"/>
+                                        <connections>
+                                            <action selector="checkInWithDrink:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qfi-Jk-cf3"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" alpha="0.0" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RVi-BG-4FC">
+                                        <rect key="frame" x="0.0" y="172.5" width="50" height="50.5"/>
+                                        <state key="normal" image="5-whiskey"/>
+                                        <connections>
+                                            <action selector="checkInWithDrink:" destination="BYZ-38-t0r" eventType="touchUpInside" id="oa8-o0-lwk"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" alpha="0.0" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vcx-EY-W1A">
+                                        <rect key="frame" x="0.0" y="230" width="50" height="50"/>
+                                        <state key="normal" image="4-juice"/>
+                                        <connections>
+                                            <action selector="checkInWithDrink:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bcS-1N-Qz5"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" alpha="0.0" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AgP-xP-9a9">
+                                        <rect key="frame" x="0.0" y="287" width="50" height="50.5"/>
+                                        <state key="normal" image="3-cola"/>
+                                        <connections>
+                                            <action selector="checkInWithDrink:" destination="BYZ-38-t0r" eventType="touchUpInside" id="wyN-go-Izy"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" alpha="0.0" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kpv-dj-wuy">
+                                        <rect key="frame" x="0.0" y="344.5" width="50" height="50.5"/>
+                                        <state key="normal" image="2-wine"/>
+                                        <connections>
+                                            <action selector="checkInWithDrink:" destination="BYZ-38-t0r" eventType="touchUpInside" id="b9A-w2-KAQ"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" alpha="0.0" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SFM-W4-1ju">
+                                        <rect key="frame" x="0.0" y="402" width="50" height="50.5"/>
+                                        <state key="normal" image="1-beer"/>
+                                        <connections>
+                                            <action selector="checkInWithDrink:" destination="BYZ-38-t0r" eventType="touchUpInside" id="dM6-eg-77a"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="70" id="Bm9-dF-eke"/>
+                                    <constraint firstAttribute="width" secondItem="5bD-Ju-5xh" secondAttribute="height" multiplier="1/9" id="5C1-gl-nWg"/>
+                                </constraints>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="szZ-FK-pzr">
+                                <rect key="frame" x="8" y="551.5" width="70" height="70.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="szZ-FK-pzr" secondAttribute="height" multiplier="1:1" id="Dzt-km-ubl"/>
                                 </constraints>
                                 <state key="normal" image="CheckInButton"/>
                                 <connections>
@@ -105,31 +107,36 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="szZ-FK-pzr" secondAttribute="bottom" priority="750" constant="45" id="4wp-bO-v31"/>
                             <constraint firstItem="UOu-Sj-J93" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="B3o-CN-ahF"/>
                             <constraint firstItem="UOu-Sj-J93" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="C1z-U1-kGg"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="szZ-FK-pzr" secondAttribute="bottom" constant="53" id="cfD-9K-nra"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" relation="lessThanOrEqual" secondItem="szZ-FK-pzr" secondAttribute="bottom" constant="45" id="Efh-eO-JbX"/>
+                            <constraint firstItem="szZ-FK-pzr" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="8" id="Umo-SW-THy"/>
+                            <constraint firstItem="5bD-Ju-5xh" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="50:375" id="XIL-12-zDH"/>
+                            <constraint firstItem="szZ-FK-pzr" firstAttribute="centerX" secondItem="5bD-Ju-5xh" secondAttribute="centerX" id="eqe-a3-XS0"/>
                             <constraint firstItem="UOu-Sj-J93" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="pOn-c7-53v"/>
+                            <constraint firstItem="szZ-FK-pzr" firstAttribute="top" secondItem="5bD-Ju-5xh" secondAttribute="bottom" constant="8" id="pfh-ho-qEh"/>
                             <constraint firstItem="UOu-Sj-J93" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="q3Q-ab-Hdz"/>
-                            <constraint firstItem="szZ-FK-pzr" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="524" id="uNz-dD-dpH"/>
-                            <constraint firstItem="szZ-FK-pzr" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="8" id="w5v-O1-kn5"/>
+                            <constraint firstItem="szZ-FK-pzr" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="70:375" id="s6l-Re-FWN"/>
+                            <constraint firstItem="5bD-Ju-5xh" firstAttribute="top" relation="greaterThanOrEqual" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="wtf-KW-scv"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="checkInButton" destination="szZ-FK-pzr" id="IjV-H8-9xc"/>
                         <outlet property="mapView" destination="UOu-Sj-J93" id="5Bn-gH-EMo"/>
-                        <outletCollection property="checkInWithDrinks" destination="SFM-W4-1ju" collectionClass="NSMutableArray" id="JvP-Cv-h29"/>
-                        <outletCollection property="checkInWithDrinks" destination="kpv-dj-wuy" collectionClass="NSMutableArray" id="whk-ho-lY9"/>
-                        <outletCollection property="checkInWithDrinks" destination="AgP-xP-9a9" collectionClass="NSMutableArray" id="dMz-c3-5Di"/>
-                        <outletCollection property="checkInWithDrinks" destination="Vcx-EY-W1A" collectionClass="NSMutableArray" id="EnB-Hh-R7U"/>
-                        <outletCollection property="checkInWithDrinks" destination="RVi-BG-4FC" collectionClass="NSMutableArray" id="IPs-Zf-FNX"/>
-                        <outletCollection property="checkInWithDrinks" destination="KOB-ru-StW" collectionClass="NSMutableArray" id="Zgz-Am-cen"/>
-                        <outletCollection property="checkInWithDrinks" destination="3On-78-Lte" collectionClass="NSMutableArray" id="x6d-l2-u3B"/>
                         <outletCollection property="checkInWithDrinks" destination="3DA-HB-Ajz" collectionClass="NSMutableArray" id="VDo-Qo-Owv"/>
+                        <outletCollection property="checkInWithDrinks" destination="3On-78-Lte" collectionClass="NSMutableArray" id="x6d-l2-u3B"/>
+                        <outletCollection property="checkInWithDrinks" destination="KOB-ru-StW" collectionClass="NSMutableArray" id="Zgz-Am-cen"/>
+                        <outletCollection property="checkInWithDrinks" destination="RVi-BG-4FC" collectionClass="NSMutableArray" id="IPs-Zf-FNX"/>
+                        <outletCollection property="checkInWithDrinks" destination="Vcx-EY-W1A" collectionClass="NSMutableArray" id="EnB-Hh-R7U"/>
+                        <outletCollection property="checkInWithDrinks" destination="AgP-xP-9a9" collectionClass="NSMutableArray" id="dMz-c3-5Di"/>
+                        <outletCollection property="checkInWithDrinks" destination="kpv-dj-wuy" collectionClass="NSMutableArray" id="whk-ho-lY9"/>
+                        <outletCollection property="checkInWithDrinks" destination="SFM-W4-1ju" collectionClass="NSMutableArray" id="JvP-Cv-h29"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="117.59999999999999" y="123.68815592203899"/>
+            <point key="canvasLocation" x="85.599999999999994" y="119.1904047976012"/>
         </scene>
     </scenes>
     <resources>

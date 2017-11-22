@@ -25,49 +25,10 @@ class LocationViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        setupLocationManager()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
         print("--==** CURRENT Device ID:  \n\(DeviceID.getDeviceID() ?? "ID is absent") **==--")
         
-        getActiveParties()
-        print("getActiveParties")
-    }
-    
-    // MARK: -
-    // MARK: Create Markers methods
-    
-    func parseDrunkParties(result: Results) {
-        for drunkPartie in result {
-            if let activeBoozeUp = Mapper<BoozeUp>().map(JSONObject: drunkPartie) {
-                let marker = setupMapMarker(latitude: activeBoozeUp.latitude, longitude: activeBoozeUp.longitude, drink: activeBoozeUp.drink ?? 0)
-                markersArray += [marker]
-            }
-        }
-        for marker in markersArray {
-            marker.map = mapView
-            UIView.animate(withDuration: 0.7, animations: {
-                marker.opacity = 1
-            })
-        }
-    }
-    
-    func setupMapMarker(latitude: String?, longitude: String?, drink: Int) -> GMSMarker {
-        
-        let drink = String(describing: drink)
-        let markerImage = (BoozeUpIconManager.init(rawValue: drink).image).withRenderingMode(.automatic)
-        
-        let marker = GMSMarker(position: CLLocationCoordinate2D(latitude: Configuration.sharedInstance.stringToDouble(string: latitude), longitude: Configuration.sharedInstance.stringToDouble(string: longitude)))
-        
-        marker.tracksInfoWindowChanges = true
-        marker.icon = markerImage
-        marker.opacity = 0
-        
-        return marker
+        setupLocationManager()
+        _ = Timer.scheduledTimer(timeInterval: 10, target: self, selector: #selector(self.getActiveParties), userInfo: nil, repeats: true)
     }
     
     // MARK: -
@@ -112,12 +73,48 @@ class LocationViewController: UIViewController {
     }
     
     // MARK: -
+    // MARK: Create Markers methods
+    
+    func parseDrunkParties(result: Results) {
+        for drunkPartie in result {
+            if let activeBoozeUp = Mapper<BoozeUp>().map(JSONObject: drunkPartie) {
+                let marker = setupMapMarker(latitude: activeBoozeUp.latitude, longitude: activeBoozeUp.longitude, drink: activeBoozeUp.drink ?? 0)
+                markersArray += [marker]
+            }
+        }
+        
+        mapView.clear()
+        
+        for marker in markersArray {
+            marker.map = mapView
+            UIView.animate(withDuration: 0.7, animations: {
+                marker.opacity = 1
+            })
+        }
+    }
+    
+    func setupMapMarker(latitude: String?, longitude: String?, drink: Int) -> GMSMarker {
+        
+        let drink = String(describing: drink)
+        let markerImage = (BoozeUpIconManager.init(rawValue: drink).image).withRenderingMode(.automatic)
+        
+        let marker = GMSMarker(position: CLLocationCoordinate2D(latitude: Configuration.sharedInstance.stringToDouble(string: latitude), longitude: Configuration.sharedInstance.stringToDouble(string: longitude)))
+        
+        marker.tracksInfoWindowChanges = true
+        marker.icon = markerImage
+        marker.opacity = 0
+        
+        return marker
+    }
+    
+    // MARK: -
     // MARK: Setup local BoozeUp
     
     func setupActiveBoozeUp(drink: Int?) {
         startUpdateLocation()
         let parameters = createParametersForRequest(drink: drink ?? Int(), latitude: (userCoordinates?.latitude)!, longitude: (userCoordinates?.longitude)!)
         postPartyLocationWith(parameters: parameters)
+        getActiveParties()
     }
     
     func createParametersForRequest(drink: Int, latitude: Double, longitude: Double) -> [String: Any] {
@@ -135,7 +132,7 @@ class LocationViewController: UIViewController {
     // MARK: -
     // MARK: Network requests
     
-    func getActiveParties() {
+    @objc func getActiveParties() {
         NetworkManager.sharedManager.get(self, EndPoints.sharedInstance.getActiveBoozeUp()) { (response) in
             if let baseResponse = response as? BaseResponse {
                 print("====== LocationViewController GET results data --- >> \n \n\(baseResponse.results ?? Results()) \n \n======\n")
@@ -182,7 +179,7 @@ extension LocationViewController: CLLocationManagerDelegate {
     
     // When update a geographic position, this delegate's method is called:
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        if let location = locations.last {
+        if let location = locations.first {
             mapView?.camera = GMSCameraPosition(target: location.coordinate, zoom: 17, bearing: 0, viewingAngle: 0)
             
             let latitude = Double(location.coordinate.latitude)
