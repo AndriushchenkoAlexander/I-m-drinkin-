@@ -10,9 +10,7 @@ target 'I am drinking' do
 
 pod 'GoogleMaps'
 pod 'Alamofire', '~> 4.5'
-pod 'ViewAnimator'
 pod 'ObjectMapper', '~> 3.1.0'
 pod 'CFNotify'
-pod 'BulletinBoard'
 
 end
