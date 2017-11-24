@@ -95,15 +95,17 @@ class LocationViewController: UIViewController {
     
     func setupMapMarker(latitude: String?, longitude: String?, drink: Int) -> GMSMarker {
         
-        let drink = String(describing: drink)
-        let markerImage = (BoozeUpIconManager.init(rawValue: drink).image).withRenderingMode(.automatic)
+        let drink = String(drink)
         
         let marker = GMSMarker(position: CLLocationCoordinate2D(latitude: Configuration.sharedInstance.stringToDouble(string: latitude), longitude: Configuration.sharedInstance.stringToDouble(string: longitude)))
         
+        if let image = UIImagePNGRepresentation(BoozeUpIconManager.init(rawValue: drink).image.withRenderingMode(.automatic)) {
+            let markerImage = UIImage(data: image, scale: 3.5)
+            marker.icon = markerImage
+            marker.opacity = 0
+        }
         marker.tracksInfoWindowChanges = true
-        marker.icon = markerImage
-        marker.opacity = 0
-        
+
         return marker
     }
     
@@ -112,7 +114,7 @@ class LocationViewController: UIViewController {
     
     func setupActiveBoozeUp(drink: Int?) {
         startUpdateLocation()
-        let parameters = createParametersForRequest(drink: drink ?? Int(), latitude: (userCoordinates?.latitude)!, longitude: (userCoordinates?.longitude)!)
+        let parameters = createParametersForRequest(drink: drink ?? Int(), latitude: (userCoordinates?.latitude) ?? Double(), longitude: (userCoordinates?.longitude) ?? Double())
         postPartyLocationWith(parameters: parameters)
         getActiveParties()
     }
@@ -123,8 +125,8 @@ class LocationViewController: UIViewController {
         if let deviceID = DeviceID.shared.loadDeviceID() {
             dictParameter["device"]     = deviceID
             dictParameter["drink"]      = drink
-            dictParameter["latitude"]   = latitude.roundTo(places: 7)
-            dictParameter["longitude"]  = longitude.roundTo(places: 7)
+            dictParameter["latitude"]   = Configuration.sharedInstance.stringCoordinates(double: latitude)
+            dictParameter["longitude"]  = Configuration.sharedInstance.stringCoordinates(double: longitude)
         }
         return dictParameter
     }
@@ -155,8 +157,8 @@ class LocationViewController: UIViewController {
     }
 }
 
-    // MARK: -
-    // MARK: - CLLocationManagerDelegate
+// MARK: -
+// MARK: - CLLocationManagerDelegate
 
 extension LocationViewController: CLLocationManagerDelegate {
     func setupLocationManager() {

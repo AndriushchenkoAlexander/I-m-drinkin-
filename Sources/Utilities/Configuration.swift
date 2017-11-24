@@ -24,6 +24,10 @@ final class Configuration {
         }
         return newValue
     }
+    
+    func stringCoordinates(double: Double) -> String {
+        return String(format: "%.7f", double)
+    }
 }
 
 // MARK: -
