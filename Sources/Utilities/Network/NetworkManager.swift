@@ -25,8 +25,8 @@ extension NetworkManager {
               _ parameters: Parameters?,
               _ completion: @escaping (Any?) -> ()) {
         
-        print("== POST Request to:  \n", url)
-        print("==== with parameters:  \n", parameters ?? "No parameters" )
+//        print("== POST Request to:  \n", url)
+//        print("==== with parameters:  \n", parameters ?? "No parameters" )
         
         Alamofire.request(url,
                           method: .post,
@@ -45,7 +45,7 @@ extension NetworkManager {
              _ url: String,
              _ completion: @escaping (Any?) -> ()) {
         
-        print("== GET Request to:  \n", url)
+//        print("== GET Request to:  \n", url)
         
         Alamofire.request(url,
                           method: .get,
@@ -63,8 +63,8 @@ extension NetworkManager {
         switch (response.result) {
             
         case .success:
-            print("====== Response Result: - > \n", response.result)
-            print("====== Response data - > \n", response.result.value ?? "NO DATA RESPONSE")
+//            print("====== Response Result: - > \n", response.result)
+//            print("====== Response data - > \n", response.result.value ?? "NO DATA RESPONSE")
             
             if let json = response.result.value {
                 let response = Mapper<BaseResponse>().map(JSONObject: json)
@@ -78,7 +78,8 @@ extension NetworkManager {
                 print("--== Status Code in ERROR Response -- !! - > \n    \(statusCode) \n")
                 
                 let message = error.localizedDescription + "\nStatus code:\(statusCode)"
-                if let target = target { Configuration.sharedInstance.showAlert(target, "Error", message, .ok) {} }
+                if let target = target { Configuration.sharedInstance.showNotifyView(target, "Error", message) {} }
+//                if let target = target { Configuration.sharedInstance.showAlert(target, "Error", message, .ok) {} }
             }
         }
     }

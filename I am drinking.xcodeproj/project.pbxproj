@@ -16,6 +16,7 @@
 		766F23091F8F56770064EF77 /* Types.swift in Sources */ = {isa = PBXBuildFile; fileRef = 766F23081F8F56770064EF77 /* Types.swift */; };
 		766F613F1F973451002AF7C4 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 766F613E1F973451002AF7C4 /* Configuration.swift */; };
 		767D9A5B1FBB85C700682C88 /* BaseResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 767D9A5A1FBB85C700682C88 /* BaseResponse.swift */; };
+		76896BC31FE2D8AD00009094 /* DescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76896BC21FE2D8AD00009094 /* DescriptionView.swift */; };
 		76A7934A1F72A0F000C53BBC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76A793491F72A0F000C53BBC /* AppDelegate.swift */; };
 		76A793741F72A94700C53BBC /* LocationsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76A793701F72A31600C53BBC /* LocationsManager.swift */; };
 		76A793751F72A94A00C53BBC /* ApiKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76A7936F1F72A31600C53BBC /* ApiKeys.swift */; };
@@ -32,6 +33,7 @@
 		766F23081F8F56770064EF77 /* Types.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Types.swift; sourceTree = "<group>"; };
 		766F613E1F973451002AF7C4 /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
 		767D9A5A1FBB85C700682C88 /* BaseResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseResponse.swift; sourceTree = "<group>"; };
+		76896BC21FE2D8AD00009094 /* DescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionView.swift; sourceTree = "<group>"; };
 		76A793461F72A0F000C53BBC /* I am drinking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "I am drinking.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		76A793491F72A0F000C53BBC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		76A793551F72A0F000C53BBC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -79,6 +81,14 @@
 			path = Types;
 			sourceTree = "<group>";
 		};
+		76896BC11FE2D88500009094 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				76896BC21FE2D8AD00009094 /* DescriptionView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		76A7933D1F72A0F000C53BBC = {
 			isa = PBXGroup;
 			children = (
@@ -121,10 +131,11 @@
 		76A793641F72A31600C53BBC /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				766F23071F8F55100064EF77 /* Types */,
-				76A7936D1F72A31600C53BBC /* Utilities */,
+				76896BC11FE2D88500009094 /* Views */,
 				76A793651F72A31600C53BBC /* Controllers */,
 				76A793671F72A31600C53BBC /* Models */,
+				76A7936D1F72A31600C53BBC /* Utilities */,
+				766F23071F8F55100064EF77 /* Types */,
 				76A7936B1F72A31600C53BBC /* Resources */,
 			);
 			path = Sources;
@@ -197,6 +208,7 @@
 				76A793441F72A0F000C53BBC /* Resources */,
 				95F91C31D3DA33F3D7B60A42 /* [CP] Embed Pods Frameworks */,
 				9F67B7B6D44D6499832A6E1E /* [CP] Copy Pods Resources */,
+				765947B61FCAB10D0071108D /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -273,6 +285,19 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		765947B61FCAB10D0071108D /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "./Fabric.framework/run f35609409ab7ca5f06c84f53822896cdf0e92084 8ef18bdd2144a4067bb18d83e09addc246ece28c166aa7722a2fdeb9e54c38ba";
+		};
 		95F91C31D3DA33F3D7B60A42 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -322,6 +347,7 @@
 			files = (
 				7665F3C61F9CAE9700124A18 /* NetworkManager.swift in Sources */,
 				76A793751F72A94A00C53BBC /* ApiKeys.swift in Sources */,
+				76896BC31FE2D8AD00009094 /* DescriptionView.swift in Sources */,
 				766F23091F8F56770064EF77 /* Types.swift in Sources */,
 				767D9A5B1FBB85C700682C88 /* BaseResponse.swift in Sources */,
 				76A793741F72A94700C53BBC /* LocationsManager.swift in Sources */,
@@ -478,6 +504,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 4PU97M7F5F;
 				INFOPLIST_FILE = "I am drinking/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
@@ -495,6 +522,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 4PU97M7F5F;
 				INFOPLIST_FILE = "I am drinking/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;

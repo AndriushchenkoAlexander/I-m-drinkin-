@@ -7,11 +7,11 @@
 //
 
 import UIKit
-
+import CFNotify
 
 final class Configuration {
     static let sharedInstance = Configuration()
-    private init() {}
+    private init() { CFNotify.delegate = self as? CFNotifyDelegate }
     
     // MARK: -
     // MARK: Convert String to Double
@@ -34,22 +34,26 @@ final class Configuration {
 // MARK: Show Alert View
 
 extension Configuration {
-    func showAlert(_ target: UIViewController,
-                   _ title: String,
-                   _ message: String,
-                   _ buttonTitle: AlerButtonTitle,
-                   completion: @escaping () -> Void) {
-        //target.dismiss(animated: true, completion: nil)
+    func showNotifyView(_ target: UIViewController,
+                        _ title: String,
+                        _ message: String,
+                        _ completion: @escaping () -> Void) {
         
-        let actionSheetController = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        let closeAction = UIAlertAction(title: buttonTitle.rawValue, style: .default) { action -> Void in ( completion() )}
-        actionSheetController.addAction(closeAction)
+        let customCyberView = CFNotifyView.cyberWith(title: title,
+                                                     titleFont: .boldSystemFont(ofSize: 18),
+                                                     titleColor: UIColor(red:0.02, green:0.13, blue:0.14, alpha:1.0),
+                                                     body: message,
+                                                     bodyFont: .boldSystemFont(ofSize: 16),
+                                                     bodyColor: UIColor(red:0.07, green:0.32, blue:0.61, alpha:1.0),
+                                                     image: nil,
+                                                     backgroundColor: UIColor(red:0.47, green:0.78, blue:0.83, alpha:1.0),
+                                                     blurStyle: UIBlurEffectStyle.dark)
         
-        target.present(actionSheetController, animated: true, completion: nil)
+        var cyberViewConfig = CFNotify.Config()
+        cyberViewConfig.initPosition = .top(.random)
+        cyberViewConfig.appearPosition = .center
+        cyberViewConfig.hideTime = .custom(seconds: 3)
+        
+        CFNotify.present(config: cyberViewConfig, view: customCyberView)
     }
-}
-
-enum AlerButtonTitle: String {
-    case close = "Close"
-    case ok = "OK"
 }

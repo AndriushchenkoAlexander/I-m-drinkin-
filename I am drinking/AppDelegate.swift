@@ -7,6 +7,8 @@
 
 import UIKit
 import ObjectMapper
+import Fabric
+import Crashlytics
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -14,6 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        Fabric.with([Crashlytics.self])
         
         LocationsManager.sharedManager.locationProvideAPIKey()
         
@@ -21,8 +24,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             NetworkManager.sharedManager.post(nil, EndPoints.sharedInstance.createNewDeviceID(), nil, { (response)  in
                 if let response = response as? BaseResponse {
                     if let deviceID = response.deviceID {
-                    print("--==** AppDelegate - NEW Device ID :  \n\(deviceID) \n**==--")
-                    DeviceID.shared.saveInDefaults(deviceID: deviceID)
+                        print("--==** AppDelegate - NEW Device ID :  \n\(deviceID) \n**==--")
+                        DeviceID.shared.saveInDefaults(deviceID: deviceID)
                     }
                 }
             })

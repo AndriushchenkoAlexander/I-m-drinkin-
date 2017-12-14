@@ -12,5 +12,10 @@ pod 'GoogleMaps'
 pod 'Alamofire', '~> 4.5'
 pod 'ObjectMapper', '~> 3.1.0'
 pod 'CFNotify'
+pod 'Fabric'
+pod 'Crashlytics', '~>  3.9'
+#    pod 'FacebookCore'
+#    pod 'FacebookLogin'
+#    pod 'FacebookShare'
 
 end

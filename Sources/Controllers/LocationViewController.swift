@@ -9,12 +9,14 @@ import UIKit
 import GoogleMaps
 import ObjectMapper
 
+
 class LocationViewController: UIViewController {
     
     @IBOutlet weak var mapView: GMSMapView!
     @IBOutlet weak var checkInButton: UIButton!
     @IBOutlet var checkInWithDrinks: [UIButton]!
     
+    @IBOutlet var descriptionView: UIVisualEffectView!
     
     let locationManager = CLLocationManager()
     var markersArray = [GMSMarker]()
@@ -27,8 +29,29 @@ class LocationViewController: UIViewController {
         super.viewDidLoad()
         print("--==** CURRENT Device ID:  \n\(DeviceID.shared.loadDeviceID() ?? "ID is absent") **==--")
         
+        addLongPress()
         setupLocationManager()
-        _ = Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(self.getActiveParties), userInfo: nil, repeats: true)
+        
+        _ = Timer.scheduledTimer(timeInterval: 4, target: self, selector: #selector(self.getActiveParties), userInfo: nil, repeats: true)
+    }
+    
+    // MARK: -
+    // MARK: UILongPressGestureRecognizer
+    
+    func addLongPress(){
+        for btn in checkInWithDrinks {
+            let longPressGesture:UILongPressGestureRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(longPress))
+            longPressGesture.minimumPressDuration = 1.0
+            btn.addGestureRecognizer(longPressGesture)
+        }
+    }
+    
+    @objc func longPress(gesture: UILongPressGestureRecognizer) {
+        if gesture.state == UIGestureRecognizerState.ended {
+            self.descriptionView.frame = self.view.frame
+            self.view.addSubview(descriptionView)
+            print("--==**  \n Long Press \(gesture) \n **==--")
+        }
     }
     
     // MARK: -
@@ -63,7 +86,7 @@ class LocationViewController: UIViewController {
             return
         }
     }
-    
+
     func isHiddenDrinkButtons() {
         for drink in checkInWithDrinks {
             UIView.animate(withDuration: 0.5, animations: {
@@ -76,9 +99,11 @@ class LocationViewController: UIViewController {
     // MARK: Create Markers methods
     
     func parseDrunkParties(result: Results) {
+        markersArray.removeAll()
+        
         for drunkPartie in result {
             if let activeBoozeUp = Mapper<BoozeUp>().map(JSONObject: drunkPartie) {
-                let marker = setupMapMarker(latitude: activeBoozeUp.latitude, longitude: activeBoozeUp.longitude, drink: activeBoozeUp.drink ?? 0)
+                let marker = setupMapMarkerWith(activeBoozeUp)
                 markersArray += [marker]
             }
         }
@@ -87,22 +112,24 @@ class LocationViewController: UIViewController {
         
         for marker in markersArray {
             marker.map = mapView
-            UIView.animate(withDuration: 0.7, animations: {
-                marker.opacity = 1
-            })
+//            UIView.animate(withDuration: 0.7, animations: {
+//                marker.opacity = 1
+//            })
         }
     }
     
-    func setupMapMarker(latitude: String?, longitude: String?, drink: Int) -> GMSMarker {
+    func setupMapMarkerWith(_ boozeUp: BoozeUp) -> GMSMarker {
         
-        let drink = String(drink)
+        let drink = String(boozeUp.drink ?? Int())
         
-        let marker = GMSMarker(position: CLLocationCoordinate2D(latitude: Configuration.sharedInstance.stringToDouble(string: latitude), longitude: Configuration.sharedInstance.stringToDouble(string: longitude)))
+        let marker = GMSMarker(position: CLLocationCoordinate2D(latitude: Configuration.sharedInstance.stringToDouble(string: boozeUp.latitude), longitude: Configuration.sharedInstance.stringToDouble(string: boozeUp.longitude)))
         
-        if let image = UIImagePNGRepresentation(BoozeUpIconManager.init(rawValue: drink).image.withRenderingMode(.automatic)) {
+        if let image = UIImagePNGRepresentation(BoozeUpIconManager(rawValue: drink).image.withRenderingMode(.automatic)) {
             let markerImage = UIImage(data: image, scale: 3.5)
             marker.icon = markerImage
-            marker.opacity = 0
+            marker.title = boozeUp.txtDrink
+            marker.snippet = boozeUp.description
+//            marker.opacity = 0
         }
         marker.tracksInfoWindowChanges = true
 
@@ -122,11 +149,14 @@ class LocationViewController: UIViewController {
     func createParametersForRequest(drink: Int, latitude: Double, longitude: Double) -> [String: Any] {
         var dictParameter: Dictionary<String, Any> = [:]
         
+        let text = String()
+        
         if let deviceID = DeviceID.shared.loadDeviceID() {
-            dictParameter["device"]     = deviceID
-            dictParameter["drink"]      = drink
-            dictParameter["latitude"]   = Configuration.sharedInstance.stringCoordinates(double: latitude)
-            dictParameter["longitude"]  = Configuration.sharedInstance.stringCoordinates(double: longitude)
+            dictParameter["device"]      = deviceID
+            dictParameter["drink"]       = drink
+            dictParameter["latitude"]    = Configuration.sharedInstance.stringCoordinates(double: latitude)
+            dictParameter["longitude"]   = Configuration.sharedInstance.stringCoordinates(double: longitude)
+            dictParameter["description"] = text
         }
         return dictParameter
     }
@@ -137,7 +167,7 @@ class LocationViewController: UIViewController {
     @objc func getActiveParties() {
         NetworkManager.sharedManager.get(self, EndPoints.sharedInstance.getActiveBoozeUp()) { (response) in
             if let baseResponse = response as? BaseResponse {
-                print("====== LocationViewController GET results data --- >> \n \n\(baseResponse.results ?? Results()) \n \n======\n")
+//                print("====== LocationViewController GET results data --- >> \n \n\(baseResponse.results ?? Results()) \n \n======\n")
                 self.parseDrunkParties(result: baseResponse.results ?? Results())
             }
         }
@@ -149,8 +179,8 @@ class LocationViewController: UIViewController {
             if let response = response as? BaseResponse {
                 
                 if let details = response.details {
-                    print("====== LocationViewController POST results data --- >> \n \n\(details)) \n \n======\n")
-                    Configuration.sharedInstance.showAlert(self, "Warning!", details, .ok) {}
+//                    print("====== LocationViewController POST results data --- >> \n \n\(details)) \n \n======\n")
+                    Configuration.sharedInstance.showNotifyView(self, "Warning!", details) {}
                 }
             }
         })
