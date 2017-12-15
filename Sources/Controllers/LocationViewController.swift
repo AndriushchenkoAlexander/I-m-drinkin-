@@ -16,7 +16,15 @@ class LocationViewController: UIViewController {
     @IBOutlet weak var checkInButton: UIButton!
     @IBOutlet var checkInWithDrinks: [UIButton]!
     
+    // MARK: -
+    // MARK: - UIVisualEffectView
+    
     @IBOutlet var descriptionView: UIVisualEffectView!
+    @IBOutlet weak var descriptionTextView: UITextView!
+    @IBOutlet weak var sendButton: UIButton!
+    
+    // MARK: -
+    // MARK: - Properties
     
     let locationManager = CLLocationManager()
     var markersArray = [GMSMarker]()
@@ -38,24 +46,32 @@ class LocationViewController: UIViewController {
     // MARK: -
     // MARK: UILongPressGestureRecognizer
     
-    func addLongPress(){
+    func addLongPress() {
         for btn in checkInWithDrinks {
-            let longPressGesture:UILongPressGestureRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(longPress))
-            longPressGesture.minimumPressDuration = 1.0
+            let longPressGesture: UILongPressGestureRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(longPress))
+            longPressGesture.minimumPressDuration = 1.5
             btn.addGestureRecognizer(longPressGesture)
+            sendButton.tag = btn.tag
         }
     }
     
     @objc func longPress(gesture: UILongPressGestureRecognizer) {
-        if gesture.state == UIGestureRecognizerState.ended {
-            self.descriptionView.frame = self.view.frame
-            self.view.addSubview(descriptionView)
-            print("--==**  \n Long Press \(gesture) \n **==--")
+        if gesture.state == UIGestureRecognizerState.began {
+            descriptionViewAppearance()
+            
+            Configuration.sharedInstance.showNotifyView(self, "Добавьте подробностей", "Например: ваше имя, название заведения, локация внутри заведения, описание компании и т.д.", "top") {}
         }
     }
     
     // MARK: -
     // MARK: IB Actions
+    
+    @IBAction func sendDescription(_ sender: UIButton) {
+        if let text = descriptionTextView.text {
+            setupActiveBoozeUp(drink: sender.tag, description: text)
+            descriptionViewDisappearance()
+        }
+    }
     
     @IBAction func checkInButton(_ sender: UIButton) {
         isHiddenDrinkButtons()
@@ -66,33 +82,85 @@ class LocationViewController: UIViewController {
         
         switch sender.tag {
         case 1:
-            setupActiveBoozeUp(drink: sender.tag)
+            setupActiveBoozeUp(drink: sender.tag, description: nil)
         case 2:
-            setupActiveBoozeUp(drink: sender.tag)
+            setupActiveBoozeUp(drink: sender.tag, description: nil)
         case 3:
-            setupActiveBoozeUp(drink: sender.tag)
+            setupActiveBoozeUp(drink: sender.tag, description: nil)
         case 4:
-            setupActiveBoozeUp(drink: sender.tag)
+            setupActiveBoozeUp(drink: sender.tag, description: nil)
         case 5:
-            setupActiveBoozeUp(drink: sender.tag)
+            setupActiveBoozeUp(drink: sender.tag, description: nil)
         case 6:
-            setupActiveBoozeUp(drink: sender.tag)
+            setupActiveBoozeUp(drink: sender.tag, description: nil)
         case 7:
-            setupActiveBoozeUp(drink: sender.tag)
+            setupActiveBoozeUp(drink: sender.tag, description: nil)
         case 8:
-            setupActiveBoozeUp(drink: sender.tag)
+            setupActiveBoozeUp(drink: sender.tag, description: nil)
         default:
             print("Error used checkInWithDrink")
             return
         }
     }
-
+    
     func isHiddenDrinkButtons() {
-        for drink in checkInWithDrinks {
+        for drinkBtn in checkInWithDrinks {
             UIView.animate(withDuration: 0.5, animations: {
-                drink.alpha = drink.alpha == 1 ? 0 : 1
+                drinkBtn.alpha = drinkBtn.alpha == 1 ? 0 : 1
             })
+
+//            drinkBtn.alpha == 0 ? drinkBtn.isHidden = true : false
+            
+            if drinkBtn.alpha == 0 {
+                drinkBtn.isHidden = true
+            } else {
+                drinkBtn.isHidden = false
+            }
         }
+    }
+    
+    // MARK: -
+    // MARK: DescriptionViews setup
+    
+    func descriptionViewAppearance() {
+        setupDescriptionView()
+        setupDescriptionTextView()
+        setupDescriptionButton()
+        
+        UIView.animate(withDuration: 0.5, animations: {
+            self.descriptionView.alpha = 1
+        }) { (true) in
+            self.descriptionTextView.becomeFirstResponder()
+        }
+    }
+    
+    func descriptionViewDisappearance() {
+        UIView.animate(withDuration: 0.5, animations: {
+            self.descriptionView.alpha = 0
+        }) { (true) in
+            self.descriptionView.removeFromSuperview()
+        }
+    }
+    
+    func setupDescriptionView() {
+        descriptionView.frame = view.frame
+        descriptionView.alpha = 0
+        
+        view.addSubview(descriptionView)
+    }
+    
+    func setupDescriptionTextView() {
+        descriptionTextView.backgroundColor = UIColor.lightGray.withAlphaComponent(0.1)
+        descriptionTextView.textColor = UIColor.blackBlue
+        descriptionTextView.layer.cornerRadius = 5
+    }
+    
+    func setupDescriptionButton() {
+        sendButton.backgroundColor = .skyBlue
+        sendButton.layer.cornerRadius = 5
+        sendButton.layer.borderWidth = 1
+        sendButton.layer.borderColor = UIColor.blackBlue.cgColor
+        sendButton.titleLabel?.textAlignment = .center
     }
     
     // MARK: -
@@ -112,9 +180,9 @@ class LocationViewController: UIViewController {
         
         for marker in markersArray {
             marker.map = mapView
-//            UIView.animate(withDuration: 0.7, animations: {
-//                marker.opacity = 1
-//            })
+            //            UIView.animate(withDuration: 0.7, animations: {
+            //                marker.opacity = 1
+            //            })
         }
     }
     
@@ -129,34 +197,32 @@ class LocationViewController: UIViewController {
             marker.icon = markerImage
             marker.title = boozeUp.txtDrink
             marker.snippet = boozeUp.description
-//            marker.opacity = 0
+            //            marker.opacity = 0
         }
         marker.tracksInfoWindowChanges = true
-
+        
         return marker
     }
     
     // MARK: -
     // MARK: Setup local BoozeUp
     
-    func setupActiveBoozeUp(drink: Int?) {
+    func setupActiveBoozeUp(drink: Int?, description: String?) {
         startUpdateLocation()
-        let parameters = createParametersForRequest(drink: drink ?? Int(), latitude: (userCoordinates?.latitude) ?? Double(), longitude: (userCoordinates?.longitude) ?? Double())
+        let parameters = createParametersForRequest(drink: drink ?? Int(), latitude: (userCoordinates?.latitude) ?? Double(), longitude: (userCoordinates?.longitude) ?? Double(), description: description)
         postPartyLocationWith(parameters: parameters)
         getActiveParties()
     }
     
-    func createParametersForRequest(drink: Int, latitude: Double, longitude: Double) -> [String: Any] {
+    func createParametersForRequest(drink: Int, latitude: Double, longitude: Double, description: String?) -> [String: Any] {
         var dictParameter: Dictionary<String, Any> = [:]
-        
-        let text = String()
         
         if let deviceID = DeviceID.shared.loadDeviceID() {
             dictParameter["device"]      = deviceID
             dictParameter["drink"]       = drink
             dictParameter["latitude"]    = Configuration.sharedInstance.stringCoordinates(double: latitude)
             dictParameter["longitude"]   = Configuration.sharedInstance.stringCoordinates(double: longitude)
-            dictParameter["description"] = text
+            dictParameter["description"] = description
         }
         return dictParameter
     }
@@ -167,7 +233,7 @@ class LocationViewController: UIViewController {
     @objc func getActiveParties() {
         NetworkManager.sharedManager.get(self, EndPoints.sharedInstance.getActiveBoozeUp()) { (response) in
             if let baseResponse = response as? BaseResponse {
-//                print("====== LocationViewController GET results data --- >> \n \n\(baseResponse.results ?? Results()) \n \n======\n")
+                //                print("====== LocationViewController GET results data --- >> \n \n\(baseResponse.results ?? Results()) \n \n======\n")
                 self.parseDrunkParties(result: baseResponse.results ?? Results())
             }
         }
@@ -177,10 +243,9 @@ class LocationViewController: UIViewController {
         NetworkManager.sharedManager.post(self, EndPoints.sharedInstance.createBoozeUp(), parameters, { (response) in
             
             if let response = response as? BaseResponse {
-                
                 if let details = response.details {
-//                    print("====== LocationViewController POST results data --- >> \n \n\(details)) \n \n======\n")
-                    Configuration.sharedInstance.showNotifyView(self, "Warning!", details) {}
+                    //                    print("====== LocationViewController POST results data --- >> \n \n\(details)) \n \n======\n")
+                    Configuration.sharedInstance.showNotifyView(self, "Warning!", details, "center") {}
                 }
             }
         })

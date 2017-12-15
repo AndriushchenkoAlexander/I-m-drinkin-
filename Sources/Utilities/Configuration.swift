@@ -37,22 +37,33 @@ extension Configuration {
     func showNotifyView(_ target: UIViewController,
                         _ title: String,
                         _ message: String,
+                        _ viewPosition: String,
                         _ completion: @escaping () -> Void) {
-        
-        let customCyberView = CFNotifyView.cyberWith(title: title,
-                                                     titleFont: .boldSystemFont(ofSize: 18),
-                                                     titleColor: UIColor(red:0.02, green:0.13, blue:0.14, alpha:1.0),
-                                                     body: message,
-                                                     bodyFont: .boldSystemFont(ofSize: 16),
-                                                     bodyColor: UIColor(red:0.07, green:0.32, blue:0.61, alpha:1.0),
-                                                     image: nil,
-                                                     backgroundColor: UIColor(red:0.47, green:0.78, blue:0.83, alpha:1.0),
-                                                     blurStyle: UIBlurEffectStyle.dark)
+       
+        var blurEffect = UIBlurEffectStyle.dark
         
         var cyberViewConfig = CFNotify.Config()
         cyberViewConfig.initPosition = .top(.random)
+        cyberViewConfig.hideTime = .custom(seconds: 1.5)
         cyberViewConfig.appearPosition = .center
-        cyberViewConfig.hideTime = .custom(seconds: 3)
+        
+        if viewPosition == "top" {
+            cyberViewConfig.appearPosition = .top
+            blurEffect = UIBlurEffectStyle.init(rawValue: 7)!
+            cyberViewConfig.hideTime = .custom(seconds: 3)
+        }
+
+        let customCyberView = CFNotifyView.cyberWith(title: title,
+                                                     titleFont: .boldSystemFont(ofSize: 18),
+                                                     titleColor: .darkBlue,
+                                                     body: message,
+                                                     bodyFont: .systemFont(ofSize: 16),
+                                                     bodyColor: .darkBlue,
+                                                     image: nil,
+                                                     backgroundColor: .skyBlue,
+                                                     blurStyle: blurEffect)
+        
+
         
         CFNotify.present(config: cyberViewConfig, view: customCyberView)
     }

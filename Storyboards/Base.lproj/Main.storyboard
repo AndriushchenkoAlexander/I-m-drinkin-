@@ -12,14 +12,15 @@
     </dependencies>
     <customFonts key="customFonts">
         <array key="AppleSDGothicNeo.ttc">
-            <string>AppleSDGothicNeo-Medium</string>
+            <string>AppleSDGothicNeo-Bold</string>
+            <string>AppleSDGothicNeo-Regular</string>
         </array>
     </customFonts>
     <scenes>
         <!--Delegate-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="LocationViewController" customModule="I_am_drinking" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LocationViewController" id="BYZ-38-t0r" customClass="LocationViewController" customModule="I_am_drinking" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -38,7 +39,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="5bD-Ju-5xh">
                                 <rect key="frame" x="18" y="91" width="50" height="452.5"/>
                                 <subviews>
-                                    <button opaque="NO" tag="8" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3DA-HB-Ajz">
+                                    <button opaque="NO" alpha="0.0" tag="8" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3DA-HB-Ajz">
                                         <rect key="frame" x="0.0" y="0.0" width="50" height="50.5"/>
                                         <gestureRecognizers/>
                                         <state key="normal" image="8-cocktail"/>
@@ -46,7 +47,7 @@
                                             <action selector="checkInWithDrink:" destination="BYZ-38-t0r" eventType="touchUpInside" id="58b-y1-oIP"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3On-78-Lte">
+                                    <button opaque="NO" alpha="0.0" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3On-78-Lte">
                                         <rect key="frame" x="0.0" y="57.5" width="50" height="50.5"/>
                                         <gestureRecognizers/>
                                         <state key="normal" image="7-coffee"/>
@@ -54,7 +55,7 @@
                                             <action selector="checkInWithDrink:" destination="BYZ-38-t0r" eventType="touchUpInside" id="UbV-9j-tcc"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KOB-ru-StW">
+                                    <button opaque="NO" alpha="0.0" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KOB-ru-StW">
                                         <rect key="frame" x="0.0" y="115" width="50" height="50.5"/>
                                         <gestureRecognizers/>
                                         <state key="normal" image="6-vodka"/>
@@ -62,7 +63,7 @@
                                             <action selector="checkInWithDrink:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qfi-Jk-cf3"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RVi-BG-4FC">
+                                    <button opaque="NO" alpha="0.0" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RVi-BG-4FC">
                                         <rect key="frame" x="0.0" y="172.5" width="50" height="50.5"/>
                                         <gestureRecognizers/>
                                         <state key="normal" image="5-whiskey"/>
@@ -70,7 +71,7 @@
                                             <action selector="checkInWithDrink:" destination="BYZ-38-t0r" eventType="touchUpInside" id="oa8-o0-lwk"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vcx-EY-W1A">
+                                    <button opaque="NO" alpha="0.0" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vcx-EY-W1A">
                                         <rect key="frame" x="0.0" y="230" width="50" height="50"/>
                                         <gestureRecognizers/>
                                         <state key="normal" image="4-juice"/>
@@ -78,7 +79,7 @@
                                             <action selector="checkInWithDrink:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bcS-1N-Qz5"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AgP-xP-9a9">
+                                    <button opaque="NO" alpha="0.0" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AgP-xP-9a9">
                                         <rect key="frame" x="0.0" y="287" width="50" height="50.5"/>
                                         <gestureRecognizers/>
                                         <state key="normal" image="3-cola"/>
@@ -86,7 +87,7 @@
                                             <action selector="checkInWithDrink:" destination="BYZ-38-t0r" eventType="touchUpInside" id="wyN-go-Izy"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kpv-dj-wuy">
+                                    <button opaque="NO" alpha="0.0" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kpv-dj-wuy">
                                         <rect key="frame" x="0.0" y="344.5" width="50" height="50.5"/>
                                         <gestureRecognizers/>
                                         <state key="normal" image="2-wine"/>
@@ -94,7 +95,7 @@
                                             <action selector="checkInWithDrink:" destination="BYZ-38-t0r" eventType="touchUpInside" id="b9A-w2-KAQ"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SFM-W4-1ju">
+                                    <button opaque="NO" alpha="0.0" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SFM-W4-1ju">
                                         <rect key="frame" x="0.0" y="402" width="50" height="50.5"/>
                                         <gestureRecognizers/>
                                         <state key="normal" image="1-beer"/>
@@ -136,8 +137,10 @@
                     </view>
                     <connections>
                         <outlet property="checkInButton" destination="szZ-FK-pzr" id="IjV-H8-9xc"/>
-                        <outlet property="descriptionView" destination="f64-83-bKL" id="UBW-R8-zuc"/>
+                        <outlet property="descriptionTextView" destination="mxe-1U-qkb" id="wb6-Pd-4IP"/>
+                        <outlet property="descriptionView" destination="f64-83-bKL" id="ltO-uK-O4c"/>
                         <outlet property="mapView" destination="UOu-Sj-J93" id="5Bn-gH-EMo"/>
+                        <outlet property="sendButton" destination="DZG-jp-qR9" id="BbA-xi-m7e"/>
                         <outletCollection property="checkInWithDrinks" destination="3DA-HB-Ajz" collectionClass="NSMutableArray" id="VDo-Qo-Owv"/>
                         <outletCollection property="checkInWithDrinks" destination="3On-78-Lte" collectionClass="NSMutableArray" id="x6d-l2-u3B"/>
                         <outletCollection property="checkInWithDrinks" destination="KOB-ru-StW" collectionClass="NSMutableArray" id="Zgz-Am-cen"/>
@@ -150,39 +153,59 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <visualEffectView opaque="NO" contentMode="scaleToFill" id="f64-83-bKL">
-                    <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="OMQ-iU-mZp">
-                        <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="N06-1t-ax6">
-                                <rect key="frame" x="50" y="34" width="140" height="60"/>
-                                <subviews>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Hdj-PY-N9o">
-                                        <rect key="frame" x="8" y="6" width="124" height="49"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <mutableString key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</mutableString>
-                                        <fontDescription key="fontDescription" name="AppleSDGothicNeo-Medium" family="Apple SD Gothic Neo" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                    </textView>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Добавьте комментарий к локации" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UZh-z5-7UZ">
+                                <rect key="frame" x="54" y="40" width="267" height="22"/>
+                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="18"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="mxe-1U-qkb">
+                                <rect key="frame" x="30" y="91" width="315" height="172"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="N06-1t-ax6" secondAttribute="height" multiplier="8:3" id="pU2-50-x99"/>
+                                    <constraint firstAttribute="height" constant="172" id="WTJ-qt-3UG"/>
                                 </constraints>
-                            </view>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="15"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DZG-jp-qR9">
+                                <rect key="frame" x="139" y="271" width="98" height="34"/>
+                                <color key="backgroundColor" red="0.53537989298682709" green="0.68577126194635674" blue="0.92234212160110474" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="DZG-jp-qR9" secondAttribute="height" multiplier="49:17" id="C9x-0I-cVC"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="18"/>
+                                <state key="normal" title="Отправить">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="sendDescription:" destination="BYZ-38-t0r" eventType="touchUpInside" id="NZr-y9-vkk"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="N06-1t-ax6" firstAttribute="centerY" secondItem="OMQ-iU-mZp" secondAttribute="centerY" id="dMd-3Z-JhV"/>
-                            <constraint firstItem="N06-1t-ax6" firstAttribute="centerX" secondItem="OMQ-iU-mZp" secondAttribute="centerX" id="oEf-iE-Wbb"/>
+                            <constraint firstItem="mxe-1U-qkb" firstAttribute="top" secondItem="UZh-z5-7UZ" secondAttribute="bottom" constant="29" id="FCj-Xr-doN"/>
+                            <constraint firstItem="UZh-z5-7UZ" firstAttribute="centerX" secondItem="OMQ-iU-mZp" secondAttribute="centerX" id="Hep-1s-4kR"/>
+                            <constraint firstItem="mxe-1U-qkb" firstAttribute="leading" secondItem="OMQ-iU-mZp" secondAttribute="leading" constant="30" id="JMq-t9-mEb"/>
+                            <constraint firstItem="DZG-jp-qR9" firstAttribute="top" secondItem="mxe-1U-qkb" secondAttribute="bottom" constant="8" id="hgt-lZ-qWh"/>
+                            <constraint firstAttribute="trailing" secondItem="mxe-1U-qkb" secondAttribute="trailing" constant="30" id="mdA-NF-gXq"/>
+                            <constraint firstItem="mxe-1U-qkb" firstAttribute="top" secondItem="OMQ-iU-mZp" secondAttribute="top" constant="91" id="tCm-y2-cji"/>
                         </constraints>
                     </view>
-                    <blurEffect style="dark"/>
+                    <constraints>
+                        <constraint firstItem="DZG-jp-qR9" firstAttribute="centerX" secondItem="f64-83-bKL" secondAttribute="centerX" id="0cn-aW-0Jq"/>
+                        <constraint firstItem="UZh-z5-7UZ" firstAttribute="centerX" secondItem="f64-83-bKL" secondAttribute="centerX" id="bCG-wC-rkW"/>
+                    </constraints>
+                    <blurEffect style="light"/>
                 </visualEffectView>
             </objects>
-            <point key="canvasLocation" x="85.599999999999994" y="119.1904047976012"/>
+            <point key="canvasLocation" x="86" y="196"/>
         </scene>
     </scenes>
     <resources>

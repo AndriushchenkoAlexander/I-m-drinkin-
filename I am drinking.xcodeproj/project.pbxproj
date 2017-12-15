@@ -16,7 +16,7 @@
 		766F23091F8F56770064EF77 /* Types.swift in Sources */ = {isa = PBXBuildFile; fileRef = 766F23081F8F56770064EF77 /* Types.swift */; };
 		766F613F1F973451002AF7C4 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 766F613E1F973451002AF7C4 /* Configuration.swift */; };
 		767D9A5B1FBB85C700682C88 /* BaseResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 767D9A5A1FBB85C700682C88 /* BaseResponse.swift */; };
-		76896BC31FE2D8AD00009094 /* DescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76896BC21FE2D8AD00009094 /* DescriptionView.swift */; };
+		76896BC81FE3D83700009094 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76896BC71FE3D83700009094 /* UIColor+Extension.swift */; };
 		76A7934A1F72A0F000C53BBC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76A793491F72A0F000C53BBC /* AppDelegate.swift */; };
 		76A793741F72A94700C53BBC /* LocationsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76A793701F72A31600C53BBC /* LocationsManager.swift */; };
 		76A793751F72A94A00C53BBC /* ApiKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76A7936F1F72A31600C53BBC /* ApiKeys.swift */; };
@@ -33,7 +33,7 @@
 		766F23081F8F56770064EF77 /* Types.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Types.swift; sourceTree = "<group>"; };
 		766F613E1F973451002AF7C4 /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
 		767D9A5A1FBB85C700682C88 /* BaseResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseResponse.swift; sourceTree = "<group>"; };
-		76896BC21FE2D8AD00009094 /* DescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionView.swift; sourceTree = "<group>"; };
+		76896BC71FE3D83700009094 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		76A793461F72A0F000C53BBC /* I am drinking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "I am drinking.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		76A793491F72A0F000C53BBC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		76A793551F72A0F000C53BBC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -81,12 +81,12 @@
 			path = Types;
 			sourceTree = "<group>";
 		};
-		76896BC11FE2D88500009094 /* Views */ = {
+		76896BC61FE3D7E500009094 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				76896BC21FE2D8AD00009094 /* DescriptionView.swift */,
+				76896BC71FE3D83700009094 /* UIColor+Extension.swift */,
 			);
-			path = Views;
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		76A7933D1F72A0F000C53BBC = {
@@ -131,11 +131,11 @@
 		76A793641F72A31600C53BBC /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				76896BC11FE2D88500009094 /* Views */,
 				76A793651F72A31600C53BBC /* Controllers */,
 				76A793671F72A31600C53BBC /* Models */,
 				76A7936D1F72A31600C53BBC /* Utilities */,
 				766F23071F8F55100064EF77 /* Types */,
+				76896BC61FE3D7E500009094 /* Extensions */,
 				76A7936B1F72A31600C53BBC /* Resources */,
 			);
 			path = Sources;
@@ -347,7 +347,6 @@
 			files = (
 				7665F3C61F9CAE9700124A18 /* NetworkManager.swift in Sources */,
 				76A793751F72A94A00C53BBC /* ApiKeys.swift in Sources */,
-				76896BC31FE2D8AD00009094 /* DescriptionView.swift in Sources */,
 				766F23091F8F56770064EF77 /* Types.swift in Sources */,
 				767D9A5B1FBB85C700682C88 /* BaseResponse.swift in Sources */,
 				76A793741F72A94700C53BBC /* LocationsManager.swift in Sources */,
@@ -356,6 +355,7 @@
 				76A793771F72A95700C53BBC /* DeviceID.swift in Sources */,
 				76A793761F72A95100C53BBC /* LocationViewController.swift in Sources */,
 				76328D1D1F8E65AA00BE57C6 /* BoozeUp.swift in Sources */,
+				76896BC81FE3D83700009094 /* UIColor+Extension.swift in Sources */,
 				76A7934A1F72A0F000C53BBC /* AppDelegate.swift in Sources */,
 				7665F3C51F9CAE9700124A18 /* EndPoints.swift in Sources */,
 			);
