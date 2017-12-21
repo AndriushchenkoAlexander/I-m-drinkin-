@@ -48,19 +48,15 @@ class LocationViewController: UIViewController {
     
     func addLongPress() {
         for btn in checkInWithDrinks {
-            let longPressGesture: UILongPressGestureRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(longPress))
+            let longPressGesture: UILongPressGestureRecognizer = UILongPressGestureRecognizer.init()
             longPressGesture.minimumPressDuration = 1.5
             btn.addGestureRecognizer(longPressGesture)
-            sendButton.tag = btn.tag
         }
     }
     
-    @objc func longPress(gesture: UILongPressGestureRecognizer) {
-        if gesture.state == UIGestureRecognizerState.began {
+    func longPress() {
             descriptionViewAppearance()
-            
             Configuration.sharedInstance.showNotifyView(self, "Добавьте подробностей", "Например: ваше имя, название заведения, локация внутри заведения, описание компании и т.д.", "top") {}
-        }
     }
     
     // MARK: -
@@ -83,6 +79,13 @@ class LocationViewController: UIViewController {
         switch sender.tag {
         case 1:
             setupActiveBoozeUp(drink: sender.tag, description: nil)
+ 
+            let gesture = UIGestureRecognizerState.began
+            
+            if gesture {
+                longPress()
+                sendButton.tag = sender.tag
+            }
         case 2:
             setupActiveBoozeUp(drink: sender.tag, description: nil)
         case 3:
@@ -108,14 +111,7 @@ class LocationViewController: UIViewController {
             UIView.animate(withDuration: 0.5, animations: {
                 drinkBtn.alpha = drinkBtn.alpha == 1 ? 0 : 1
             })
-
-//            drinkBtn.alpha == 0 ? drinkBtn.isHidden = true : false
-            
-            if drinkBtn.alpha == 0 {
-                drinkBtn.isHidden = true
-            } else {
-                drinkBtn.isHidden = false
-            }
+            drinkBtn.isHidden = drinkBtn.alpha == 0 ? true : false
         }
     }
     

@@ -54,10 +54,10 @@ extension Configuration {
         }
 
         let customCyberView = CFNotifyView.cyberWith(title: title,
-                                                     titleFont: .boldSystemFont(ofSize: 18),
+                                                     titleFont: .boldSystemFont(ofSize: 16),
                                                      titleColor: .darkBlue,
                                                      body: message,
-                                                     bodyFont: .systemFont(ofSize: 16),
+                                                     bodyFont: .systemFont(ofSize: 14),
                                                      bodyColor: .darkBlue,
                                                      image: nil,
                                                      backgroundColor: .skyBlue,
