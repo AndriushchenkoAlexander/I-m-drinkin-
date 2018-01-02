@@ -37,7 +37,10 @@ class LocationViewController: UIViewController {
         super.viewDidLoad()
         print("--==** CURRENT Device ID:  \n\(DeviceID.shared.loadDeviceID() ?? "ID is absent") **==--")
         
-        addLongPress()
+        if #available(iOS 11.0, *) {
+            addLongPress()
+        }
+        
         setupLocationManager()
         
         _ = Timer.scheduledTimer(timeInterval: 4, target: self, selector: #selector(self.getActiveParties), userInfo: nil, repeats: true)
@@ -46,17 +49,25 @@ class LocationViewController: UIViewController {
     // MARK: -
     // MARK: UILongPressGestureRecognizer
     
+    @available(iOS 11.0, *)
     func addLongPress() {
         for btn in checkInWithDrinks {
-            let longPressGesture: UILongPressGestureRecognizer = UILongPressGestureRecognizer.init()
+            let longPressGesture: UILongPressGestureRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(longPress))
             longPressGesture.minimumPressDuration = 1.5
+            longPressGesture.name = String(btn.tag)
             btn.addGestureRecognizer(longPressGesture)
         }
     }
     
-    func longPress() {
+    @available(iOS 11.0, *)
+    @objc func longPress(gesture: UILongPressGestureRecognizer) {
+        if gesture.state == UIGestureRecognizerState.began {
+            if let gestureTag = gesture.name {
+                sendButton.tag = Int(gestureTag) ?? Int()
+            }
             descriptionViewAppearance()
             Configuration.sharedInstance.showNotifyView(self, "Добавьте подробностей", "Например: ваше имя, название заведения, локация внутри заведения, описание компании и т.д.", "top") {}
+        }
     }
     
     // MARK: -
@@ -67,6 +78,7 @@ class LocationViewController: UIViewController {
             setupActiveBoozeUp(drink: sender.tag, description: text)
             descriptionViewDisappearance()
         }
+        isHiddenDrinkButtons()
     }
     
     @IBAction func checkInButton(_ sender: UIButton) {
@@ -79,13 +91,6 @@ class LocationViewController: UIViewController {
         switch sender.tag {
         case 1:
             setupActiveBoozeUp(drink: sender.tag, description: nil)
- 
-            let gesture = UIGestureRecognizerState.began
-            
-            if gesture {
-                longPress()
-                sendButton.tag = sender.tag
-            }
         case 2:
             setupActiveBoozeUp(drink: sender.tag, description: nil)
         case 3:
