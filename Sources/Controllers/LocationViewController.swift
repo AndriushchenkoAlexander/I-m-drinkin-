@@ -17,7 +17,7 @@ class LocationViewController: UIViewController {
     @IBOutlet var checkInWithDrinks: [UIButton]!
     
     // MARK: -
-    // MARK: - UIVisualEffectView
+    // MARK: - UIVisualEffectView Properties
     
     @IBOutlet var descriptionView: UIVisualEffectView!
     @IBOutlet weak var descriptionTextView: UITextView!
@@ -116,7 +116,7 @@ class LocationViewController: UIViewController {
             UIView.animate(withDuration: 0.5, animations: {
                 drinkBtn.alpha = drinkBtn.alpha == 1 ? 0 : 1
             })
-            drinkBtn.isHidden = drinkBtn.alpha == 0 ? true : false
+            drinkBtn.isUserInteractionEnabled = drinkBtn.alpha == 1 ? true : false
         }
     }
     
@@ -154,6 +154,7 @@ class LocationViewController: UIViewController {
         descriptionTextView.backgroundColor = UIColor.lightGray.withAlphaComponent(0.1)
         descriptionTextView.textColor = UIColor.blackBlue
         descriptionTextView.layer.cornerRadius = 5
+        descriptionTextView.text = ""
     }
     
     func setupDescriptionButton() {
