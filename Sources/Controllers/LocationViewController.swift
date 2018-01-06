@@ -47,14 +47,16 @@ class LocationViewController: UIViewController {
     
     func addLongPress() {
         for btn in checkInWithDrinks {
-            let longPressGesture: UILongPressGestureRecognizer = UILongPressGestureRecognizer.init()
+            let longPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(longPress(_:)))
             longPressGesture.minimumPressDuration = 1.5
             btn.addGestureRecognizer(longPressGesture)
         }
     }
     
-    func longPress() {
-        descriptionViewAppearance()
+    @objc func longPress(_ sender: UILongPressGestureRecognizer) {
+        guard sender.state == .began else { return }
+        guard let button = sender.view as? UIButton else { return }
+        descriptionViewAppearance(buttonTag: button.tag)
         Configuration.sharedInstance.showNotifyView(self, "Добавьте подробностей", "Например: ваше имя, название заведения, локация внутри заведения, описание компании и т.д.", "top") {}
     }
     
@@ -74,35 +76,8 @@ class LocationViewController: UIViewController {
     
     @IBAction func checkInWithDrink(_ sender: UIButton) {
         isHiddenDrinkButtons()
-        
-        switch sender.tag {
-        case 1:
-            setupActiveBoozeUp(drink: sender.tag, description: nil)
- 
-            let gesture = UIGestureRecognizerState.began
-            
-//            if gesture {
-//                longPress()
-//                sendButton.tag = sender.tag
-//            }
-        case 2:
-            setupActiveBoozeUp(drink: sender.tag, description: nil)
-        case 3:
-            setupActiveBoozeUp(drink: sender.tag, description: nil)
-        case 4:
-            setupActiveBoozeUp(drink: sender.tag, description: nil)
-        case 5:
-            setupActiveBoozeUp(drink: sender.tag, description: nil)
-        case 6:
-            setupActiveBoozeUp(drink: sender.tag, description: nil)
-        case 7:
-            setupActiveBoozeUp(drink: sender.tag, description: nil)
-        case 8:
-            setupActiveBoozeUp(drink: sender.tag, description: nil)
-        default:
-            print("Error used checkInWithDrink")
-            return
-        }
+        guard sender.tag > 0 && sender.tag <= 8 else { return } // just in case
+        setupActiveBoozeUp(drink: sender.tag, description: nil)
     }
     
     func isHiddenDrinkButtons() {
@@ -117,10 +92,10 @@ class LocationViewController: UIViewController {
     // MARK: -
     // MARK: DescriptionViews setup
     
-    func descriptionViewAppearance() {
+    func descriptionViewAppearance(buttonTag: Int) {
         setupDescriptionView()
         setupDescriptionTextView()
-        setupDescriptionButton()
+        setupDescriptionButton(buttonTag)
         
         UIView.animate(withDuration: 0.5, animations: {
             self.descriptionView.alpha = 1
@@ -150,7 +125,8 @@ class LocationViewController: UIViewController {
         descriptionTextView.layer.cornerRadius = 5
     }
     
-    func setupDescriptionButton() {
+    func setupDescriptionButton(_ tag: Int) {
+        sendButton.tag = tag
         sendButton.backgroundColor = .skyBlue
         sendButton.layer.cornerRadius = 5
         sendButton.layer.borderWidth = 1
