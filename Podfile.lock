@@ -1,6 +1,6 @@
 PODS:
-  - Alamofire (4.5.1)
-  - CFNotify (1.0.1)
+  - Alamofire (4.6.0)
+  - CFNotify (1.0.2)
   - Crashlytics (3.9.3):
     - Fabric (~> 1.7.2)
   - Fabric (1.7.2)
@@ -20,8 +20,8 @@ DEPENDENCIES:
   - ObjectMapper (~> 3.1.0)
 
 SPEC CHECKSUMS:
-  Alamofire: 2d95912bf4c34f164fdfc335872e8c312acaea4a
-  CFNotify: b34a7989d2bafe85a6bba7543ba3a4323abc7b47
+  Alamofire: f41a599bd63041760b26d393ec1069d9d7b917f4
+  CFNotify: e32996ad9034b4d64b30d685e456ea4b83fecb49
   Crashlytics: dbb07d01876c171c5ccbdf7826410380189e452c
   Fabric: 9cd6a848efcf1b8b07497e0b6a2e7d336353ba15
   GoogleMaps: c087b8e5dfe87ca6ebf59adb9b4894a4146bec4f

@@ -8,11 +8,9 @@
 
 import Foundation
 
-
 struct DeviceKey {
     static let key = "deviceID"
 }
-
 
 struct DeviceID {
     static let shared = DeviceID()
@@ -29,16 +27,10 @@ struct DeviceID {
     }
     
     func checkID() -> Bool? {
-        if UserDefaults.standard.string(forKey: DeviceKey.key) != nil {
-            return true
-        }
-        return false
+        return UserDefaults.standard.string(forKey: DeviceKey.key) != nil
     }
     
     func loadDeviceID() -> String? {
-        if let deviceID = UserDefaults.standard.string(forKey: DeviceKey.key) {
-            return deviceID
-        }
-        return ""
+        return UserDefaults.standard.string(forKey: DeviceKey.key) ?? ""
     }
 }

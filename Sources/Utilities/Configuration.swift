@@ -17,12 +17,7 @@ final class Configuration {
     // MARK: Convert String to Double
     
     func stringToDouble(string: String?) -> Double {
-        var newValue = 0.0
-        
-        if let lat = string {
-            newValue = Double(lat) ?? 0.0
-        }
-        return newValue
+        return Double(string ?? "") ?? 0.0
     }
     
     func stringCoordinates(double: Double) -> String {
@@ -62,8 +57,6 @@ extension Configuration {
                                                      image: nil,
                                                      backgroundColor: .skyBlue,
                                                      blurStyle: blurEffect)
-        
-
         
         CFNotify.present(config: cyberViewConfig, view: customCyberView)
     }

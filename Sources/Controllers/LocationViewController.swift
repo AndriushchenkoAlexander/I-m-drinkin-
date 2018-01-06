@@ -9,7 +9,6 @@ import UIKit
 import GoogleMaps
 import ObjectMapper
 
-
 class LocationViewController: UIViewController {
     
     @IBOutlet weak var mapView: GMSMapView!
@@ -40,7 +39,7 @@ class LocationViewController: UIViewController {
         addLongPress()
         setupLocationManager()
         
-        _ = Timer.scheduledTimer(timeInterval: 4, target: self, selector: #selector(self.getActiveParties), userInfo: nil, repeats: true)
+        Timer.scheduledTimer(timeInterval: 4, target: self, selector: #selector(self.getActiveParties), userInfo: nil, repeats: true)
     }
     
     // MARK: -
@@ -55,8 +54,8 @@ class LocationViewController: UIViewController {
     }
     
     func longPress() {
-            descriptionViewAppearance()
-            Configuration.sharedInstance.showNotifyView(self, "Добавьте подробностей", "Например: ваше имя, название заведения, локация внутри заведения, описание компании и т.д.", "top") {}
+        descriptionViewAppearance()
+        Configuration.sharedInstance.showNotifyView(self, "Добавьте подробностей", "Например: ваше имя, название заведения, локация внутри заведения, описание компании и т.д.", "top") {}
     }
     
     // MARK: -
@@ -82,10 +81,10 @@ class LocationViewController: UIViewController {
  
             let gesture = UIGestureRecognizerState.began
             
-            if gesture {
-                longPress()
-                sendButton.tag = sender.tag
-            }
+//            if gesture {
+//                longPress()
+//                sendButton.tag = sender.tag
+//            }
         case 2:
             setupActiveBoozeUp(drink: sender.tag, description: nil)
         case 3:
@@ -163,27 +162,21 @@ class LocationViewController: UIViewController {
     // MARK: Create Markers methods
     
     func parseDrunkParties(result: Results) {
-        markersArray.removeAll()
-        
-        for drunkPartie in result {
-            if let activeBoozeUp = Mapper<BoozeUp>().map(JSONObject: drunkPartie) {
-                let marker = setupMapMarkerWith(activeBoozeUp)
-                markersArray += [marker]
-            }
-        }
+        markersArray = result
+            .flatMap { Mapper<BoozeUp>().map(JSONObject: $0) }
+            .flatMap { setupMapMarkerWith($0) }
         
         mapView.clear()
         
         for marker in markersArray {
             marker.map = mapView
-            //            UIView.animate(withDuration: 0.7, animations: {
-            //                marker.opacity = 1
-            //            })
+//            UIView.animate(withDuration: 0.7, animations: {
+//                marker.opacity = 1
+//            })
         }
     }
     
     func setupMapMarkerWith(_ boozeUp: BoozeUp) -> GMSMarker {
-        
         let drink = String(boozeUp.drink ?? Int())
         
         let marker = GMSMarker(position: CLLocationCoordinate2D(latitude: Configuration.sharedInstance.stringToDouble(string: boozeUp.latitude), longitude: Configuration.sharedInstance.stringToDouble(string: boozeUp.longitude)))
@@ -193,7 +186,7 @@ class LocationViewController: UIViewController {
             marker.icon = markerImage
             marker.title = boozeUp.txtDrink
             marker.snippet = boozeUp.description
-            //            marker.opacity = 0
+//            marker.opacity = 0
         }
         marker.tracksInfoWindowChanges = true
         
@@ -228,22 +221,18 @@ class LocationViewController: UIViewController {
     
     @objc func getActiveParties() {
         NetworkManager.sharedManager.get(self, EndPoints.sharedInstance.getActiveBoozeUp()) { (response) in
-            if let baseResponse = response as? BaseResponse {
-                //                print("====== LocationViewController GET results data --- >> \n \n\(baseResponse.results ?? Results()) \n \n======\n")
-                self.parseDrunkParties(result: baseResponse.results ?? Results())
-            }
+            guard let baseResponse = response as? BaseResponse else { return }
+            self.parseDrunkParties(result: baseResponse.results ?? Results())
+            //print("====== LocationViewController GET results data --- >> \n \n\(baseResponse.results ?? Results()) \n \n======\n")
         }
     }
     
     func postPartyLocationWith(parameters: Dictionary<String, Any>) {
         NetworkManager.sharedManager.post(self, EndPoints.sharedInstance.createBoozeUp(), parameters, { (response) in
-            
-            if let response = response as? BaseResponse {
-                if let details = response.details {
-                    //                    print("====== LocationViewController POST results data --- >> \n \n\(details)) \n \n======\n")
-                    Configuration.sharedInstance.showNotifyView(self, "Warning!", details, "center") {}
-                }
-            }
+            guard let response = response as? BaseResponse else { return }
+            guard let details = response.details else { return }
+            Configuration.sharedInstance.showNotifyView(self, "Warning!", details, "center") {}
+            //print("====== LocationViewController POST results data --- >> \n \n\(details)) \n \n======\n")
         })
     }
 }
