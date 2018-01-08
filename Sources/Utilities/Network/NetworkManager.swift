@@ -15,7 +15,6 @@ class NetworkManager {
     private init() {}
 }
 
-
 extension NetworkManager {
     // MARK: -
     // MARK: POST
@@ -73,14 +72,11 @@ extension NetworkManager {
             
         case .failure(let error):
             print("--== Сase ERROR Response -- !! - > \n    \(error.localizedDescription) \n")
-            
-            if let statusCode = response.response?.statusCode {
-                print("--== Status Code in ERROR Response -- !! - > \n    \(statusCode) \n")
-                
-                let message = error.localizedDescription + "\nStatus code:\(statusCode)"
-                if let target = target { Configuration.sharedInstance.showNotifyView(target, "Error", message, "center") {} }
-//                if let target = target { Configuration.sharedInstance.showAlert(target, "Error", message, .ok) {} }
-            }
+            guard let statusCode = response.response?.statusCode else { return }
+            print("--== Status Code in ERROR Response -- !! - > \n    \(statusCode) \n")
+            let message = error.localizedDescription + "\nStatus code:\(statusCode)"
+            guard let target = target else { return }
+            Configuration.sharedInstance.showNotifyView(target, "Error", message, "center") {}
         }
     }
 }

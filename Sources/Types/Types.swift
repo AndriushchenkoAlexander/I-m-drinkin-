@@ -8,5 +8,4 @@
 
 import Foundation
 
-
 typealias Results = Array<Dictionary<String, Any>>

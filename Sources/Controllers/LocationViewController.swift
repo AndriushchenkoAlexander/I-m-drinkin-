@@ -9,7 +9,6 @@ import UIKit
 import GoogleMaps
 import ObjectMapper
 
-
 class LocationViewController: UIViewController {
     
     @IBOutlet weak var mapView: GMSMapView!
@@ -43,7 +42,7 @@ class LocationViewController: UIViewController {
         
         setupLocationManager()
         
-        _ = Timer.scheduledTimer(timeInterval: 4, target: self, selector: #selector(self.getActiveParties), userInfo: nil, repeats: true)
+        Timer.scheduledTimer(timeInterval: 4, target: self, selector: #selector(self.getActiveParties), userInfo: nil, repeats: true)
     }
     
     // MARK: -
@@ -52,22 +51,19 @@ class LocationViewController: UIViewController {
     @available(iOS 11.0, *)
     func addLongPress() {
         for btn in checkInWithDrinks {
-            let longPressGesture: UILongPressGestureRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(longPress))
+
+            let longPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(longPress(_:)))
             longPressGesture.minimumPressDuration = 1.5
             longPressGesture.name = String(btn.tag)
             btn.addGestureRecognizer(longPressGesture)
         }
     }
     
-    @available(iOS 11.0, *)
-    @objc func longPress(gesture: UILongPressGestureRecognizer) {
-        if gesture.state == UIGestureRecognizerState.began {
-            if let gestureTag = gesture.name {
-                sendButton.tag = Int(gestureTag) ?? Int()
-            }
-            descriptionViewAppearance()
-            Configuration.sharedInstance.showNotifyView(self, "Добавьте подробностей", "Например: ваше имя, название заведения, локация внутри заведения, описание компании и т.д.", "top") {}
-        }
+    @objc func longPress(_ sender: UILongPressGestureRecognizer) {
+        guard sender.state == .began else { return }
+        guard let button = sender.view as? UIButton else { return }
+        descriptionViewAppearance(buttonTag: button.tag)
+        Configuration.sharedInstance.showNotifyView(self, "Добавьте подробностей", "Например: ваше имя, название заведения, локация внутри заведения, описание компании и т.д.", "top") {}
     }
     
     // MARK: -
@@ -87,28 +83,8 @@ class LocationViewController: UIViewController {
     
     @IBAction func checkInWithDrink(_ sender: UIButton) {
         isHiddenDrinkButtons()
-        
-        switch sender.tag {
-        case 1:
-            setupActiveBoozeUp(drink: sender.tag, description: nil)
-        case 2:
-            setupActiveBoozeUp(drink: sender.tag, description: nil)
-        case 3:
-            setupActiveBoozeUp(drink: sender.tag, description: nil)
-        case 4:
-            setupActiveBoozeUp(drink: sender.tag, description: nil)
-        case 5:
-            setupActiveBoozeUp(drink: sender.tag, description: nil)
-        case 6:
-            setupActiveBoozeUp(drink: sender.tag, description: nil)
-        case 7:
-            setupActiveBoozeUp(drink: sender.tag, description: nil)
-        case 8:
-            setupActiveBoozeUp(drink: sender.tag, description: nil)
-        default:
-            print("Error used checkInWithDrink")
-            return
-        }
+        guard sender.tag > 0 && sender.tag <= 8 else { return } // just in case
+        setupActiveBoozeUp(drink: sender.tag, description: nil)
     }
     
     func isHiddenDrinkButtons() {
@@ -123,10 +99,10 @@ class LocationViewController: UIViewController {
     // MARK: -
     // MARK: DescriptionViews setup
     
-    func descriptionViewAppearance() {
+    func descriptionViewAppearance(buttonTag: Int) {
         setupDescriptionView()
         setupDescriptionTextView()
-        setupDescriptionButton()
+        setupDescriptionButton(buttonTag)
         
         UIView.animate(withDuration: 0.5, animations: {
             self.descriptionView.alpha = 1
@@ -157,7 +133,8 @@ class LocationViewController: UIViewController {
         descriptionTextView.text = ""
     }
     
-    func setupDescriptionButton() {
+    func setupDescriptionButton(_ tag: Int) {
+        sendButton.tag = tag
         sendButton.backgroundColor = .skyBlue
         sendButton.layer.cornerRadius = 5
         sendButton.layer.borderWidth = 1
@@ -169,27 +146,21 @@ class LocationViewController: UIViewController {
     // MARK: Create Markers methods
     
     func parseDrunkParties(result: Results) {
-        markersArray.removeAll()
-        
-        for drunkPartie in result {
-            if let activeBoozeUp = Mapper<BoozeUp>().map(JSONObject: drunkPartie) {
-                let marker = setupMapMarkerWith(activeBoozeUp)
-                markersArray += [marker]
-            }
-        }
+        markersArray = result
+            .flatMap { Mapper<BoozeUp>().map(JSONObject: $0) }
+            .flatMap { setupMapMarkerWith($0) }
         
         mapView.clear()
         
         for marker in markersArray {
             marker.map = mapView
-            //            UIView.animate(withDuration: 0.7, animations: {
-            //                marker.opacity = 1
-            //            })
+//            UIView.animate(withDuration: 0.7, animations: {
+//                marker.opacity = 1
+//            })
         }
     }
     
     func setupMapMarkerWith(_ boozeUp: BoozeUp) -> GMSMarker {
-        
         let drink = String(boozeUp.drink ?? Int())
         
         let marker = GMSMarker(position: CLLocationCoordinate2D(latitude: Configuration.sharedInstance.stringToDouble(string: boozeUp.latitude), longitude: Configuration.sharedInstance.stringToDouble(string: boozeUp.longitude)))
@@ -199,7 +170,7 @@ class LocationViewController: UIViewController {
             marker.icon = markerImage
             marker.title = boozeUp.txtDrink
             marker.snippet = boozeUp.description
-            //            marker.opacity = 0
+//            marker.opacity = 0
         }
         marker.tracksInfoWindowChanges = true
         
@@ -234,22 +205,18 @@ class LocationViewController: UIViewController {
     
     @objc func getActiveParties() {
         NetworkManager.sharedManager.get(self, EndPoints.sharedInstance.getActiveBoozeUp()) { (response) in
-            if let baseResponse = response as? BaseResponse {
-                //                print("====== LocationViewController GET results data --- >> \n \n\(baseResponse.results ?? Results()) \n \n======\n")
-                self.parseDrunkParties(result: baseResponse.results ?? Results())
-            }
+            guard let baseResponse = response as? BaseResponse else { return }
+            self.parseDrunkParties(result: baseResponse.results ?? Results())
+            //print("====== LocationViewController GET results data --- >> \n \n\(baseResponse.results ?? Results()) \n \n======\n")
         }
     }
     
     func postPartyLocationWith(parameters: Dictionary<String, Any>) {
         NetworkManager.sharedManager.post(self, EndPoints.sharedInstance.createBoozeUp(), parameters, { (response) in
-            
-            if let response = response as? BaseResponse {
-                if let details = response.details {
-                    //                    print("====== LocationViewController POST results data --- >> \n \n\(details)) \n \n======\n")
-                    Configuration.sharedInstance.showNotifyView(self, "Warning!", details, "center") {}
-                }
-            }
+            guard let response = response as? BaseResponse else { return }
+            guard let details = response.details else { return }
+            Configuration.sharedInstance.showNotifyView(self, "Warning!", details, "center") {}
+            //print("====== LocationViewController POST results data --- >> \n \n\(details)) \n \n======\n")
         })
     }
 }
