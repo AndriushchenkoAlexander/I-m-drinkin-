@@ -36,9 +36,9 @@ class LocationViewController: UIViewController {
         super.viewDidLoad()
         print("--==** CURRENT Device ID:  \n\(DeviceID.shared.loadDeviceID() ?? "ID is absent") **==--")
         
-        if #available(iOS 11.0, *) {
-            addLongPress()
-        }
+
+        addLongPress()
+
         
         setupLocationManager()
         
@@ -48,13 +48,11 @@ class LocationViewController: UIViewController {
     // MARK: -
     // MARK: UILongPressGestureRecognizer
     
-    @available(iOS 11.0, *)
     func addLongPress() {
         for btn in checkInWithDrinks {
 
             let longPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(longPress(_:)))
             longPressGesture.minimumPressDuration = 1.5
-            longPressGesture.name = String(btn.tag)
             btn.addGestureRecognizer(longPressGesture)
         }
     }
