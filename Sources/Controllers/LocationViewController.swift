@@ -175,10 +175,6 @@ class LocationViewController: UIViewController {
     
     func setupDescriptionButton(_ tag: Int) {
         sendButton.tag = tag
-        sendButton.backgroundColor = .skyBlue
-        sendButton.layer.cornerRadius = 5
-        sendButton.layer.borderWidth = 1
-        sendButton.layer.borderColor = UIColor.blackBlue.cgColor
         sendButton.titleLabel?.textAlignment = .center
     }
     
