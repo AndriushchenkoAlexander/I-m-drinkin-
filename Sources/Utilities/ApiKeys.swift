@@ -6,6 +6,5 @@
  */
 
 struct ApiKeys {
-//    static let appodealApiKey = ""
-static let googleMapsApiKey = "AIzaSyALWPztfn90BBBFYoBxr2ZvxlrLReqm8GE"
+    static let googleMapsApiKey = "AIzaSyALWPztfn90BBBFYoBxr2ZvxlrLReqm8GE"
 }

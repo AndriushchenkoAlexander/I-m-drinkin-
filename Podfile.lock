@@ -1,50 +1,35 @@
 PODS:
-  - Alamofire (4.5.1)
-  - Appodeal/AmazonAdsAdapter (2.1.6):
-    - Appodeal/Core
-  - Appodeal/Banner (2.1.6):
-    - Appodeal/AmazonAdsAdapter
-    - Appodeal/FacebookAudienceAdapter
-    - Appodeal/GoogleAdMobAdapter
-    - Appodeal/InMobiAdapter
-    - Appodeal/MyTargetAdapter
-    - Appodeal/StartAppAdapter
-    - Appodeal/TwitterMoPubAdapter
-    - Appodeal/YandexAdapter
-    - Appodeal/ZPlayAdapter
-  - Appodeal/Core (2.1.6)
-  - Appodeal/FacebookAudienceAdapter (2.1.6):
-    - Appodeal/Core
-  - Appodeal/GoogleAdMobAdapter (2.1.6):
-    - Appodeal/Core
-  - Appodeal/InMobiAdapter (2.1.6):
-    - Appodeal/Core
-  - Appodeal/MyTargetAdapter (2.1.6):
-    - Appodeal/Core
-  - Appodeal/StartAppAdapter (2.1.6):
-    - Appodeal/Core
-  - Appodeal/TwitterMoPubAdapter (2.1.6):
-    - Appodeal/Core
-  - Appodeal/YandexAdapter (2.1.6):
-    - Appodeal/Core
-  - Appodeal/ZPlayAdapter (2.1.6):
-    - Appodeal/Core
-  - GoogleMaps (2.4.0):
-    - GoogleMaps/Maps (= 2.4.0)
-  - GoogleMaps/Base (2.4.0)
-  - GoogleMaps/Maps (2.4.0):
+  - Alamofire (4.6.0)
+  - CFNotify (1.0.2)
+  - Crashlytics (3.10.0):
+    - Fabric (~> 1.7.3)
+  - Fabric (1.7.3)
+  - GoogleMaps (2.6.0):
+    - GoogleMaps/Maps (= 2.6.0)
+  - GoogleMaps/Base (2.6.0)
+  - GoogleMaps/Maps (2.6.0):
     - GoogleMaps/Base
+  - Instructions (1.0.0)
+  - ObjectMapper (3.1.0)
 
 DEPENDENCIES:
-  - Alamofire (~> 4.5)
-  - Appodeal/Banner (~> 2.0)
+  - Alamofire (~> 4.6.0)
+  - CFNotify (~> 1.0.2)
+  - Crashlytics (~> 3.10.0)
+  - Fabric (~> 1.7.2)
   - GoogleMaps
+  - Instructions (~> 1.0.0)
+  - ObjectMapper (~> 3.1.0)
 
 SPEC CHECKSUMS:
-  Alamofire: 2d95912bf4c34f164fdfc335872e8c312acaea4a
-  Appodeal: a2d6f010c037b78bdd10d1bafc4572951302eb2d
-  GoogleMaps: 8436ab5d1c25e36915b2f7416d0c8e3fa2e76c61
+  Alamofire: f41a599bd63041760b26d393ec1069d9d7b917f4
+  CFNotify: e32996ad9034b4d64b30d685e456ea4b83fecb49
+  Crashlytics: a989ef242b66605577a425733797f810bd2725eb
+  Fabric: bb495bb9a7a7677c6d03a1f8b83d95bc49b47e41
+  GoogleMaps: 42f91c68b7fa2f84d5c86597b18ceb99f5414c7f
+  Instructions: 11b6744e572b8cab6f61e9445403cb95fcde68f1
+  ObjectMapper: 20505058f54e5c3ca69e1d6de9897d152a5369a6
 
-PODFILE CHECKSUM: fcf1f6f2d001e750200344ad044d27f5e7d5b1e0
+PODFILE CHECKSUM: 884dc3fefeca1a24ccf0b802624201fcc27ca212
 
-COCOAPODS: 1.3.1
+COCOAPODS: 1.4.0

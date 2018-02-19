@@ -21,14 +21,14 @@ enum BoozeUpIconManager: String {
     
     init(rawValue: String) {
         switch rawValue {
-        case "Beer": self = .Beer
-        case "Wine": self = .Wine
-        case "Cola": self = .Cola
-        case "Juice": self = .Juice
-        case "Whiskey": self = .Whiskey
-        case "Vodka": self = .Vodka
-        case "Coffee": self = .Coffee
-        case "Coctail": self = .Coctail
+        case "1": self = .Beer
+        case "2": self = .Wine
+        case "3": self = .Cola
+        case "4": self = .Juice
+        case "5": self = .Whiskey
+        case "6": self = .Vodka
+        case "7": self = .Coffee
+        case "8": self = .Coctail
         default: self = .Juice
         }
     }
@@ -38,6 +38,6 @@ enum BoozeUpIconManager: String {
 // Property through extension which will default to assign the value to the icon:
 extension BoozeUpIconManager {
     var image: UIImage {
-        return UIImage(named: self.rawValue)!
+        return UIImage(named: self.rawValue) ?? UIImage()
     }
 }

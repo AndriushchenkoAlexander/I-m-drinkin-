@@ -1,24 +1,32 @@
-//
-//  BoozeUp.swift
-//  I am drinking
-//
-//  Created by astronauttux on 11.10.17.
-//  Copyright © 2017 Vadym Yakovliev. All rights reserved.
-//
+/*
+ BoozeUp.swift
+ I am drinking
+ 
+ Created by astronauttux on 11.10.17.
+ Copyright © 2017 Vadym Yakovliev. All rights reserved.
+ */
 
 import Foundation
+import ObjectMapper
 
-
-struct BoozeUp {
-    let device: String?
-    let latitude: String?
-    let longitude: String?
-    let drink: Int?
+class BoozeUp: Mappable {
+    var boozeUpID: String?
+    var device: String?
+    var latitude: String?
+    var longitude: String?
+    var drink: Int?
+    var txtDrink: String?
+    var description: String?
     
-    init?(json: JSON) {
-        device = json["device"] as? String
-        latitude = json["latitude"] as? String
-        longitude = json["longitude"] as? String
-        drink = json["drink"] as? Int
+    required convenience init?(map: Map) { self.init() }
+    
+    func mapping(map: Map) {
+        boozeUpID   <- map["id"]
+        device      <- map["device"]
+        latitude    <- map["latitude"]
+        longitude   <- map["longitude"]
+        drink       <- map["drink"]
+        txtDrink    <- map["human_readable_drink"]
+        description <- map["description"]
     }
 }

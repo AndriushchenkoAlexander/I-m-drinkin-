@@ -1,18 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="AppleSDGothicNeo.ttc">
+            <string>AppleSDGothicNeo-Regular</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Delegate-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="LocationViewController" customModule="I_am_drinking" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LocationViewController" id="BYZ-38-t0r" customClass="LocationViewController" customModule="I_am_drinking" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -23,91 +30,193 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UOu-Sj-J93" customClass="GMSMapView">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.535379893" green="0.68577126190000004" blue="0.92234212159999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="PgM-2A-YRz"/>
                                 </connections>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SFM-W4-1ju">
-                                <rect key="frame" x="18" y="491" width="50" height="50"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="1"/>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kpv-dj-wuy">
-                                <rect key="frame" x="18" y="438" width="50" height="50"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="2"/>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AgP-xP-9a9">
-                                <rect key="frame" x="18" y="385" width="50" height="50"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="3"/>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vcx-EY-W1A">
-                                <rect key="frame" x="18" y="332" width="50" height="50"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="4"/>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RVi-BG-4FC">
-                                <rect key="frame" x="18" y="279" width="50" height="50"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="5"/>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KOB-ru-StW">
-                                <rect key="frame" x="18" y="226" width="50" height="50"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="6"/>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3On-78-Lte">
-                                <rect key="frame" x="18" y="173" width="50" height="50"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="7"/>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3DA-HB-Ajz">
-                                <rect key="frame" x="18" y="120" width="50" height="50"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="8"/>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="szZ-FK-pzr">
-                                <rect key="frame" x="8" y="544" width="70" height="70"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="5bD-Ju-5xh">
+                                <rect key="frame" x="18" y="91" width="50" height="452.5"/>
+                                <subviews>
+                                    <button opaque="NO" alpha="0.0" tag="8" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3DA-HB-Ajz">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50.5"/>
+                                        <gestureRecognizers/>
+                                        <state key="normal" image="8-cocktail"/>
+                                        <connections>
+                                            <action selector="checkInWithDrink:" destination="BYZ-38-t0r" eventType="touchUpInside" id="58b-y1-oIP"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" alpha="0.0" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3On-78-Lte">
+                                        <rect key="frame" x="0.0" y="57.5" width="50" height="50.5"/>
+                                        <gestureRecognizers/>
+                                        <state key="normal" image="7-coffee"/>
+                                        <connections>
+                                            <action selector="checkInWithDrink:" destination="BYZ-38-t0r" eventType="touchUpInside" id="UbV-9j-tcc"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" alpha="0.0" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KOB-ru-StW">
+                                        <rect key="frame" x="0.0" y="115" width="50" height="50.5"/>
+                                        <gestureRecognizers/>
+                                        <state key="normal" image="6-vodka"/>
+                                        <connections>
+                                            <action selector="checkInWithDrink:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qfi-Jk-cf3"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" alpha="0.0" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RVi-BG-4FC">
+                                        <rect key="frame" x="0.0" y="172.5" width="50" height="50.5"/>
+                                        <gestureRecognizers/>
+                                        <state key="normal" image="5-whiskey"/>
+                                        <connections>
+                                            <action selector="checkInWithDrink:" destination="BYZ-38-t0r" eventType="touchUpInside" id="oa8-o0-lwk"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" alpha="0.0" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vcx-EY-W1A">
+                                        <rect key="frame" x="0.0" y="230" width="50" height="50"/>
+                                        <gestureRecognizers/>
+                                        <state key="normal" image="4-juice"/>
+                                        <connections>
+                                            <action selector="checkInWithDrink:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bcS-1N-Qz5"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" alpha="0.0" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AgP-xP-9a9">
+                                        <rect key="frame" x="0.0" y="287" width="50" height="50.5"/>
+                                        <gestureRecognizers/>
+                                        <state key="normal" image="3-cola"/>
+                                        <connections>
+                                            <action selector="checkInWithDrink:" destination="BYZ-38-t0r" eventType="touchUpInside" id="wyN-go-Izy"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" alpha="0.0" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kpv-dj-wuy">
+                                        <rect key="frame" x="0.0" y="344.5" width="50" height="50.5"/>
+                                        <gestureRecognizers/>
+                                        <state key="normal" image="2-wine"/>
+                                        <connections>
+                                            <action selector="checkInWithDrink:" destination="BYZ-38-t0r" eventType="touchUpInside" id="b9A-w2-KAQ"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" alpha="0.0" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SFM-W4-1ju">
+                                        <rect key="frame" x="0.0" y="402" width="50" height="50.5"/>
+                                        <gestureRecognizers/>
+                                        <state key="normal" image="1-beer"/>
+                                        <connections>
+                                            <action selector="checkInWithDrink:" destination="BYZ-38-t0r" eventType="touchUpInside" id="dM6-eg-77a"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="70" id="Bm9-dF-eke"/>
+                                    <constraint firstAttribute="width" secondItem="5bD-Ju-5xh" secondAttribute="height" multiplier="1/9" id="5C1-gl-nWg"/>
+                                </constraints>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="szZ-FK-pzr">
+                                <rect key="frame" x="8" y="551.5" width="70" height="70.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="szZ-FK-pzr" secondAttribute="height" multiplier="1:1" id="Dzt-km-ubl"/>
                                 </constraints>
                                 <state key="normal" image="CheckInButton"/>
                                 <connections>
                                     <action selector="checkInButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="GKA-Cc-2nb"/>
                                 </connections>
                             </button>
+                            <visualEffectView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CU3-jq-2KA">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" ambiguous="YES" insetsLayoutMarginsFromSafeArea="NO" id="bKh-er-RIb">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                </view>
+                                <blurEffect style="light"/>
+                            </visualEffectView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="szZ-FK-pzr" secondAttribute="bottom" priority="750" constant="45" id="4wp-bO-v31"/>
                             <constraint firstItem="UOu-Sj-J93" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="B3o-CN-ahF"/>
                             <constraint firstItem="UOu-Sj-J93" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="C1z-U1-kGg"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="szZ-FK-pzr" secondAttribute="bottom" constant="53" id="cfD-9K-nra"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" relation="lessThanOrEqual" secondItem="szZ-FK-pzr" secondAttribute="bottom" constant="45" id="Efh-eO-JbX"/>
+                            <constraint firstItem="szZ-FK-pzr" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="8" id="Umo-SW-THy"/>
+                            <constraint firstItem="5bD-Ju-5xh" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="50:375" id="XIL-12-zDH"/>
+                            <constraint firstItem="szZ-FK-pzr" firstAttribute="centerX" secondItem="5bD-Ju-5xh" secondAttribute="centerX" id="eqe-a3-XS0"/>
                             <constraint firstItem="UOu-Sj-J93" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="pOn-c7-53v"/>
+                            <constraint firstItem="szZ-FK-pzr" firstAttribute="top" secondItem="5bD-Ju-5xh" secondAttribute="bottom" constant="8" id="pfh-ho-qEh"/>
                             <constraint firstItem="UOu-Sj-J93" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="q3Q-ab-Hdz"/>
-                            <constraint firstItem="szZ-FK-pzr" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="524" id="uNz-dD-dpH"/>
-                            <constraint firstItem="szZ-FK-pzr" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="8" id="w5v-O1-kn5"/>
+                            <constraint firstItem="szZ-FK-pzr" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="70:375" id="s6l-Re-FWN"/>
+                            <constraint firstItem="5bD-Ju-5xh" firstAttribute="top" relation="greaterThanOrEqual" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="wtf-KW-scv"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="addItemView" destination="FBR-x6-QIS" id="XW1-Yu-rZ2"/>
+                        <outlet property="checkInButton" destination="szZ-FK-pzr" id="IjV-H8-9xc"/>
+                        <outlet property="descriptionTextView" destination="owg-Yf-omZ" id="u2G-Y5-nan"/>
+                        <outlet property="descriptionView" destination="CU3-jq-2KA" id="4FT-oU-fHd"/>
                         <outlet property="mapView" destination="UOu-Sj-J93" id="5Bn-gH-EMo"/>
+                        <outlet property="sendButton" destination="R2r-bq-tfO" id="h5i-M5-yxE"/>
+                        <outletCollection property="checkInWithDrinks" destination="3DA-HB-Ajz" collectionClass="NSMutableArray" id="VDo-Qo-Owv"/>
+                        <outletCollection property="checkInWithDrinks" destination="3On-78-Lte" collectionClass="NSMutableArray" id="x6d-l2-u3B"/>
+                        <outletCollection property="checkInWithDrinks" destination="KOB-ru-StW" collectionClass="NSMutableArray" id="Zgz-Am-cen"/>
+                        <outletCollection property="checkInWithDrinks" destination="RVi-BG-4FC" collectionClass="NSMutableArray" id="IPs-Zf-FNX"/>
+                        <outletCollection property="checkInWithDrinks" destination="Vcx-EY-W1A" collectionClass="NSMutableArray" id="EnB-Hh-R7U"/>
+                        <outletCollection property="checkInWithDrinks" destination="AgP-xP-9a9" collectionClass="NSMutableArray" id="dMz-c3-5Di"/>
+                        <outletCollection property="checkInWithDrinks" destination="kpv-dj-wuy" collectionClass="NSMutableArray" id="whk-ho-lY9"/>
+                        <outletCollection property="checkInWithDrinks" destination="SFM-W4-1ju" collectionClass="NSMutableArray" id="JvP-Cv-h29"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <view contentMode="scaleToFill" id="FBR-x6-QIS">
+                    <rect key="frame" x="0.0" y="0.0" width="300" height="149"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Добавьте описание" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VBo-zW-mak">
+                            <rect key="frame" x="87" y="11" width="127" height="18"/>
+                            <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="15"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R2r-bq-tfO">
+                            <rect key="frame" x="115.5" y="117" width="70" height="30"/>
+                            <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="15"/>
+                            <state key="normal" title="Отправить">
+                                <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                            <connections>
+                                <action selector="sendDescription:" destination="BYZ-38-t0r" eventType="touchUpInside" id="nf8-4p-McB"/>
+                            </connections>
+                        </button>
+                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="owg-Yf-omZ">
+                            <rect key="frame" x="16" y="37" width="268" height="82"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="268" id="OOu-n3-3HA"/>
+                                <constraint firstAttribute="height" constant="82" id="gOf-QV-tD0"/>
+                            </constraints>
+                            <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                        </textView>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="owg-Yf-omZ" firstAttribute="top" secondItem="VBo-zW-mak" secondAttribute="bottom" constant="8" id="2GI-f1-kRw"/>
+                        <constraint firstAttribute="trailing" secondItem="owg-Yf-omZ" secondAttribute="trailing" constant="16" id="4JP-OX-ci7"/>
+                        <constraint firstItem="owg-Yf-omZ" firstAttribute="leading" secondItem="FBR-x6-QIS" secondAttribute="leading" constant="16" id="9Kv-m6-7fE"/>
+                        <constraint firstItem="R2r-bq-tfO" firstAttribute="centerX" secondItem="FBR-x6-QIS" secondAttribute="centerX" id="IMM-is-lo1"/>
+                        <constraint firstAttribute="bottom" secondItem="owg-Yf-omZ" secondAttribute="bottom" constant="30" id="Q6F-Xt-GXM"/>
+                        <constraint firstAttribute="bottom" secondItem="R2r-bq-tfO" secondAttribute="bottom" constant="2" id="eCJ-e9-txw"/>
+                        <constraint firstItem="VBo-zW-mak" firstAttribute="centerX" secondItem="FBR-x6-QIS" secondAttribute="centerX" id="wl7-nP-xnT"/>
+                    </constraints>
+                </view>
             </objects>
-            <point key="canvasLocation" x="117.59999999999999" y="123.68815592203899"/>
+            <point key="canvasLocation" x="85.599999999999994" y="195.6521739130435"/>
         </scene>
     </scenes>
     <resources>
-        <image name="1" width="166" height="166"/>
-        <image name="2" width="166" height="166"/>
-        <image name="3" width="167" height="166"/>
-        <image name="4" width="167" height="166"/>
-        <image name="5" width="167" height="166"/>
-        <image name="6" width="167" height="166"/>
-        <image name="7" width="167" height="166"/>
-        <image name="8" width="167" height="166"/>
+        <image name="1-beer" width="166" height="166"/>
+        <image name="2-wine" width="166" height="166"/>
+        <image name="3-cola" width="167" height="166"/>
+        <image name="4-juice" width="167" height="166"/>
+        <image name="5-whiskey" width="167" height="166"/>
+        <image name="6-vodka" width="167" height="166"/>
+        <image name="7-coffee" width="167" height="166"/>
+        <image name="8-cocktail" width="167" height="166"/>
         <image name="CheckInButton" width="167" height="166"/>
     </resources>
 </document>

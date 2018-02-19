@@ -6,7 +6,9 @@
  */
 
 import UIKit
-
+import ObjectMapper
+import Fabric
+import Crashlytics
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -14,39 +16,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        Fabric.with([Crashlytics.self])
         
         LocationsManager.sharedManager.locationProvideAPIKey()
         
-        //        let adsManager = AdsManager()
-        //        adsManager.initAdsManager()
-        
-        if DeviceID.checkID() == false {
-            NetworkManager.sharedManager.post(.device, nil)
+        if DeviceID.shared.checkID() == false {
+            NetworkManager.sharedManager.post(nil, EndPoints.sharedInstance.createNewDeviceID(), nil, { (response)  in
+                if let response = response as? BaseResponse {
+                    if let deviceID = response.deviceID {
+                        print("--==** AppDelegate - NEW Device ID :  \n\(deviceID) \n**==--")
+                        DeviceID.shared.saveInDefaults(deviceID: deviceID)
+                    }
+                }
+            })
         }
-        print("--==** AppDelegate Device ID:  \(String(describing: DeviceID.getDeviceID()))**==--")
-        
         return true
     }
-    /*
-     func applicationWillResignActive(_ application: UIApplication) {
-     
-     }
-     
-     func applicationDidEnterBackground(_ application: UIApplication) {
-     
-     }
-     
-     func applicationWillEnterForeground(_ application: UIApplication) {
-     
-     }
-     
-     func applicationDidBecomeActive(_ application: UIApplication) {
-     
-     }
-     
-     func applicationWillTerminate(_ application: UIApplication) {
-     
-     }
-     */
 }
 
