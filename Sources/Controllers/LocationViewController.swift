@@ -17,17 +17,53 @@ class LocationViewController: UIViewController {
     
     // MARK: -
     // MARK: - UIVisualEffectView Properties
-    
+  
+    @IBOutlet var addItemView: UIView!
     @IBOutlet var descriptionView: UIVisualEffectView!
     @IBOutlet weak var descriptionTextView: UITextView!
     @IBOutlet weak var sendButton: UIButton!
-    
+    var effect: UIVisualEffect!
+  
     // MARK: -
     // MARK: - Properties
     
     let locationManager = CLLocationManager()
     var markersArray = [GMSMarker]()
     var userCoordinates: Coordinates?
+  
+  // MARK: -
+  // MARK: Animations for description
+  
+  func animateIn() {
+    view.addSubview(addItemView)
+    addItemView.center = descriptionView.center
+    
+    addItemView.transform = CGAffineTransform.init(scaleX: 1.3, y: 1.3)
+    addItemView.alpha = 0
+    
+    UIView.animate(withDuration: 0.4) { [weak self] in
+      guard let `self` = self else { return }
+      
+      self.descriptionView.effect = self.effect
+      self.addItemView.alpha = 1
+      self.addItemView.transform = CGAffineTransform.identity
+    }
+  }
+  
+  func animateOut() {
+    UIView.animate(withDuration: 0.4, animations: { [weak self] in
+      guard let `self` = self else { return }
+      
+      self.addItemView.transform = CGAffineTransform.init(scaleX: 1.3, y: 1.3)
+      self.addItemView.alpha = 0
+      
+      self.descriptionView.effect = nil
+      
+    }) { (Bool) in
+      
+      self.addItemView.removeFromSuperview()
+    }
+  }
     
     // MARK: -
     // MARK: UIViewController methods
@@ -35,7 +71,11 @@ class LocationViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         print("--==** CURRENT Device ID:  \n\(DeviceID.shared.loadDeviceID() ?? "ID is absent") **==--")
-        
+      
+      effect = descriptionView.effect
+      descriptionView.effect = nil
+      
+      addItemView.layer.cornerRadius = 5
 
         addLongPress()
 
@@ -70,7 +110,8 @@ class LocationViewController: UIViewController {
     @IBAction func sendDescription(_ sender: UIButton) {
         if let text = descriptionTextView.text {
             setupActiveBoozeUp(drink: sender.tag, description: text)
-            descriptionViewDisappearance()
+//            descriptionViewDisappearance()
+          animateOut()
         }
         isHiddenDrinkButtons()
     }
@@ -98,15 +139,16 @@ class LocationViewController: UIViewController {
     // MARK: DescriptionViews setup
     
     func descriptionViewAppearance(buttonTag: Int) {
-        setupDescriptionView()
+//        setupDescriptionView()
         setupDescriptionTextView()
         setupDescriptionButton(buttonTag)
-        
-        UIView.animate(withDuration: 0.5, animations: {
-            self.descriptionView.alpha = 1
-        }) { (true) in
-            self.descriptionTextView.becomeFirstResponder()
-        }
+      
+      animateIn()
+//        UIView.animate(withDuration: 0.5, animations: {
+//            self.descriptionView.alpha = 1
+//        }) { (true) in
+//            self.descriptionTextView.becomeFirstResponder()
+//        }
     }
     
     func descriptionViewDisappearance() {
@@ -133,10 +175,6 @@ class LocationViewController: UIViewController {
     
     func setupDescriptionButton(_ tag: Int) {
         sendButton.tag = tag
-        sendButton.backgroundColor = .skyBlue
-        sendButton.layer.cornerRadius = 5
-        sendButton.layer.borderWidth = 1
-        sendButton.layer.borderColor = UIColor.blackBlue.cgColor
         sendButton.titleLabel?.textAlignment = .center
     }
     

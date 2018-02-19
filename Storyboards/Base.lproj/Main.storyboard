@@ -12,7 +12,6 @@
     </dependencies>
     <customFonts key="customFonts">
         <array key="AppleSDGothicNeo.ttc">
-            <string>AppleSDGothicNeo-Bold</string>
             <string>AppleSDGothicNeo-Regular</string>
         </array>
     </customFonts>
@@ -31,7 +30,7 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UOu-Sj-J93" customClass="GMSMapView">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.535379893" green="0.68577126190000004" blue="0.92234212159999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="PgM-2A-YRz"/>
                                 </connections>
@@ -118,6 +117,15 @@
                                     <action selector="checkInButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="GKA-Cc-2nb"/>
                                 </connections>
                             </button>
+                            <visualEffectView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CU3-jq-2KA">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" ambiguous="YES" insetsLayoutMarginsFromSafeArea="NO" id="bKh-er-RIb">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                </view>
+                                <blurEffect style="light"/>
+                            </visualEffectView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -136,11 +144,12 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="addItemView" destination="FBR-x6-QIS" id="XW1-Yu-rZ2"/>
                         <outlet property="checkInButton" destination="szZ-FK-pzr" id="IjV-H8-9xc"/>
-                        <outlet property="descriptionTextView" destination="mxe-1U-qkb" id="wb6-Pd-4IP"/>
-                        <outlet property="descriptionView" destination="f64-83-bKL" id="ltO-uK-O4c"/>
+                        <outlet property="descriptionTextView" destination="owg-Yf-omZ" id="u2G-Y5-nan"/>
+                        <outlet property="descriptionView" destination="CU3-jq-2KA" id="4FT-oU-fHd"/>
                         <outlet property="mapView" destination="UOu-Sj-J93" id="5Bn-gH-EMo"/>
-                        <outlet property="sendButton" destination="DZG-jp-qR9" id="BbA-xi-m7e"/>
+                        <outlet property="sendButton" destination="R2r-bq-tfO" id="h5i-M5-yxE"/>
                         <outletCollection property="checkInWithDrinks" destination="3DA-HB-Ajz" collectionClass="NSMutableArray" id="VDo-Qo-Owv"/>
                         <outletCollection property="checkInWithDrinks" destination="3On-78-Lte" collectionClass="NSMutableArray" id="x6d-l2-u3B"/>
                         <outletCollection property="checkInWithDrinks" destination="KOB-ru-StW" collectionClass="NSMutableArray" id="Zgz-Am-cen"/>
@@ -152,60 +161,51 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-                <visualEffectView opaque="NO" contentMode="scaleToFill" id="f64-83-bKL">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                <view contentMode="scaleToFill" id="FBR-x6-QIS">
+                    <rect key="frame" x="0.0" y="0.0" width="300" height="149"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="OMQ-iU-mZp">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Добавьте комментарий к локации" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UZh-z5-7UZ">
-                                <rect key="frame" x="54" y="40" width="267" height="22"/>
-                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="18"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="mxe-1U-qkb">
-                                <rect key="frame" x="30" y="91" width="315" height="172"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="172" id="WTJ-qt-3UG"/>
-                                </constraints>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="15"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DZG-jp-qR9">
-                                <rect key="frame" x="139" y="271" width="98" height="34"/>
-                                <color key="backgroundColor" red="0.53537989298682709" green="0.68577126194635674" blue="0.92234212160110474" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="DZG-jp-qR9" secondAttribute="height" multiplier="49:17" id="C9x-0I-cVC"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="18"/>
-                                <state key="normal" title="Отправить">
-                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="sendDescription:" destination="BYZ-38-t0r" eventType="touchUpInside" id="NZr-y9-vkk"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <constraints>
-                            <constraint firstItem="mxe-1U-qkb" firstAttribute="top" secondItem="UZh-z5-7UZ" secondAttribute="bottom" constant="29" id="FCj-Xr-doN"/>
-                            <constraint firstItem="UZh-z5-7UZ" firstAttribute="centerX" secondItem="OMQ-iU-mZp" secondAttribute="centerX" id="Hep-1s-4kR"/>
-                            <constraint firstItem="mxe-1U-qkb" firstAttribute="leading" secondItem="OMQ-iU-mZp" secondAttribute="leading" constant="30" id="JMq-t9-mEb"/>
-                            <constraint firstItem="DZG-jp-qR9" firstAttribute="top" secondItem="mxe-1U-qkb" secondAttribute="bottom" constant="8" id="hgt-lZ-qWh"/>
-                            <constraint firstAttribute="trailing" secondItem="mxe-1U-qkb" secondAttribute="trailing" constant="30" id="mdA-NF-gXq"/>
-                            <constraint firstItem="mxe-1U-qkb" firstAttribute="top" secondItem="OMQ-iU-mZp" secondAttribute="top" constant="91" id="tCm-y2-cji"/>
-                        </constraints>
-                    </view>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Добавьте описание" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VBo-zW-mak">
+                            <rect key="frame" x="87" y="11" width="127" height="18"/>
+                            <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="15"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R2r-bq-tfO">
+                            <rect key="frame" x="115.5" y="117" width="70" height="30"/>
+                            <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="15"/>
+                            <state key="normal" title="Отправить">
+                                <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                            <connections>
+                                <action selector="sendDescription:" destination="BYZ-38-t0r" eventType="touchUpInside" id="nf8-4p-McB"/>
+                            </connections>
+                        </button>
+                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="owg-Yf-omZ">
+                            <rect key="frame" x="16" y="37" width="268" height="82"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="268" id="OOu-n3-3HA"/>
+                                <constraint firstAttribute="height" constant="82" id="gOf-QV-tD0"/>
+                            </constraints>
+                            <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                        </textView>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
-                        <constraint firstItem="DZG-jp-qR9" firstAttribute="centerX" secondItem="f64-83-bKL" secondAttribute="centerX" id="0cn-aW-0Jq"/>
-                        <constraint firstItem="UZh-z5-7UZ" firstAttribute="centerX" secondItem="f64-83-bKL" secondAttribute="centerX" id="bCG-wC-rkW"/>
+                        <constraint firstItem="owg-Yf-omZ" firstAttribute="top" secondItem="VBo-zW-mak" secondAttribute="bottom" constant="8" id="2GI-f1-kRw"/>
+                        <constraint firstAttribute="trailing" secondItem="owg-Yf-omZ" secondAttribute="trailing" constant="16" id="4JP-OX-ci7"/>
+                        <constraint firstItem="owg-Yf-omZ" firstAttribute="leading" secondItem="FBR-x6-QIS" secondAttribute="leading" constant="16" id="9Kv-m6-7fE"/>
+                        <constraint firstItem="R2r-bq-tfO" firstAttribute="centerX" secondItem="FBR-x6-QIS" secondAttribute="centerX" id="IMM-is-lo1"/>
+                        <constraint firstAttribute="bottom" secondItem="owg-Yf-omZ" secondAttribute="bottom" constant="30" id="Q6F-Xt-GXM"/>
+                        <constraint firstAttribute="bottom" secondItem="R2r-bq-tfO" secondAttribute="bottom" constant="2" id="eCJ-e9-txw"/>
+                        <constraint firstItem="VBo-zW-mak" firstAttribute="centerX" secondItem="FBR-x6-QIS" secondAttribute="centerX" id="wl7-nP-xnT"/>
                     </constraints>
-                    <blurEffect style="light"/>
-                </visualEffectView>
+                </view>
             </objects>
-            <point key="canvasLocation" x="86" y="196"/>
+            <point key="canvasLocation" x="85.599999999999994" y="195.6521739130435"/>
         </scene>
     </scenes>
     <resources>
