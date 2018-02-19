@@ -8,7 +8,8 @@ def pods
   pod 'ObjectMapper', '~> 3.1.0'
   pod 'CFNotify', '~> 1.0.2'
   pod 'Fabric', '~> 1.7.2'
-  pod 'Crashlytics', '~>  3.9.3'
+  pod 'Crashlytics', '~>  3.10.0'
+  pod 'Instructions', '~> 1.0.0'
 end
 
 target 'I am drinking' do
