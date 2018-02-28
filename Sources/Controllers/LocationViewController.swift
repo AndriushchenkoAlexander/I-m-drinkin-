@@ -38,7 +38,7 @@ class LocationViewController: UIViewController {
     view.addSubview(addItemView)
     addItemView.center = descriptionView.center
     
-    addItemView.transform = CGAffineTransform.init(scaleX: 1.3, y: 1.3)
+    addItemView.transform = CGAffineTransform(scaleX: 1.3, y: 1.3)
     addItemView.alpha = 0
     
     UIView.animate(withDuration: 0.4) { [weak self] in
@@ -54,7 +54,7 @@ class LocationViewController: UIViewController {
     UIView.animate(withDuration: 0.4, animations: { [weak self] in
       guard let `self` = self else { return }
       
-      self.addItemView.transform = CGAffineTransform.init(scaleX: 1.3, y: 1.3)
+      self.addItemView.transform = CGAffineTransform(scaleX: 1.3, y: 1.3)
       self.addItemView.alpha = 0
       
       self.descriptionView.effect = nil
