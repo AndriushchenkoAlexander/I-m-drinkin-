@@ -17,53 +17,55 @@ class LocationViewController: UIViewController {
     
     // MARK: -
     // MARK: - UIVisualEffectView Properties
-  
+    
     @IBOutlet var addItemView: UIView!
     @IBOutlet var descriptionView: UIVisualEffectView!
     @IBOutlet weak var descriptionTextView: UITextView!
     @IBOutlet weak var sendButton: UIButton!
     var effect: UIVisualEffect!
-  
+    
     // MARK: -
     // MARK: - Properties
     
     let locationManager = CLLocationManager()
     var markersArray = [GMSMarker]()
+    var currentMarker : GMSMarker?
     var userCoordinates: Coordinates?
-  
-  // MARK: -
-  // MARK: Animations for description
-  
-  func animateIn() {
-    view.addSubview(addItemView)
-    addItemView.center = descriptionView.center
+    var isButtonsHidden = true
     
-    addItemView.transform = CGAffineTransform.init(scaleX: 1.3, y: 1.3)
-    addItemView.alpha = 0
+    // MARK: -
+    // MARK: Animations for description
     
-    UIView.animate(withDuration: 0.4) { [weak self] in
-      guard let `self` = self else { return }
-      
-      self.descriptionView.effect = self.effect
-      self.addItemView.alpha = 1
-      self.addItemView.transform = CGAffineTransform.identity
+    func animateIn() {
+        view.addSubview(addItemView)
+        addItemView.center = descriptionView.center
+        
+        addItemView.transform = CGAffineTransform.init(scaleX: 1.3, y: 1.3)
+        addItemView.alpha = 0
+        
+        UIView.animate(withDuration: 0.4) { [weak self] in
+            guard let `self` = self else { return }
+            
+            self.descriptionView.effect = self.effect
+            self.addItemView.alpha = 1
+            self.addItemView.transform = CGAffineTransform.identity
+        }
     }
-  }
-  
-  func animateOut() {
-    UIView.animate(withDuration: 0.4, animations: { [weak self] in
-      guard let `self` = self else { return }
-      
-      self.addItemView.transform = CGAffineTransform.init(scaleX: 1.3, y: 1.3)
-      self.addItemView.alpha = 0
-      
-      self.descriptionView.effect = nil
-      
-    }) { (Bool) in
-      
-      self.addItemView.removeFromSuperview()
+    
+    func animateOut() {
+        UIView.animate(withDuration: 0.4, animations: { [weak self] in
+            guard let `self` = self else { return }
+            
+            self.addItemView.transform = CGAffineTransform.init(scaleX: 1.3, y: 1.3)
+            self.addItemView.alpha = 0
+            
+            self.descriptionView.effect = nil
+            
+        }) { (Bool) in
+            
+            self.addItemView.removeFromSuperview()
+        }
     }
-  }
     
     // MARK: -
     // MARK: UIViewController methods
@@ -71,14 +73,14 @@ class LocationViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         print("--==** CURRENT Device ID:  \n\(DeviceID.shared.loadDeviceID() ?? "ID is absent") **==--")
-      
-      effect = descriptionView.effect
-      descriptionView.effect = nil
-      
-      addItemView.layer.cornerRadius = 5
-
+        
+        effect = descriptionView.effect
+        descriptionView.effect = nil
+        
+        addItemView.layer.cornerRadius = 5
+        
         addLongPress()
-
+        mapView.delegate = self
         
         setupLocationManager()
         
@@ -90,7 +92,7 @@ class LocationViewController: UIViewController {
     
     func addLongPress() {
         for btn in checkInWithDrinks {
-
+            
             let longPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(longPress(_:)))
             longPressGesture.minimumPressDuration = 1.5
             btn.addGestureRecognizer(longPressGesture)
@@ -104,34 +106,42 @@ class LocationViewController: UIViewController {
         Configuration.sharedInstance.showNotifyView(self, "Добавьте подробностей", "Например: ваше имя, название заведения, локация внутри заведения, описание компании и т.д.", "top") {}
     }
     
+    // MARK: - Current Marker Actions
+    func removeCurrentMarker() {
+        currentMarker?.map = nil
+        currentMarker = nil
+    }
+    
     // MARK: -
     // MARK: IB Actions
     
     @IBAction func sendDescription(_ sender: UIButton) {
         if let text = descriptionTextView.text {
             setupActiveBoozeUp(drink: sender.tag, description: text)
-//            descriptionViewDisappearance()
-          animateOut()
+            //            descriptionViewDisappearance()
+            animateOut()
         }
-        isHiddenDrinkButtons()
+        hideOrShowButtons()
     }
     
     @IBAction func checkInButton(_ sender: UIButton) {
-        isHiddenDrinkButtons()
+        removeCurrentMarker()
+        hideOrShowButtons()
     }
     
     @IBAction func checkInWithDrink(_ sender: UIButton) {
-        isHiddenDrinkButtons()
+        hideOrShowButtons()
         guard sender.tag > 0 && sender.tag <= 8 else { return } // just in case
         setupActiveBoozeUp(drink: sender.tag, description: nil)
     }
     
-    func isHiddenDrinkButtons() {
+    func hideOrShowButtons() {
+        isButtonsHidden = !isButtonsHidden
         for drinkBtn in checkInWithDrinks {
             UIView.animate(withDuration: 0.5, animations: {
-                drinkBtn.alpha = drinkBtn.alpha == 1 ? 0 : 1
+                drinkBtn.alpha = self.isButtonsHidden ? 0 : 1
             })
-            drinkBtn.isUserInteractionEnabled = drinkBtn.alpha == 1 ? true : false
+            drinkBtn.isUserInteractionEnabled = !isButtonsHidden
         }
     }
     
@@ -139,16 +149,16 @@ class LocationViewController: UIViewController {
     // MARK: DescriptionViews setup
     
     func descriptionViewAppearance(buttonTag: Int) {
-//        setupDescriptionView()
+        //        setupDescriptionView()
         setupDescriptionTextView()
         setupDescriptionButton(buttonTag)
-      
-      animateIn()
-//        UIView.animate(withDuration: 0.5, animations: {
-//            self.descriptionView.alpha = 1
-//        }) { (true) in
-//            self.descriptionTextView.becomeFirstResponder()
-//        }
+        
+        animateIn()
+        //        UIView.animate(withDuration: 0.5, animations: {
+        //            self.descriptionView.alpha = 1
+        //        }) { (true) in
+        //            self.descriptionTextView.becomeFirstResponder()
+        //        }
     }
     
     func descriptionViewDisappearance() {
@@ -188,11 +198,12 @@ class LocationViewController: UIViewController {
         
         mapView.clear()
         
+        currentMarker?.map = mapView
         for marker in markersArray {
             marker.map = mapView
-//            UIView.animate(withDuration: 0.7, animations: {
-//                marker.opacity = 1
-//            })
+            //            UIView.animate(withDuration: 0.7, animations: {
+            //                marker.opacity = 1
+            //            })
         }
     }
     
@@ -206,7 +217,7 @@ class LocationViewController: UIViewController {
             marker.icon = markerImage
             marker.title = boozeUp.txtDrink
             marker.snippet = boozeUp.description
-//            marker.opacity = 0
+            //            marker.opacity = 0
         }
         marker.tracksInfoWindowChanges = true
         
@@ -217,8 +228,14 @@ class LocationViewController: UIViewController {
     // MARK: Setup local BoozeUp
     
     func setupActiveBoozeUp(drink: Int?, description: String?) {
-        startUpdateLocation()
-        let parameters = createParametersForRequest(drink: drink ?? Int(), latitude: (userCoordinates?.latitude) ?? Double(), longitude: (userCoordinates?.longitude) ?? Double(), description: description)
+        var parameters = [String:Any]()
+        if let marker = currentMarker {
+            parameters = createParametersForRequest(drink: drink ?? Int(), latitude: marker.position.latitude, longitude: marker.position.longitude, description: description)
+        } else {
+            startUpdateLocation()
+            parameters = createParametersForRequest(drink: drink ?? Int(), latitude: (userCoordinates?.latitude) ?? Double(), longitude: (userCoordinates?.longitude) ?? Double(), description: description)
+        }
+        
         postPartyLocationWith(parameters: parameters)
         getActiveParties()
     }
@@ -294,7 +311,24 @@ extension LocationViewController: CLLocationManagerDelegate {
     
     func startUpdateLocation() {
         if CLLocationManager.locationServicesEnabled() {
+            removeCurrentMarker()
             locationManager.startUpdatingLocation()
         }
     }
+}
+
+// MARK: GMSMapViewDelegate
+extension LocationViewController: GMSMapViewDelegate {
+    
+    func mapView(_ mapView: GMSMapView, didTapAt coordinate: CLLocationCoordinate2D) {
+        if isButtonsHidden {
+            currentMarker = GMSMarker(position: coordinate)
+            currentMarker?.map = mapView
+        } else {
+            removeCurrentMarker()
+        }
+        
+        hideOrShowButtons()
+    }
+    
 }
