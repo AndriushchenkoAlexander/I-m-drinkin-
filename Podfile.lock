@@ -1,35 +1,35 @@
 PODS:
-  - Alamofire (4.6.0)
+  - Alamofire (4.7.1)
   - CFNotify (1.0.2)
-  - Crashlytics (3.10.0):
-    - Fabric (~> 1.7.3)
-  - Fabric (1.7.3)
+  - Crashlytics (3.10.1):
+    - Fabric (~> 1.7.5)
+  - Fabric (1.7.6)
   - GoogleMaps (2.6.0):
     - GoogleMaps/Maps (= 2.6.0)
   - GoogleMaps/Base (2.6.0)
   - GoogleMaps/Maps (2.6.0):
     - GoogleMaps/Base
-  - Instructions (1.0.0)
+  - Instructions (1.1.0)
   - ObjectMapper (3.1.0)
 
 DEPENDENCIES:
-  - Alamofire (~> 4.6.0)
-  - CFNotify (~> 1.0.2)
-  - Crashlytics (~> 3.10.0)
-  - Fabric (~> 1.7.2)
+  - Alamofire
+  - CFNotify
+  - Crashlytics
+  - Fabric
   - GoogleMaps
-  - Instructions (~> 1.0.0)
-  - ObjectMapper (~> 3.1.0)
+  - Instructions
+  - ObjectMapper
 
 SPEC CHECKSUMS:
-  Alamofire: f41a599bd63041760b26d393ec1069d9d7b917f4
+  Alamofire: 68d7d521118d49c615a8d2214d87cdf525599d30
   CFNotify: e32996ad9034b4d64b30d685e456ea4b83fecb49
-  Crashlytics: a989ef242b66605577a425733797f810bd2725eb
-  Fabric: bb495bb9a7a7677c6d03a1f8b83d95bc49b47e41
+  Crashlytics: aee1a064cbbf99b32efa3f056a5f458d846bc8ff
+  Fabric: f8d42c893bb187326a7968b62abe55c36a987a46
   GoogleMaps: 42f91c68b7fa2f84d5c86597b18ceb99f5414c7f
-  Instructions: 11b6744e572b8cab6f61e9445403cb95fcde68f1
+  Instructions: ff5738d6a637a46d1638a77d77261649f4da36a7
   ObjectMapper: 20505058f54e5c3ca69e1d6de9897d152a5369a6
 
-PODFILE CHECKSUM: 884dc3fefeca1a24ccf0b802624201fcc27ca212
+PODFILE CHECKSUM: 86f57b0eb1a0dd55168d8792e80cb61ef83094b2
 
 COCOAPODS: 1.4.0
