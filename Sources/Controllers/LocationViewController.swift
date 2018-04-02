@@ -190,8 +190,8 @@ class LocationViewController: UIViewController {
     
     func parseDrunkParties(result: Results) {
         markersArray = result
-            .flatMap { Mapper<BoozeUp>().map(JSONObject: $0) }
-            .flatMap { setupMapMarkerWith($0) }
+            .compactMap { Mapper<BoozeUp>().map(JSONObject: $0) }
+            .compactMap { setupMapMarkerWith($0) }
         
         mapView.clear()
         
