@@ -14,12 +14,12 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire
-  - CFNotify (~> 1.0.2)
-  - Crashlytics (~> 3.10.0)
-  - Fabric (~> 1.7.2)
+  - CFNotify
+  - Crashlytics
+  - Fabric
   - GoogleMaps
   - Instructions
-  - ObjectMapper (~> 3.1.0)
+  - ObjectMapper
 
 SPEC CHECKSUMS:
   Alamofire: 68d7d521118d49c615a8d2214d87cdf525599d30
@@ -30,6 +30,6 @@ SPEC CHECKSUMS:
   Instructions: ff5738d6a637a46d1638a77d77261649f4da36a7
   ObjectMapper: 20505058f54e5c3ca69e1d6de9897d152a5369a6
 
-PODFILE CHECKSUM: 5d6e5683b230ddd5d38b4e66170c8e69c309472e
+PODFILE CHECKSUM: e0109feedf62b807725fce8b092277915a6d5dc3
 
 COCOAPODS: 1.4.0

@@ -5,10 +5,10 @@ source 'https://github.com/CocoaPods/Specs.git'
 def pods
   pod 'GoogleMaps'
   pod 'Alamofire'
-  pod 'ObjectMapper', '~> 3.1.0'
-  pod 'CFNotify', '~> 1.0.2'
-  pod 'Fabric', '~> 1.7.2'
-  pod 'Crashlytics', '~>  3.10.0'
+  pod 'ObjectMapper'
+  pod 'CFNotify'
+  pod 'Fabric'
+  pod 'Crashlytics'
   pod 'Instructions'
 end
 
