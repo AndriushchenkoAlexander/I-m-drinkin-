@@ -62,8 +62,11 @@ class LocationViewController: UIViewController {
             self.descriptionView.effect = nil
             
         }) { (Bool) in
+            
+            self.addItemView.removeFromSuperview()
         }
     }
+    
     // MARK: -
     // MARK: UIViewController methods
     
@@ -91,7 +94,7 @@ class LocationViewController: UIViewController {
         for btn in checkInWithDrinks {
             
             let longPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(longPress(_:)))
-            longPressGesture.minimumPressDuration = 1.5
+            longPressGesture.minimumPressDuration = 0.5
             btn.addGestureRecognizer(longPressGesture)
         }
     }
@@ -118,6 +121,7 @@ class LocationViewController: UIViewController {
             //            descriptionViewDisappearance()
             animateOut()
         }
+        
         hideOrShowButtons()
     }
     
@@ -327,5 +331,4 @@ extension LocationViewController: GMSMapViewDelegate {
         
         hideOrShowButtons()
     }
-    
 }
