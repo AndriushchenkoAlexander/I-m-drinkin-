@@ -1,0 +1,5 @@
+github "Alamofire/Alamofire" "4.7.1"
+github "Hearst-DD/ObjectMapper" "3.1.0"
+github "ephread/Instructions" "1.1.0"
+github "hallelujahbaby/CFNotify" "1.0.2"
+github "leoneparise/GoogleMaps-Carthage" "2.4.0"

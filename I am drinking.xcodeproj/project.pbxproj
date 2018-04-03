@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		762B72922073492F00C72F8F /* ObjectMapper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 762B72892073492F00C72F8F /* ObjectMapper.framework */; };
+		762B72932073492F00C72F8F /* GoogleMaps.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 762B728A2073492F00C72F8F /* GoogleMaps.framework */; };
+		762B72942073492F00C72F8F /* InstructionsAppExtensions.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 762B728B2073492F00C72F8F /* InstructionsAppExtensions.framework */; };
+		762B72952073492F00C72F8F /* Instructions.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 762B728C2073492F00C72F8F /* Instructions.framework */; };
+		762B72962073492F00C72F8F /* GoogleMapsCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 762B728D2073492F00C72F8F /* GoogleMapsCore.framework */; };
+		762B72972073492F00C72F8F /* GoogleMapsBase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 762B728E2073492F00C72F8F /* GoogleMapsBase.framework */; };
+		762B72982073492F00C72F8F /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 762B728F2073492F00C72F8F /* Alamofire.framework */; };
+		762B72992073492F00C72F8F /* CFNotify.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 762B72902073492F00C72F8F /* CFNotify.framework */; };
+		762B729A2073492F00C72F8F /* GoogleMapsM4B.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 762B72912073492F00C72F8F /* GoogleMapsM4B.framework */; };
 		76328D1D1F8E65AA00BE57C6 /* BoozeUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76328D1C1F8E65AA00BE57C6 /* BoozeUp.swift */; };
 		7656342B1F738AE300EC6573 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 76A793601F72A31500C53BBC /* Main.storyboard */; };
 		7656342C1F738AE700EC6573 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 76A7935C1F72A31500C53BBC /* LaunchScreen.storyboard */; };
@@ -26,6 +35,15 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		762B72892073492F00C72F8F /* ObjectMapper.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ObjectMapper.framework; path = Carthage/Build/iOS/ObjectMapper.framework; sourceTree = "<group>"; };
+		762B728A2073492F00C72F8F /* GoogleMaps.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleMaps.framework; path = Carthage/Build/iOS/GoogleMaps.framework; sourceTree = "<group>"; };
+		762B728B2073492F00C72F8F /* InstructionsAppExtensions.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = InstructionsAppExtensions.framework; path = Carthage/Build/iOS/InstructionsAppExtensions.framework; sourceTree = "<group>"; };
+		762B728C2073492F00C72F8F /* Instructions.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Instructions.framework; path = Carthage/Build/iOS/Instructions.framework; sourceTree = "<group>"; };
+		762B728D2073492F00C72F8F /* GoogleMapsCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleMapsCore.framework; path = Carthage/Build/iOS/GoogleMapsCore.framework; sourceTree = "<group>"; };
+		762B728E2073492F00C72F8F /* GoogleMapsBase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleMapsBase.framework; path = Carthage/Build/iOS/GoogleMapsBase.framework; sourceTree = "<group>"; };
+		762B728F2073492F00C72F8F /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
+		762B72902073492F00C72F8F /* CFNotify.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNotify.framework; path = Carthage/Build/iOS/CFNotify.framework; sourceTree = "<group>"; };
+		762B72912073492F00C72F8F /* GoogleMapsM4B.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleMapsM4B.framework; path = Carthage/Build/iOS/GoogleMapsM4B.framework; sourceTree = "<group>"; };
 		76328D1C1F8E65AA00BE57C6 /* BoozeUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoozeUp.swift; sourceTree = "<group>"; };
 		7665F3C31F9CAE9700124A18 /* EndPoints.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EndPoints.swift; sourceTree = "<group>"; };
 		7665F3C41F9CAE9700124A18 /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
@@ -52,12 +70,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				762B72922073492F00C72F8F /* ObjectMapper.framework in Frameworks */,
+				762B72932073492F00C72F8F /* GoogleMaps.framework in Frameworks */,
+				762B72942073492F00C72F8F /* InstructionsAppExtensions.framework in Frameworks */,
+				762B72952073492F00C72F8F /* Instructions.framework in Frameworks */,
+				762B72962073492F00C72F8F /* GoogleMapsCore.framework in Frameworks */,
+				762B72972073492F00C72F8F /* GoogleMapsBase.framework in Frameworks */,
+				762B72982073492F00C72F8F /* Alamofire.framework in Frameworks */,
+				762B72992073492F00C72F8F /* CFNotify.framework in Frameworks */,
+				762B729A2073492F00C72F8F /* GoogleMapsM4B.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		762B72882073492F00C72F8F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				762B728F2073492F00C72F8F /* Alamofire.framework */,
+				762B72902073492F00C72F8F /* CFNotify.framework */,
+				762B728A2073492F00C72F8F /* GoogleMaps.framework */,
+				762B728E2073492F00C72F8F /* GoogleMapsBase.framework */,
+				762B728D2073492F00C72F8F /* GoogleMapsCore.framework */,
+				762B72912073492F00C72F8F /* GoogleMapsM4B.framework */,
+				762B728C2073492F00C72F8F /* Instructions.framework */,
+				762B728B2073492F00C72F8F /* InstructionsAppExtensions.framework */,
+				762B72892073492F00C72F8F /* ObjectMapper.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		7665F3C21F9CAE9700124A18 /* Network */ = {
 			isa = PBXGroup;
 			children = (
@@ -91,6 +134,7 @@
 				76A793641F72A31600C53BBC /* Sources */,
 				76A7935B1F72A31500C53BBC /* Storyboards */,
 				76A793471F72A0F000C53BBC /* Products */,
+				762B72882073492F00C72F8F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -246,12 +290,21 @@
 			files = (
 			);
 			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/CFNotify.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/GoogleMaps.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/GoogleMapsBase.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/GoogleMapsCore.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/GoogleMapsM4B.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Instructions.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/InstructionsAppExtensions.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/ObjectMapper.framework",
 			);
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "./Fabric.framework/run f35609409ab7ca5f06c84f53822896cdf0e92084 8ef18bdd2144a4067bb18d83e09addc246ece28c166aa7722a2fdeb9e54c38ba";
+			shellScript = "/usr/local/bin/carthage copy-frameworks\nTAGS=\"TODO:|FIXME:|WARNING:\"\nERRORTAG=\"ERROR:\"\nfind \"${SRCROOT}\" \\( -name \"*.h\" -or -name \"*.m\" -or -name \"*.swift\" \\) -print0 | xargs -0 egrep --with-filename --line-number --only-matching \"($TAGS).*\\$|($ERRORTAG).*\\$\" | perl -p -e \"s/($TAGS)/ warning: \\$1/\"| perl -p -e \"s/($ERRORTAG)/ error: \\$1/\"";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -424,6 +477,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 4PU97M7F5F;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = "I am drinking/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -441,6 +498,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 4PU97M7F5F;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = "I am drinking/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
