@@ -11,11 +11,7 @@ import ObjectMapper
 import Instructions
 
 internal class LocationViewController: UIViewController {
-    
-    // MARK: - Instructions propertie
-    
-    var coachMarksController = CoachMarksController()
-    
+
     @IBOutlet weak var mapView: GMSMapView!
     @IBOutlet weak var checkInButton: UIButton!
     @IBOutlet var checkInWithDrinks: [UIButton]!
@@ -28,6 +24,10 @@ internal class LocationViewController: UIViewController {
     @IBOutlet weak var descriptionTextView: UITextView!
     @IBOutlet weak var sendButton: UIButton!
     var effect: UIVisualEffect!
+    
+    // MARK: - Instructions propertie
+    
+    var coachMarksController = CoachMarksController()
     
     // MARK: -
     // MARK: - Properties

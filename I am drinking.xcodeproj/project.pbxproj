@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		00AFBF506333BD2ABE5212E5 /* Pods_I_am_drinking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB4B5BE73857A39E03496BF0 /* Pods_I_am_drinking.framework */; };
 		76328D1D1F8E65AA00BE57C6 /* BoozeUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76328D1C1F8E65AA00BE57C6 /* BoozeUp.swift */; };
 		7656342B1F738AE300EC6573 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 76A793601F72A31500C53BBC /* Main.storyboard */; };
 		7656342C1F738AE700EC6573 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 76A7935C1F72A31500C53BBC /* LaunchScreen.storyboard */; };
@@ -27,7 +26,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		163649D5307B31400FBC5B42 /* Pods-I am drinking.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-I am drinking.release.xcconfig"; path = "Pods/Target Support Files/Pods-I am drinking/Pods-I am drinking.release.xcconfig"; sourceTree = "<group>"; };
 		76328D1C1F8E65AA00BE57C6 /* BoozeUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoozeUp.swift; sourceTree = "<group>"; };
 		7665F3C31F9CAE9700124A18 /* EndPoints.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EndPoints.swift; sourceTree = "<group>"; };
 		7665F3C41F9CAE9700124A18 /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
@@ -47,8 +45,6 @@
 		76A7936C1F72A31600C53BBC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		76A7936F1F72A31600C53BBC /* ApiKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiKeys.swift; sourceTree = "<group>"; };
 		76A793701F72A31600C53BBC /* LocationsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationsManager.swift; sourceTree = "<group>"; };
-		856953D8C26181AADAC86F99 /* Pods-I am drinking.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-I am drinking.debug.xcconfig"; path = "Pods/Target Support Files/Pods-I am drinking/Pods-I am drinking.debug.xcconfig"; sourceTree = "<group>"; };
-		AB4B5BE73857A39E03496BF0 /* Pods_I_am_drinking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_I_am_drinking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,7 +52,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				00AFBF506333BD2ABE5212E5 /* Pods_I_am_drinking.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -96,8 +91,6 @@
 				76A793641F72A31600C53BBC /* Sources */,
 				76A7935B1F72A31500C53BBC /* Storyboards */,
 				76A793471F72A0F000C53BBC /* Products */,
-				AD7D53EAF06BC874F53010BF /* Pods */,
-				B165CE5470118A7E7E9552B5 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -178,23 +171,6 @@
 			path = Utilities;
 			sourceTree = "<group>";
 		};
-		AD7D53EAF06BC874F53010BF /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				856953D8C26181AADAC86F99 /* Pods-I am drinking.debug.xcconfig */,
-				163649D5307B31400FBC5B42 /* Pods-I am drinking.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
-		B165CE5470118A7E7E9552B5 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				AB4B5BE73857A39E03496BF0 /* Pods_I_am_drinking.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -202,13 +178,10 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 76A793581F72A0F000C53BBC /* Build configuration list for PBXNativeTarget "I am drinking" */;
 			buildPhases = (
-				5322F1AA8EFDB695252432E0 /* [CP] Check Pods Manifest.lock */,
 				76A793421F72A0F000C53BBC /* Sources */,
 				76A793431F72A0F000C53BBC /* Frameworks */,
 				76A793441F72A0F000C53BBC /* Resources */,
 				765947B61FCAB10D0071108D /* ShellScript */,
-				722A1AD1544BE4F6D798444B /* [CP] Embed Pods Frameworks */,
-				52CF03F19FAAD0BE4DE22CCB /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -267,66 +240,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		52CF03F19FAAD0BE4DE22CCB /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-I am drinking/Pods-I am drinking-resources.sh",
-				"${PODS_ROOT}/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Resources/GoogleMaps.bundle",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleMaps.bundle",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-I am drinking/Pods-I am drinking-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		5322F1AA8EFDB695252432E0 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-I am drinking-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		722A1AD1544BE4F6D798444B /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-I am drinking/Pods-I am drinking-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
-				"${BUILT_PRODUCTS_DIR}/CFNotify/CFNotify.framework",
-				"${BUILT_PRODUCTS_DIR}/Instructions/Instructions.framework",
-				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CFNotify.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Instructions.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-I am drinking/Pods-I am drinking-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		765947B61FCAB10D0071108D /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -506,7 +419,6 @@
 		};
 		76A793591F72A0F000C53BBC /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 856953D8C26181AADAC86F99 /* Pods-I am drinking.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -524,7 +436,6 @@
 		};
 		76A7935A1F72A0F000C53BBC /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 163649D5307B31400FBC5B42 /* Pods-I am drinking.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
