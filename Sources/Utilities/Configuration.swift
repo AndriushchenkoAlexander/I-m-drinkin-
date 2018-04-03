@@ -23,6 +23,13 @@ final class Configuration {
     func stringCoordinates(double: Double) -> String {
         return String(format: "%.7f", double)
     }
+    
+    struct CoachMarkText {
+        static let checkInButtonText = "Нажмите, что бы отобразить напитки!"
+        static let checkInWithDrinksText = "Удерживайте понравившийся напиток полсекунды!"
+        static let descriptionViewText = "Оставьте комментарий к своей локации ))"
+        static let nextButtonText = "Ok!"
+    }
 }
 
 // MARK: -

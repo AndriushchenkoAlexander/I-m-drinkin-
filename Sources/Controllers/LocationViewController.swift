@@ -8,8 +8,13 @@
 import UIKit
 import GoogleMaps
 import ObjectMapper
+import Instructions
 
-class LocationViewController: UIViewController {
+internal class LocationViewController: UIViewController {
+    
+    // MARK: - Instructions propertie
+    
+    var coachMarksController = CoachMarksController()
     
     @IBOutlet weak var mapView: GMSMapView!
     @IBOutlet weak var checkInButton: UIButton!
@@ -67,24 +72,53 @@ class LocationViewController: UIViewController {
         }
     }
     
+    private func setupDescription() {
+        effect = descriptionView.effect
+        descriptionView.effect = nil
+        
+        addItemView.layer.cornerRadius = 5
+    }
+    
     // MARK: -
-    // MARK: UIViewController methods
+    // MARK: - View Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         print("--==** CURRENT Device ID:  \n\(DeviceID.shared.loadDeviceID() ?? "ID is absent") **==--")
         
-        effect = descriptionView.effect
-        descriptionView.effect = nil
+        setupInstructions()
         
-        addItemView.layer.cornerRadius = 5
-        
+        setupDescription()
         addLongPress()
         mapView.delegate = self
         
         setupLocationManager()
         
         Timer.scheduledTimer(timeInterval: 4, target: self, selector: #selector(self.getActiveParties), userInfo: nil, repeats: true)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        coachMarksController.start(on: self)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        coachMarksController.stop(immediately: true)
+    }
+    
+    // MARK: -
+    // MARK: - Instructions
+    
+    private func setupInstructions() {
+        coachMarksController.dataSource = self
+        
+        let skipView = CoachMarkSkipDefaultView()
+        skipView.setTitle("Skip", for: .normal)
+
+        coachMarksController.skipView = skipView
     }
     
     // MARK: -
@@ -118,7 +152,6 @@ class LocationViewController: UIViewController {
     @IBAction func sendDescription(_ sender: UIButton) {
         if let text = descriptionTextView.text {
             setupActiveBoozeUp(drink: sender.tag, description: text)
-            //            descriptionViewDisappearance()
             animateOut()
         }
         
@@ -150,16 +183,10 @@ class LocationViewController: UIViewController {
     // MARK: DescriptionViews setup
     
     func descriptionViewAppearance(buttonTag: Int) {
-        //        setupDescriptionView()
         setupDescriptionTextView()
         setupDescriptionButton(buttonTag)
         
         animateIn()
-        //        UIView.animate(withDuration: 0.5, animations: {
-        //            self.descriptionView.alpha = 1
-        //        }) { (true) in
-        //            self.descriptionTextView.becomeFirstResponder()
-        //        }
     }
     
     func descriptionViewDisappearance() {
@@ -202,9 +229,6 @@ class LocationViewController: UIViewController {
         currentMarker?.map = mapView
         for marker in markersArray {
             marker.map = mapView
-            //            UIView.animate(withDuration: 0.7, animations: {
-            //                marker.opacity = 1
-            //            })
         }
     }
     
@@ -218,7 +242,6 @@ class LocationViewController: UIViewController {
             marker.icon = markerImage
             marker.title = boozeUp.txtDrink
             marker.snippet = boozeUp.description
-            //            marker.opacity = 0
         }
         marker.tracksInfoWindowChanges = true
         
@@ -318,7 +341,9 @@ extension LocationViewController: CLLocationManagerDelegate {
     }
 }
 
-// MARK: GMSMapViewDelegate
+// MARK: -
+// MARK: - GMSMapViewDelegate
+
 extension LocationViewController: GMSMapViewDelegate {
     
     func mapView(_ mapView: GMSMapView, didTapAt coordinate: CLLocationCoordinate2D) {
@@ -330,5 +355,54 @@ extension LocationViewController: GMSMapViewDelegate {
         }
         
         hideOrShowButtons()
+    }
+}
+
+// MARK: -
+// MARK: - Protocol Conformance | CoachMarksControllerDataSource
+
+extension LocationViewController: CoachMarksControllerDataSource {
+    
+    func numberOfCoachMarks(for coachMarksController: CoachMarksController) -> Int {
+        return 3
+    }
+    
+    func coachMarksController(_ coachMarksController: CoachMarksController,
+                              coachMarkAt index: Int) -> CoachMark {
+        switch(index) {
+        case 0:
+            return coachMarksController.helper.makeCoachMark(for: self.checkInButton)
+        case 1:
+            return coachMarksController.helper.makeCoachMark(for: self.checkInWithDrinks[0])
+        case 2:
+            return coachMarksController.helper.makeCoachMark(for: self.descriptionView)
+        default:
+            return coachMarksController.helper.makeCoachMark()
+        }
+        
+    }
+    
+    func coachMarksController(_ coachMarksController: CoachMarksController,
+                              coachMarkViewsAt index: Int,
+                              madeFrom coachMark: CoachMark) ->
+        (bodyView: CoachMarkBodyView,
+        arrowView: CoachMarkArrowView?) {
+            
+            let coachViews = coachMarksController.helper.makeDefaultCoachViews(withArrow: true, arrowOrientation: coachMark.arrowOrientation)
+            
+            switch(index) {
+            case 0:
+                coachViews.bodyView.hintLabel.text = Configuration.CoachMarkText.checkInButtonText
+                coachViews.bodyView.nextLabel.text = Configuration.CoachMarkText.nextButtonText
+            case 1:
+                coachViews.bodyView.hintLabel.text = Configuration.CoachMarkText.checkInWithDrinksText
+                coachViews.bodyView.nextLabel.text = Configuration.CoachMarkText.nextButtonText
+            case 2:
+                coachViews.bodyView.hintLabel.text = Configuration.CoachMarkText.descriptionViewText
+                coachViews.bodyView.nextLabel.text = Configuration.CoachMarkText.nextButtonText
+            default: break
+            }
+            
+            return (bodyView: coachViews.bodyView, arrowView: coachViews.arrowView)
     }
 }
