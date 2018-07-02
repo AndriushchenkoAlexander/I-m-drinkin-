@@ -11,7 +11,7 @@ import Foundation
 struct NetworkManager {
     static let environment: NetworkEnvironment = .production
     
-    typealias Handler = (Result<Data, NetworkError>) -> Void
+//    typealias Handler = (Result<Data, NetworkError>) -> Void
     
     static let MovieAPIKey = "?API_KEY?"
     private let router = Router<MovieApi>()

@@ -7,9 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		762B72942073492F00C72F8F /* InstructionsAppExtensions.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 762B728B2073492F00C72F8F /* InstructionsAppExtensions.framework */; };
-		762B72952073492F00C72F8F /* Instructions.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 762B728C2073492F00C72F8F /* Instructions.framework */; };
-		762B72992073492F00C72F8F /* CFNotify.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 762B72902073492F00C72F8F /* CFNotify.framework */; };
 		76328D1D1F8E65AA00BE57C6 /* Booze.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76328D1C1F8E65AA00BE57C6 /* Booze.swift */; };
 		7656342B1F738AE300EC6573 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 76A793601F72A31500C53BBC /* Main.storyboard */; };
 		7656342C1F738AE700EC6573 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 76A7935C1F72A31500C53BBC /* LaunchScreen.storyboard */; };
@@ -37,6 +34,7 @@
 		76B2F5B420E7B35F0035067E /* SecViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B2F5B320E7B35F0035067E /* SecViewController.swift */; };
 		76B2F5B620E7B40C0035067E /* NetworkLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B2F5B520E7B40C0035067E /* NetworkLogger.swift */; };
 		76C8259E20D511E6002E7289 /* Coordinates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76C8259D20D511E6002E7289 /* Coordinates.swift */; };
+		76F0A59C20EA26E200035DFA /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F0A59B20EA26E200035DFA /* UIViewController+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -79,6 +77,7 @@
 		76B2F5B320E7B35F0035067E /* SecViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecViewController.swift; sourceTree = "<group>"; };
 		76B2F5B520E7B40C0035067E /* NetworkLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkLogger.swift; sourceTree = "<group>"; };
 		76C8259D20D511E6002E7289 /* Coordinates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinates.swift; sourceTree = "<group>"; };
+		76F0A59B20EA26E200035DFA /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,9 +85,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				762B72942073492F00C72F8F /* InstructionsAppExtensions.framework in Frameworks */,
-				762B72952073492F00C72F8F /* Instructions.framework in Frameworks */,
-				762B72992073492F00C72F8F /* CFNotify.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -166,6 +162,7 @@
 			isa = PBXGroup;
 			children = (
 				76896BC71FE3D83700009094 /* UIColor+Extension.swift */,
+				76F0A59B20EA26E200035DFA /* UIViewController+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -335,15 +332,12 @@
 			files = (
 			);
 			inputPaths = (
-				"$(SRCROOT)/Carthage/Build/iOS/CFNotify.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/Instructions.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/InstructionsAppExtensions.framework",
 			);
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "/usr/local/bin/carthage copy-frameworks\nTAGS=\"TODO:|FIXME:|WARNING:\"\nERRORTAG=\"ERROR:\"\nfind \"${SRCROOT}\" \\( -name \"*.h\" -or -name \"*.m\" -or -name \"*.swift\" \\) -print0 | xargs -0 egrep --with-filename --line-number --only-matching \"($TAGS).*\\$|($ERRORTAG).*\\$\" | perl -p -e \"s/($TAGS)/ warning: \\$1/\"| perl -p -e \"s/($ERRORTAG)/ error: \\$1/\"";
+			shellScript = "TAGS=\"TODO:|FIXME:|WARNING:\"\nERRORTAG=\"ERROR:\"\nfind \"${SRCROOT}\" \\( -name \"*.h\" -or -name \"*.m\" -or -name \"*.swift\" \\) -print0 | xargs -0 egrep --with-filename --line-number --only-matching \"($TAGS).*\\$|($ERRORTAG).*\\$\" | perl -p -e \"s/($TAGS)/ warning: \\$1/\"| perl -p -e \"s/($ERRORTAG)/ error: \\$1/\"";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -365,6 +359,7 @@
 				7680E64C20E6D077009C2ED0 /* MovieModel.swift in Sources */,
 				76A793771F72A95700C53BBC /* AppID.swift in Sources */,
 				76A1252720D789EF0062D7A7 /* MapView.swift in Sources */,
+				76F0A59C20EA26E200035DFA /* UIViewController+Extension.swift in Sources */,
 				76A793761F72A95100C53BBC /* LocationViewController.swift in Sources */,
 				76C8259E20D511E6002E7289 /* Coordinates.swift in Sources */,
 				7680E63E20E63DB1009C2ED0 /* HTTPTask.swift in Sources */,
@@ -527,10 +522,6 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 4PU97M7F5F;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-				);
 				INFOPLIST_FILE = "I am drinking/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -548,10 +539,6 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 4PU97M7F5F;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-				);
 				INFOPLIST_FILE = "I am drinking/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

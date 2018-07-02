@@ -1,17 +1,16 @@
 /*
-  Config.swift
-  I am drinking
-
-  Created by astronauttux on 18.10.17.
-  Copyright © 2017 Vadym Yakovliev. All rights reserved.
-*/
+ Config.swift
+ I am drinking
+ 
+ Created by astronauttux on 18.10.17.
+ Copyright © 2017 Vadym Yakovliev. All rights reserved.
+ */
 
 import UIKit
-import CFNotify
 
 final class AlertView {
     static let sharedInstance = AlertView()
-    private init() { CFNotify.delegate = self as? CFNotifyDelegate }
+    private init() { }
     
     struct CoachMarkText {
         static let checkInButtonText = "Нажмите, что бы отобразить напитки!"
@@ -25,35 +24,16 @@ final class AlertView {
 // MARK: Show Alert View
 
 extension AlertView {
-    func showNotifyView(_ target: UIViewController,
-                        _ title: String,
-                        _ message: String,
-                        _ viewPosition: String,
-                        _ completion: @escaping () -> Void) {
-       
-        var blurEffect = UIBlurEffectStyle.dark
+    func showAlert(title: String?,
+                   message: String?,
+                   actions: [UIAlertAction],
+                   style: UIAlertControllerStyle) {
         
-        var cyberViewConfig = CFNotify.Config()
-        cyberViewConfig.initPosition = .top(.random)
-        cyberViewConfig.hideTime = .custom(seconds: 1.5)
-        cyberViewConfig.appearPosition = .center
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: style)
+        alertController.view.tintColor = #colorLiteral(red: 0.2117647059, green: 0.1725490196, blue: 0.1843137255, alpha: 1)
+        alertController.view.subviews.first?.subviews.first?.alpha = 0.7
+        actions.forEach(alertController.addAction(_:))
         
-        if viewPosition == "top" {
-            cyberViewConfig.appearPosition = .top
-            blurEffect = UIBlurEffectStyle.init(rawValue: 7)!
-            cyberViewConfig.hideTime = .custom(seconds: 3)
-        }
-
-        let customCyberView = CFNotifyView.cyberWith(title: title,
-                                                     titleFont: .boldSystemFont(ofSize: 16),
-                                                     titleColor: .darkBlue,
-                                                     body: message,
-                                                     bodyFont: .systemFont(ofSize: 14),
-                                                     bodyColor: .darkBlue,
-                                                     image: nil,
-                                                     backgroundColor: .skyBlue,
-                                                     blurStyle: blurEffect)
-        
-        CFNotify.present(config: cyberViewConfig, view: customCyberView)
+        alertController.show()
     }
 }

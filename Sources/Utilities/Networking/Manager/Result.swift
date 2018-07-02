@@ -7,6 +7,7 @@
 
 import Foundation
 
+/*
 public enum Result<Value, Error: Swift.Error> {
     case success(Value)
     case failure(Error)
@@ -30,8 +31,9 @@ extension Result where Value == Data {
         return try decoder.decode(T.self, from: data)
     }
 }
+*/
 
-//public enum Result<String> {
-//    case success
-//    case failure(String)
-//}
+public enum Result<String> {
+    case success
+    case failure(String)
+}

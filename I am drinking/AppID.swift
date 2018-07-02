@@ -29,4 +29,11 @@ extension AppID {
     func loadAppID() -> String? {
         return UserDefaults.standard.string(forKey: key)
     }
+    
+    /// Object ID generator
+    ///
+    /// - Returns: new uniq Int64 id
+    func generateNewObjectId() -> Int64 {
+        return Int64(UUID().hashValue) * Int64(UUID().hashValue)
+    }
 }
