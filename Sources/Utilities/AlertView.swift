@@ -1,28 +1,17 @@
-//
-//  Config.swift
-//  I am drinking
-//
-//  Created by astronauttux on 18.10.17.
-//  Copyright © 2017 Vadym Yakovliev. All rights reserved.
-//
+/*
+  Config.swift
+  I am drinking
+
+  Created by astronauttux on 18.10.17.
+  Copyright © 2017 Vadym Yakovliev. All rights reserved.
+*/
 
 import UIKit
 import CFNotify
 
-final class Configuration {
-    static let sharedInstance = Configuration()
+final class AlertView {
+    static let sharedInstance = AlertView()
     private init() { CFNotify.delegate = self as? CFNotifyDelegate }
-    
-    // MARK: -
-    // MARK: Convert String to Double
-    
-    func stringToDouble(string: String?) -> Double {
-        return Double(string ?? "") ?? 0.0
-    }
-    
-    func stringCoordinates(double: Double) -> String {
-        return String(format: "%.7f", double)
-    }
     
     struct CoachMarkText {
         static let checkInButtonText = "Нажмите, что бы отобразить напитки!"
@@ -35,7 +24,7 @@ final class Configuration {
 // MARK: -
 // MARK: Show Alert View
 
-extension Configuration {
+extension AlertView {
     func showNotifyView(_ target: UIViewController,
                         _ title: String,
                         _ message: String,

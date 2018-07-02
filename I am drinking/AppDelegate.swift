@@ -6,28 +6,24 @@
  */
 
 import UIKit
-import ObjectMapper
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, AppID {
     
     var window: UIWindow?
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
-        LocationsManager.sharedManager.locationProvideAPIKey()
-        
-        if DeviceID.shared.checkID() == false {
-            NetworkManager.sharedManager.post(nil, EndPoints.sharedInstance.createNewDeviceID(), nil, { (response)  in
-                if let response = response as? BaseResponse {
-                    if let deviceID = response.deviceID {
-                        print("--==** AppDelegate - NEW Device ID :  \n\(deviceID) \n**==--")
-                        DeviceID.shared.saveInDefaults(deviceID: deviceID)
-                    }
-                }
-            })
+        if !isAppIdExist {
+//            NetworkManager.sharedManager.post(nil, EndPoints.sharedInstance.createNewDeviceID(), nil, { [weak self] (response)  in
+//                if let response = response as? BaseResponse {
+//                    if let appID = response.deviceID {
+//                        self?.save(appID: appID)
+//                    }
+//                }
+//            })
         }
+
         return true
     }
 }
-

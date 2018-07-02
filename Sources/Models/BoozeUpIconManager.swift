@@ -7,7 +7,6 @@
 
 import UIKit
 
-
 enum BoozeUpIconManager: String {
     // Data about what icon show is obtained from the server
     case Beer = "1"
@@ -37,7 +36,7 @@ enum BoozeUpIconManager: String {
 
 // Property through extension which will default to assign the value to the icon:
 extension BoozeUpIconManager {
-    var image: UIImage {
-        return UIImage(named: self.rawValue) ?? UIImage()
+    var image: UIImage? {
+        return UIImage(named: self.rawValue)
     }
 }

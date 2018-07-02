@@ -7,31 +7,36 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		762B72922073492F00C72F8F /* ObjectMapper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 762B72892073492F00C72F8F /* ObjectMapper.framework */; };
-		762B72932073492F00C72F8F /* GoogleMaps.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 762B728A2073492F00C72F8F /* GoogleMaps.framework */; };
 		762B72942073492F00C72F8F /* InstructionsAppExtensions.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 762B728B2073492F00C72F8F /* InstructionsAppExtensions.framework */; };
 		762B72952073492F00C72F8F /* Instructions.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 762B728C2073492F00C72F8F /* Instructions.framework */; };
-		762B72962073492F00C72F8F /* GoogleMapsCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 762B728D2073492F00C72F8F /* GoogleMapsCore.framework */; };
-		762B72972073492F00C72F8F /* GoogleMapsBase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 762B728E2073492F00C72F8F /* GoogleMapsBase.framework */; };
-		762B72982073492F00C72F8F /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 762B728F2073492F00C72F8F /* Alamofire.framework */; };
 		762B72992073492F00C72F8F /* CFNotify.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 762B72902073492F00C72F8F /* CFNotify.framework */; };
-		762B729A2073492F00C72F8F /* GoogleMapsM4B.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 762B72912073492F00C72F8F /* GoogleMapsM4B.framework */; };
-		76328D1D1F8E65AA00BE57C6 /* BoozeUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76328D1C1F8E65AA00BE57C6 /* BoozeUp.swift */; };
+		76328D1D1F8E65AA00BE57C6 /* Booze.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76328D1C1F8E65AA00BE57C6 /* Booze.swift */; };
 		7656342B1F738AE300EC6573 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 76A793601F72A31500C53BBC /* Main.storyboard */; };
 		7656342C1F738AE700EC6573 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 76A7935C1F72A31500C53BBC /* LaunchScreen.storyboard */; };
-		7665F3C51F9CAE9700124A18 /* EndPoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7665F3C31F9CAE9700124A18 /* EndPoints.swift */; };
-		7665F3C61F9CAE9700124A18 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7665F3C41F9CAE9700124A18 /* NetworkManager.swift */; };
-		766F23091F8F56770064EF77 /* Types.swift in Sources */ = {isa = PBXBuildFile; fileRef = 766F23081F8F56770064EF77 /* Types.swift */; };
-		766F613F1F973451002AF7C4 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 766F613E1F973451002AF7C4 /* Configuration.swift */; };
-		767D9A5B1FBB85C700682C88 /* BaseResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 767D9A5A1FBB85C700682C88 /* BaseResponse.swift */; };
+		766F613F1F973451002AF7C4 /* AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 766F613E1F973451002AF7C4 /* AlertView.swift */; };
+		7680E63520E63A60009C2ED0 /* EndPointType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7680E63420E63A60009C2ED0 /* EndPointType.swift */; };
+		7680E63C20E63C1F009C2ED0 /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7680E63B20E63C1F009C2ED0 /* HTTPMethod.swift */; };
+		7680E63E20E63DB1009C2ED0 /* HTTPTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7680E63D20E63DB1009C2ED0 /* HTTPTask.swift */; };
+		7680E64020E63F18009C2ED0 /* ParameterEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7680E63F20E63F18009C2ED0 /* ParameterEncoding.swift */; };
+		7680E64220E64411009C2ED0 /* URLParameterEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7680E64120E64411009C2ED0 /* URLParameterEncoder.swift */; };
+		7680E64420E64815009C2ED0 /* JSONParameterEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7680E64320E64815009C2ED0 /* JSONParameterEncoder.swift */; };
+		7680E64620E64EF7009C2ED0 /* NetworkRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7680E64520E64EF7009C2ED0 /* NetworkRouter.swift */; };
+		7680E64820E6514C009C2ED0 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7680E64720E6514C009C2ED0 /* Router.swift */; };
+		7680E64A20E68B76009C2ED0 /* MovieEndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7680E64920E68B76009C2ED0 /* MovieEndPoint.swift */; };
+		7680E64C20E6D077009C2ED0 /* MovieModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7680E64B20E6D077009C2ED0 /* MovieModel.swift */; };
+		7680E64E20E6D167009C2ED0 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7680E64D20E6D167009C2ED0 /* NetworkManager.swift */; };
 		76896BC81FE3D83700009094 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76896BC71FE3D83700009094 /* UIColor+Extension.swift */; };
+		76A1252720D789EF0062D7A7 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76A1252620D789EF0062D7A7 /* MapView.swift */; };
+		76A1252920D78B4C0062D7A7 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76A1252820D78B4C0062D7A7 /* Result.swift */; };
 		76A7934A1F72A0F000C53BBC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76A793491F72A0F000C53BBC /* AppDelegate.swift */; };
 		76A793741F72A94700C53BBC /* LocationsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76A793701F72A31600C53BBC /* LocationsManager.swift */; };
-		76A793751F72A94A00C53BBC /* ApiKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76A7936F1F72A31600C53BBC /* ApiKeys.swift */; };
 		76A793761F72A95100C53BBC /* LocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76A793661F72A31600C53BBC /* LocationViewController.swift */; };
-		76A793771F72A95700C53BBC /* DeviceID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76A793681F72A31600C53BBC /* DeviceID.swift */; };
+		76A793771F72A95700C53BBC /* AppID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76A793681F72A31600C53BBC /* AppID.swift */; };
 		76A793791F72A95E00C53BBC /* BoozeUpIconManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76A7936A1F72A31600C53BBC /* BoozeUpIconManager.swift */; };
 		76AB939A1F8DEEE1004DC4E9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 76A7936C1F72A31600C53BBC /* Assets.xcassets */; };
+		76B2F5B420E7B35F0035067E /* SecViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B2F5B320E7B35F0035067E /* SecViewController.swift */; };
+		76B2F5B620E7B40C0035067E /* NetworkLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B2F5B520E7B40C0035067E /* NetworkLogger.swift */; };
+		76C8259E20D511E6002E7289 /* Coordinates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76C8259D20D511E6002E7289 /* Coordinates.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,13 +49,22 @@
 		762B728F2073492F00C72F8F /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		762B72902073492F00C72F8F /* CFNotify.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNotify.framework; path = Carthage/Build/iOS/CFNotify.framework; sourceTree = "<group>"; };
 		762B72912073492F00C72F8F /* GoogleMapsM4B.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleMapsM4B.framework; path = Carthage/Build/iOS/GoogleMapsM4B.framework; sourceTree = "<group>"; };
-		76328D1C1F8E65AA00BE57C6 /* BoozeUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoozeUp.swift; sourceTree = "<group>"; };
-		7665F3C31F9CAE9700124A18 /* EndPoints.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EndPoints.swift; sourceTree = "<group>"; };
-		7665F3C41F9CAE9700124A18 /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
-		766F23081F8F56770064EF77 /* Types.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Types.swift; sourceTree = "<group>"; };
-		766F613E1F973451002AF7C4 /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
-		767D9A5A1FBB85C700682C88 /* BaseResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseResponse.swift; sourceTree = "<group>"; };
+		76328D1C1F8E65AA00BE57C6 /* Booze.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Booze.swift; sourceTree = "<group>"; };
+		766F613E1F973451002AF7C4 /* AlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertView.swift; sourceTree = "<group>"; };
+		7680E63420E63A60009C2ED0 /* EndPointType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPointType.swift; sourceTree = "<group>"; };
+		7680E63B20E63C1F009C2ED0 /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
+		7680E63D20E63DB1009C2ED0 /* HTTPTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPTask.swift; sourceTree = "<group>"; };
+		7680E63F20E63F18009C2ED0 /* ParameterEncoding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParameterEncoding.swift; sourceTree = "<group>"; };
+		7680E64120E64411009C2ED0 /* URLParameterEncoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLParameterEncoder.swift; sourceTree = "<group>"; };
+		7680E64320E64815009C2ED0 /* JSONParameterEncoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONParameterEncoder.swift; sourceTree = "<group>"; };
+		7680E64520E64EF7009C2ED0 /* NetworkRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRouter.swift; sourceTree = "<group>"; };
+		7680E64720E6514C009C2ED0 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		7680E64920E68B76009C2ED0 /* MovieEndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieEndPoint.swift; sourceTree = "<group>"; };
+		7680E64B20E6D077009C2ED0 /* MovieModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieModel.swift; sourceTree = "<group>"; };
+		7680E64D20E6D167009C2ED0 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		76896BC71FE3D83700009094 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
+		76A1252620D789EF0062D7A7 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		76A1252820D78B4C0062D7A7 /* Result.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 		76A793461F72A0F000C53BBC /* I am drinking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "I am drinking.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		76A793491F72A0F000C53BBC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		76A793551F72A0F000C53BBC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -58,11 +72,13 @@
 		76A793611F72A31500C53BBC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		76A793631F72A31500C53BBC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 		76A793661F72A31600C53BBC /* LocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewController.swift; sourceTree = "<group>"; };
-		76A793681F72A31600C53BBC /* DeviceID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceID.swift; sourceTree = "<group>"; };
+		76A793681F72A31600C53BBC /* AppID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppID.swift; sourceTree = "<group>"; };
 		76A7936A1F72A31600C53BBC /* BoozeUpIconManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoozeUpIconManager.swift; sourceTree = "<group>"; };
 		76A7936C1F72A31600C53BBC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		76A7936F1F72A31600C53BBC /* ApiKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiKeys.swift; sourceTree = "<group>"; };
 		76A793701F72A31600C53BBC /* LocationsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationsManager.swift; sourceTree = "<group>"; };
+		76B2F5B320E7B35F0035067E /* SecViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecViewController.swift; sourceTree = "<group>"; };
+		76B2F5B520E7B40C0035067E /* NetworkLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkLogger.swift; sourceTree = "<group>"; };
+		76C8259D20D511E6002E7289 /* Coordinates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinates.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,15 +86,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				762B72922073492F00C72F8F /* ObjectMapper.framework in Frameworks */,
-				762B72932073492F00C72F8F /* GoogleMaps.framework in Frameworks */,
 				762B72942073492F00C72F8F /* InstructionsAppExtensions.framework in Frameworks */,
 				762B72952073492F00C72F8F /* Instructions.framework in Frameworks */,
-				762B72962073492F00C72F8F /* GoogleMapsCore.framework in Frameworks */,
-				762B72972073492F00C72F8F /* GoogleMapsBase.framework in Frameworks */,
-				762B72982073492F00C72F8F /* Alamofire.framework in Frameworks */,
 				762B72992073492F00C72F8F /* CFNotify.framework in Frameworks */,
-				762B729A2073492F00C72F8F /* GoogleMapsM4B.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -101,22 +111,55 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		7665F3C21F9CAE9700124A18 /* Network */ = {
+		7680E63620E63A71009C2ED0 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
-				767D9A5A1FBB85C700682C88 /* BaseResponse.swift */,
-				7665F3C31F9CAE9700124A18 /* EndPoints.swift */,
-				7665F3C41F9CAE9700124A18 /* NetworkManager.swift */,
+				7680E63820E63AFC009C2ED0 /* EndPoint */,
+				7680E63920E63B12009C2ED0 /* Manager */,
+				7680E63720E63AF1009C2ED0 /* Service */,
+				7680E63A20E63B1F009C2ED0 /* Encoding */,
 			);
-			path = Network;
+			path = Networking;
 			sourceTree = "<group>";
 		};
-		766F23071F8F55100064EF77 /* Types */ = {
+		7680E63720E63AF1009C2ED0 /* Service */ = {
 			isa = PBXGroup;
 			children = (
-				766F23081F8F56770064EF77 /* Types.swift */,
+				7680E63420E63A60009C2ED0 /* EndPointType.swift */,
+				7680E63B20E63C1F009C2ED0 /* HTTPMethod.swift */,
+				7680E63D20E63DB1009C2ED0 /* HTTPTask.swift */,
+				7680E64520E64EF7009C2ED0 /* NetworkRouter.swift */,
+				7680E64720E6514C009C2ED0 /* Router.swift */,
+				76B2F5B520E7B40C0035067E /* NetworkLogger.swift */,
 			);
-			path = Types;
+			path = Service;
+			sourceTree = "<group>";
+		};
+		7680E63820E63AFC009C2ED0 /* EndPoint */ = {
+			isa = PBXGroup;
+			children = (
+				7680E64920E68B76009C2ED0 /* MovieEndPoint.swift */,
+			);
+			path = EndPoint;
+			sourceTree = "<group>";
+		};
+		7680E63920E63B12009C2ED0 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				76A1252820D78B4C0062D7A7 /* Result.swift */,
+				7680E64D20E6D167009C2ED0 /* NetworkManager.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		7680E63A20E63B1F009C2ED0 /* Encoding */ = {
+			isa = PBXGroup;
+			children = (
+				7680E63F20E63F18009C2ED0 /* ParameterEncoding.swift */,
+				7680E64120E64411009C2ED0 /* URLParameterEncoder.swift */,
+				7680E64320E64815009C2ED0 /* JSONParameterEncoder.swift */,
+			);
+			path = Encoding;
 			sourceTree = "<group>";
 		};
 		76896BC61FE3D7E500009094 /* Extensions */ = {
@@ -149,6 +192,8 @@
 		76A793481F72A0F000C53BBC /* I am drinking */ = {
 			isa = PBXGroup;
 			children = (
+				76A793681F72A31600C53BBC /* AppID.swift */,
+				76A1252620D789EF0062D7A7 /* MapView.swift */,
 				76A793491F72A0F000C53BBC /* AppDelegate.swift */,
 				76A793551F72A0F000C53BBC /* Info.plist */,
 			);
@@ -168,30 +213,31 @@
 		76A793641F72A31600C53BBC /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				76A793651F72A31600C53BBC /* Controllers */,
+				76A793651F72A31600C53BBC /* ViewControllers */,
 				76A793671F72A31600C53BBC /* Models */,
 				76A7936D1F72A31600C53BBC /* Utilities */,
-				766F23071F8F55100064EF77 /* Types */,
 				76896BC61FE3D7E500009094 /* Extensions */,
 				76A7936B1F72A31600C53BBC /* Resources */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
 		};
-		76A793651F72A31600C53BBC /* Controllers */ = {
+		76A793651F72A31600C53BBC /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
 				76A793661F72A31600C53BBC /* LocationViewController.swift */,
+				76B2F5B320E7B35F0035067E /* SecViewController.swift */,
 			);
-			path = Controllers;
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 		76A793671F72A31600C53BBC /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				76A793681F72A31600C53BBC /* DeviceID.swift */,
-				76328D1C1F8E65AA00BE57C6 /* BoozeUp.swift */,
+				76C8259D20D511E6002E7289 /* Coordinates.swift */,
+				76328D1C1F8E65AA00BE57C6 /* Booze.swift */,
 				76A7936A1F72A31600C53BBC /* BoozeUpIconManager.swift */,
+				7680E64B20E6D077009C2ED0 /* MovieModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -207,10 +253,9 @@
 		76A7936D1F72A31600C53BBC /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				7665F3C21F9CAE9700124A18 /* Network */,
+				7680E63620E63A71009C2ED0 /* Networking */,
 				76A793701F72A31600C53BBC /* LocationsManager.swift */,
-				76A7936F1F72A31600C53BBC /* ApiKeys.swift */,
-				766F613E1F973451002AF7C4 /* Configuration.swift */,
+				766F613E1F973451002AF7C4 /* AlertView.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -290,15 +335,9 @@
 			files = (
 			);
 			inputPaths = (
-				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/CFNotify.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/GoogleMaps.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/GoogleMapsBase.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/GoogleMapsCore.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/GoogleMapsM4B.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Instructions.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/InstructionsAppExtensions.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/ObjectMapper.framework",
 			);
 			outputPaths = (
 			);
@@ -313,19 +352,30 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7665F3C61F9CAE9700124A18 /* NetworkManager.swift in Sources */,
-				76A793751F72A94A00C53BBC /* ApiKeys.swift in Sources */,
-				766F23091F8F56770064EF77 /* Types.swift in Sources */,
-				767D9A5B1FBB85C700682C88 /* BaseResponse.swift in Sources */,
+				7680E64820E6514C009C2ED0 /* Router.swift in Sources */,
+				7680E64420E64815009C2ED0 /* JSONParameterEncoder.swift in Sources */,
+				7680E64220E64411009C2ED0 /* URLParameterEncoder.swift in Sources */,
+				7680E64020E63F18009C2ED0 /* ParameterEncoding.swift in Sources */,
+				7680E63520E63A60009C2ED0 /* EndPointType.swift in Sources */,
 				76A793741F72A94700C53BBC /* LocationsManager.swift in Sources */,
+				7680E64A20E68B76009C2ED0 /* MovieEndPoint.swift in Sources */,
 				76A793791F72A95E00C53BBC /* BoozeUpIconManager.swift in Sources */,
-				766F613F1F973451002AF7C4 /* Configuration.swift in Sources */,
-				76A793771F72A95700C53BBC /* DeviceID.swift in Sources */,
+				766F613F1F973451002AF7C4 /* AlertView.swift in Sources */,
+				76A1252920D78B4C0062D7A7 /* Result.swift in Sources */,
+				7680E64C20E6D077009C2ED0 /* MovieModel.swift in Sources */,
+				76A793771F72A95700C53BBC /* AppID.swift in Sources */,
+				76A1252720D789EF0062D7A7 /* MapView.swift in Sources */,
 				76A793761F72A95100C53BBC /* LocationViewController.swift in Sources */,
-				76328D1D1F8E65AA00BE57C6 /* BoozeUp.swift in Sources */,
+				76C8259E20D511E6002E7289 /* Coordinates.swift in Sources */,
+				7680E63E20E63DB1009C2ED0 /* HTTPTask.swift in Sources */,
+				7680E63C20E63C1F009C2ED0 /* HTTPMethod.swift in Sources */,
+				76B2F5B620E7B40C0035067E /* NetworkLogger.swift in Sources */,
+				76328D1D1F8E65AA00BE57C6 /* Booze.swift in Sources */,
 				76896BC81FE3D83700009094 /* UIColor+Extension.swift in Sources */,
+				76B2F5B420E7B35F0035067E /* SecViewController.swift in Sources */,
 				76A7934A1F72A0F000C53BBC /* AppDelegate.swift in Sources */,
-				7665F3C51F9CAE9700124A18 /* EndPoints.swift in Sources */,
+				7680E64E20E6D167009C2ED0 /* NetworkManager.swift in Sources */,
+				7680E64620E64EF7009C2ED0 /* NetworkRouter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
